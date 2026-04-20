@@ -17,6 +17,27 @@
     </script>
 
     <style>
+        /* n8n Dynamic Node Styles */
+        .n8n-node {
+            transition: all 0.3s ease;
+        }
+
+        .node-active {
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.8) !important;
+            border-color: #3b82f6 !important;
+            opacity: 1 !important;
+            transform: translate(-50%, -50%) scale(1.15) !important;
+        }
+
+        .node-emergency {
+            box-shadow: 0 0 30px rgba(239, 68, 68, 0.9) !important;
+            border-color: #ef4444 !important;
+            opacity: 1 !important;
+            transform: translate(-50%, -50%) scale(1.15) !important;
+        }
+    </style>
+
+    <style>
         body {
             font-family: 'Lora', serif;
         }
@@ -629,7 +650,7 @@
         <div class="px-6 py-4 flex justify-between items-center max-w-7xl mx-auto">
             <div class="flex items-center space-x-3 z-50">
                 <i class="fa-solid fa-heart-pulse text-[#E22C2C] text-2xl"></i>
-                <span class="font-bold text-xl font-['Poppins'] tracking-tight dark:text-white">HealthMonitor</span>
+                <span class="font-bold text-xl font-['Poppins'] tracking-tight dark:text-white">LifeGuard</span>
             </div>
 
             <div class="hidden lg:flex items-center space-x-8">
@@ -756,15 +777,17 @@
         <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
             <div class="z-10 text-center lg:text-left mt-10 lg:mt-0">
                 <h1
-                    class="text-5xl lg:text-6xl xl:text-7xl font-bold text-[#707070] dark:text-gray-200 font-['Poppins'] leading-snug tracking-wide mb-6 transition-colors">
+                    class="text-6xl lg:text-7xl xl:text-8xl font-bold text-[#707070] dark:text-gray-200 font-['Poppins'] leading-snug tracking-wide mb-6 transition-colors">
                     Life Guard <br>
-                    <span class="inline-block mt-3 text-[#E22C2C] text-4xl lg:text-5xl leading-relaxed tracking-wider">Automated Health Monitoring System</span>
+                    <span
+                        class="inline-block mt-3 text-[#E22C2C] text-5xl lg:text-6xl leading-relaxed tracking-wider">Smart
+                        Health Monitoring System</span>
                 </h1>
 
                 <div
-                    class="border-l-4 border-[#E22C2C] pl-6 py-2 my-8 mx-auto lg:mx-0 max-w-md lg:max-w-none text-left">
+                    class="border-l-4 border-[#E22C2C] pl-6 py-1 my-8 mx-auto lg:mx-0 max-w-md lg:max-w-none text-left">
                     <p
-                        class="text-xl lg:text-2xl italic font-['Lora'] text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">
+                        class="text-xl lg:text-1xl italic font-['Lora'] text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">
                         Total Care, Zero Worry: Your Patient is Safe in Our Hands.
                     </p>
                 </div>
@@ -996,8 +1019,100 @@
                 </div>
             </div>
 
+            <!-- Start Workflow Section -->
             <div
-                class="mt-12 max-w-6xl mx-auto border-t border-gray-100 dark:border-gray-800 pt-12 transition-colors text-center">
+                class="mt-16 lg:mt-24 max-w-6xl mx-auto border-t border-gray-100 dark:border-gray-800 pt-16 transition-colors">
+                <div class="text-center mb-10">
+                    <h2
+                        class="text-4xl lg:text-5xl font-bold mb-3 text-[#707070] dark:text-gray-200 font-['Poppins'] transition-colors">
+                        System Workflow</h2>
+                    <p
+                        class="text-base lg:text-lg text-gray-500 dark:text-gray-400 italic transition-colors max-w-2xl mx-auto">
+                        Visualizing the end-to-end data pipeline from sensors to critical action in real-time.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
+                    <!-- Left Column: Flowchart Image -->
+                    <div class="group relative flex justify-center w-full">
+                        <div
+                            class="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-[2.5rem] blur opacity-20 group-hover:opacity-40 transition duration-500 z-0">
+                        </div>
+                        <img src="images/flowchart.jpeg" alt="System Flowchart"
+                            class="relative z-10 w-full h-auto object-cover rounded-[2.5rem] border-[4px] border-white dark:border-gray-800 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
+                    </div>
+
+                    <!-- Right Column: Explained Steps -->
+                    <div class="space-y-5 lg:space-y-6 text-left">
+                        <div class="flex items-start space-x-5 group">
+                            <div
+                                class="w-12 h-12 lg:w-14 lg:h-14 bg-blue-50 dark:bg-blue-900/30 rounded-full flex items-center justify-center shrink-0 border-2 border-blue-200 dark:border-blue-800 transition-colors group-hover:bg-blue-500 group-hover:text-white">
+                                <span
+                                    class="font-bold text-xl text-blue-500 group-hover:text-white font-['Poppins']">1</span>
+                            </div>
+                            <div>
+                                <h3
+                                    class="text-xl font-bold mb-2 font-['Poppins'] text-gray-800 dark:text-gray-100 transition-colors">
+                                    Data Acquisition</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed transition-colors">
+                                    Sensors (MAX30105, MPU6050, MLX90614) continuously read vital signs and detect
+                                    motion patterns directly from the patient.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-5 group">
+                            <div
+                                class="w-12 h-12 lg:w-14 lg:h-14 bg-orange-50 dark:bg-orange-900/30 rounded-full flex items-center justify-center shrink-0 border-2 border-orange-200 dark:border-orange-800 transition-colors group-hover:bg-orange-500 group-hover:text-white">
+                                <span
+                                    class="font-bold text-xl text-orange-500 group-hover:text-white font-['Poppins']">2</span>
+                            </div>
+                            <div>
+                                <h3
+                                    class="text-xl font-bold mb-2 font-['Poppins'] text-gray-800 dark:text-gray-100 transition-colors">
+                                    Edge Processing</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed transition-colors">
+                                    The ESP32 microcontroller processes the raw sensor data locally, ensuring fast
+                                    response times and filtering out noise.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-5 group">
+                            <div
+                                class="w-12 h-12 lg:w-14 lg:h-14 bg-purple-50 dark:bg-purple-900/30 rounded-full flex items-center justify-center shrink-0 border-2 border-purple-200 dark:border-purple-800 transition-colors group-hover:bg-purple-500 group-hover:text-white">
+                                <span
+                                    class="font-bold text-xl text-purple-500 group-hover:text-white font-['Poppins']">3</span>
+                            </div>
+                            <div>
+                                <h3
+                                    class="text-xl font-bold mb-2 font-['Poppins'] text-gray-800 dark:text-gray-100 transition-colors">
+                                    Cloud & n8n Server</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed transition-colors">
+                                    Processed vitals are pushed to a centralized cloud server (n8n workflow) via Wi-Fi
+                                    for logging, advanced analysis, and routing.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-5 group">
+                            <div
+                                class="w-12 h-12 lg:w-14 lg:h-14 bg-red-50 dark:bg-red-900/30 rounded-full flex items-center justify-center shrink-0 border-2 border-red-200 dark:border-red-800 transition-colors group-hover:bg-[#E22C2C] group-hover:text-white group-hover:border-[#E22C2C]">
+                                <span
+                                    class="font-bold text-xl text-[#E22C2C] group-hover:text-white font-['Poppins']">4</span>
+                            </div>
+                            <div>
+                                <h3
+                                    class="text-xl font-bold mb-2 font-['Poppins'] text-gray-800 dark:text-gray-100 transition-colors">
+                                    Decision & Action</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed transition-colors">
+                                    Based on thresholds, the system handles normal states silently or triggers instant
+                                    critical emergency alerts to caregivers via Telegram.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Workflow Section -->
+
+            <div
+                class="mt-16 lg:mt-24 max-w-6xl mx-auto border-t border-gray-100 dark:border-gray-800 pt-16 transition-colors text-center">
                 <h2
                     class="text-3xl lg:text-5xl font-bold mb-6 text-[#707070] dark:text-gray-200 font-['Poppins'] tracking-tight transition-colors">
                     Why This Project Matters</h2>
@@ -1058,28 +1173,24 @@
 
                     <div class="flex-1 relative bg-[#1e1e1e] h-[300px] lg:h-auto min-h-0">
                         <div class="absolute inset-0 p-4 lg:p-6 overflow-y-auto overflow-x-auto code-scroll text-left">
-                            <pre><code class="text-xs lg:text-[13px] font-mono leading-relaxed text-[#d4d4d4]">
-<span class="text-[#569cd6]">#include</span> &lt;<span class="text-[#ce9178]">Wire.h</span>&gt;
+                            <pre><code class="text-xs lg:text-[13px] font-mono leading-relaxed text-[#d4d4d4]">\n<span class="text-[#569cd6]">#include</span> &lt;<span class="text-[#ce9178]">Wire.h</span>&gt;
 <span class="text-[#569cd6]">#include</span> &lt;<span class="text-[#ce9178]">WiFi.h</span>&gt;
 <span class="text-[#569cd6]">#include</span> &lt;<span class="text-[#ce9178]">WebServer.h</span>&gt;
-<span class="text-[#569cd6]">#include</span> &lt;<span class="text-[#ce9178]">HTTPClient.h</span>&gt; 
+<span class="text-[#569cd6]">#include</span> &lt;<span class="text-[#ce9178]">HTTPClient.h</span>&gt;
 <span class="text-[#569cd6]">#include</span> &lt;<span class="text-[#ce9178]">Adafruit_MPU6050.h</span>&gt;
 <span class="text-[#569cd6]">#include</span> &lt;<span class="text-[#ce9178]">Adafruit_Sensor.h</span>&gt;
 <span class="text-[#569cd6]">#include</span> <span class="text-[#ce9178]">"MAX30105.h"</span>
 <span class="text-[#569cd6]">#include</span> <span class="text-[#ce9178]">"heartRate.h"</span>
-<span class="text-[#569cd6]">#include</span> &lt;<span class="text-[#ce9178]">ESPmDNS.h</span>&gt;
 
 <span class="text-[#6a9955]">// --- Configuration ---</span>
-<span class="text-[#569cd6]">const char*</span> ssid = <span class="text-[#ce9178]">"Ahmed's Galaxy A12"</span>;
-<span class="text-[#569cd6]">const char*</span> password = <span class="text-[#ce9178]">"1234567@"</span>;
-<span class="text-[#6a9955]">// mDNS names must be ASCII only, no spaces!</span>
-<span class="text-[#569cd6]">const char*</span> mdnsName = <span class="text-[#ce9178]">"patient-monitor"</span>; 
-<span class="text-[#569cd6]">const char*</span> n8n_webhook = <span class="text-[#ce9178]">"http://10.231.42.53:5678/webhook-test/sensor-data"</span>; 
-<span class="text-[#569cd6]">#define</span> THERMISTOR_PIN <span class="text-[#b5cea8]">34</span>
-<span class="text-[#569cd6]">#define</span> SERIES_RESISTOR <span class="text-[#b5cea8]">10000</span>
+<span class="text-[#569cd6]">const char*</span> ssid       = <span class="text-[#ce9178]">"Mohamed Adel"</span>;
+<span class="text-[#569cd6]">const char*</span> password   = <span class="text-[#ce9178]">"832002123"</span>;
+<span class="text-[#569cd6]">const char*</span> n8n_webhook = <span class="text-[#ce9178]">"https://muhmedyassin.app.n8n.cloud/webhook-test/sensor-data"</span>;
+<span class="text-[#569cd6]">#define</span> THERMISTOR_PIN     <span class="text-[#b5cea8]">34</span>
+<span class="text-[#569cd6]">#define</span> SERIES_RESISTOR    <span class="text-[#b5cea8]">10000</span>
 <span class="text-[#569cd6]">#define</span> NOMINAL_RESISTANCE <span class="text-[#b5cea8]">10000</span>
-<span class="text-[#569cd6]">#define</span> B_COEFFICIENT <span class="text-[#b5cea8]">3950</span>
-<span class="text-[#569cd6]">#define</span> ADC_MAX <span class="text-[#b5cea8]">4095</span>
+<span class="text-[#569cd6]">#define</span> B_COEFFICIENT      <span class="text-[#b5cea8]">3950</span>
+<span class="text-[#569cd6]">#define</span> ADC_MAX            <span class="text-[#b5cea8]">4095</span>
 
 <span class="text-[#6a9955]">// --- Global Objects ---</span>
 <span class="text-[#4ec9b0]">WebServer</span> server(<span class="text-[#b5cea8]">80</span>);
@@ -1087,82 +1198,55 @@
 <span class="text-[#4ec9b0]">MAX30105</span> particleSensor;
 
 <span class="text-[#6a9955]">// --- Vitals Variables ---</span>
-<span class="text-[#569cd6]">float</span> bodyTemp = <span class="text-[#b5cea8]">0</span>;
-<span class="text-[#4ec9b0]">String</span> motion = <span class="text-[#ce9178]">"Stable"</span>;
-<span class="text-[#569cd6]">int</span> beatAvg = <span class="text-[#b5cea8]">0</span>;
-<span class="text-[#569cd6]">int</span> approxSpO2 = <span class="text-[#b5cea8]">0</span>;
-<span class="text-[#569cd6]">long</span> lastBeat = <span class="text-[#b5cea8]">0</span>;
+<span class="text-[#569cd6]">float</span>  bodyTemp  = <span class="text-[#b5cea8]">0</span>;
+<span class="text-[#4ec9b0]">String</span> motion    = <span class="text-[#ce9178]">"Stable"</span>;
+<span class="text-[#569cd6]">int</span>    beatAvg   = <span class="text-[#b5cea8]">0</span>;
+<span class="text-[#569cd6]">int</span>    approxSpO2 = <span class="text-[#b5cea8]">0</span>;
+<span class="text-[#569cd6]">long</span>   lastBeat  = <span class="text-[#b5cea8]">0</span>;
 <span class="text-[#569cd6]">const byte</span> RATE_SIZE = <span class="text-[#b5cea8]">4</span>;
 <span class="text-[#569cd6]">byte</span> rates[RATE_SIZE];
 <span class="text-[#569cd6]">byte</span> rateSpot = <span class="text-[#b5cea8]">0</span>;
 
 <span class="text-[#569cd6]">unsigned long</span> lastPostTime = <span class="text-[#b5cea8]">0</span>;
-<span class="text-[#569cd6]">const long</span> postInterval = <span class="text-[#b5cea8]">2000</span>; <span class="text-[#6a9955]">// Send to n8n every 2 seconds</span>
+<span class="text-[#569cd6]">const long</span> postInterval = <span class="text-[#b5cea8]">2000</span>;
 
-<span class="text-[#6a9955]">// --- Web Page HTML ---</span>
-<span class="text-[#569cd6]">void</span> <span class="text-[#dcdcaa]">handleRoot</span>() {
-  <span class="text-[#4ec9b0]">String</span> html = <span class="text-[#ce9178]">"&lt;html&gt;&lt;head&gt;&lt;meta http-equiv='refresh' content='1'&gt;&lt;/head&gt;"</span>;
-  html += <span class="text-[#ce9178]">"&lt;body style='font-family:sans-serif; text-align:center; background:#f4f4f4;'&gt;"</span>;
-  html += <span class="text-[#ce9178]">"&lt;h1&gt;Live Patient Monitor&lt;/h1&gt;"</span>;
-  html += <span class="text-[#ce9178]">"&lt;div style='font-size:1.5em; border:2px solid #333; display:inline-block; padding:20px; background:white; border-radius:10px;'&gt;"</span>;
-  
-  <span class="text-[#6a9955]">// IP and mDNS Info</span>
-  html += <span class="text-[#ce9178]">"&lt;p&gt;&lt;b&gt;IP Address:&lt;/b&gt; "</span> + WiFi.localIP().toString() + <span class="text-[#ce9178]">"&lt;/p&gt;"</span>;
-  html += <span class="text-[#ce9178]">"&lt;p&gt;&lt;b&gt;URL:&lt;/b&gt; &lt;a href='http://"</span> + String(mdnsName) + <span class="text-[#ce9178]">".local'&gt;http://"</span> + String(mdnsName) + <span class="text-[#ce9178]">".local&lt;/a&gt;&lt;/p&gt;"</span>;
-  html += <span class="text-[#ce9178]">"&lt;hr&gt;"</span>;
-
-  html += <span class="text-[#ce9178]">"&lt;p&gt;&lt;b&gt;Movement:&lt;/b&gt; "</span> + motion + <span class="text-[#ce9178]">"&lt;/p&gt;"</span>;
-  html += <span class="text-[#ce9178]">"&lt;p&gt;&lt;b&gt;Temperature:&lt;/b&gt; "</span> + String(bodyTemp, <span class="text-[#b5cea8]">1</span>) + <span class="text-[#ce9178]">" C&lt;/p&gt;"</span>;
-  html += <span class="text-[#ce9178]">"&lt;p&gt;&lt;b&gt;Heart Rate:&lt;/b&gt; "</span> + String(beatAvg) + <span class="text-[#ce9178]">" BPM&lt;/p&gt;"</span>;
-  html += <span class="text-[#ce9178]">"&lt;p&gt;&lt;b&gt;SpO2:&lt;/b&gt; "</span> + String(approxSpO2) + <span class="text-[#ce9178]">"%&lt;/p&gt;"</span>;
-  html += <span class="text-[#ce9178]">"&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"</span>;
-  server.send(<span class="text-[#b5cea8]">200</span>, <span class="text-[#ce9178]">"text/html"</span>, html);
+<span class="text-[#6a9955]">// ── Endpoints ────────────────────────────────────────────────────────────────</span>
+<span class="text-[#569cd6]">void</span> <span class="text-[#dcdcaa]">handleData</span>() {
+  <span class="text-[#4ec9b0]">String</span> json = <span class="text-[#ce9178]">"{"</span>;
+  json += <span class="text-[#ce9178]">"\"heart_rate\":"</span> + String(beatAvg) + <span class="text-[#ce9178]">","</span>;
+  json += <span class="text-[#ce9178]">"\"spo2\":"</span>       + String(approxSpO2) + <span class="text-[#ce9178]">","</span>;
+  json += <span class="text-[#ce9178]">"\"temp\":"</span>       + String(bodyTemp, <span class="text-[#b5cea8]">1</span>) + <span class="text-[#ce9178]">","</span>;
+  json += <span class="text-[#ce9178]">"\"motion\":\""</span>   + motion + <span class="text-[#ce9178]">"\""</span>;
+  json += <span class="text-[#ce9178]">"}"</span>;
+  server.sendHeader(<span class="text-[#ce9178]">"Access-Control-Allow-Origin"</span>, <span class="text-[#ce9178]">"*"</span>);
+  server.send(<span class="text-[#b5cea8]">200</span>, <span class="text-[#ce9178]">"application/json"</span>, json);
 }
 
+<span class="text-[#6a9955]">// ── Setup ────────────────────────────────────────────────────────────────────</span>
 <span class="text-[#569cd6]">void</span> <span class="text-[#dcdcaa]">setup</span>() {
   Serial.begin(<span class="text-[#b5cea8]">115200</span>);
   Wire.begin(<span class="text-[#b5cea8]">21</span>, <span class="text-[#b5cea8]">22</span>);
 
-  <span class="text-[#6a9955]">// Connect Wi-Fi</span>
   WiFi.begin(ssid, password);
-  Serial.print(<span class="text-[#ce9178]">"Connecting to WiFi"</span>);
-  <span class="text-[#c586c0]">while</span> (WiFi.status() != WL_CONNECTED) { 
-    delay(<span class="text-[#b5cea8]">500</span>); 
-    Serial.print(<span class="text-[#ce9178]">"."</span>); 
-  }
-  Serial.println(<span class="text-[#ce9178]">"\nWiFi Connected!"</span>);
-  Serial.print(<span class="text-[#ce9178]">"IP Address: "</span>); Serial.println(WiFi.localIP());
+  <span class="text-[#c586c0]">while</span> (WiFi.status() != WL_CONNECTED) { delay(<span class="text-[#b5cea8]">500</span>); }
 
-  <span class="text-[#6a9955]">// 2. START MDNS</span>
-  <span class="text-[#c586c0]">if</span> (!MDNS.begin(mdnsName)) {
-    Serial.println(<span class="text-[#ce9178]">"Error setting up MDNS responder!"</span>);
-  } <span class="text-[#c586c0]">else</span> {
-    Serial.println(<span class="text-[#ce9178]">"mDNS responder started"</span>);
-    Serial.print(<span class="text-[#ce9178]">"Access at: http://"</span>);
-    Serial.print(mdnsName);
-    Serial.println(<span class="text-[#ce9178]">".local"</span>);
-  }
-
-  <span class="text-[#6a9955]">// Init Sensors</span>
   <span class="text-[#c586c0]">if</span> (!mpu.begin()) Serial.println(<span class="text-[#ce9178]">"MPU Error"</span>);
   <span class="text-[#c586c0]">if</span> (!particleSensor.begin(Wire, I2C_SPEED_STANDARD)) Serial.println(<span class="text-[#ce9178]">"MAX Error"</span>);
-  
   particleSensor.setup(<span class="text-[#b5cea8]">60</span>, <span class="text-[#b5cea8]">4</span>, <span class="text-[#b5cea8]">2</span>, <span class="text-[#b5cea8]">100</span>, <span class="text-[#b5cea8]">411</span>, <span class="text-[#b5cea8]">4096</span>);
 
-  <span class="text-[#6a9955]">// Setup Web Server</span>
-  server.on(<span class="text-[#ce9178]">"/"</span>, handleRoot);
+  server.on(<span class="text-[#ce9178]">"/data"</span>, handleData);
   server.begin();
-  Serial.println(<span class="text-[#ce9178]">"Web server started"</span>);
 }
 
+<span class="text-[#6a9955]">// ── Loop ─────────────────────────────────────────────────────────────────────</span>
 <span class="text-[#569cd6]">void</span> <span class="text-[#dcdcaa]">loop</span>() {
-  server.handleClient(); <span class="text-[#6a9955]">// Keep the web server running</span>
+  server.handleClient();
 
   <span class="text-[#6a9955]">// 1. TEMPERATURE</span>
   <span class="text-[#569cd6]">int</span> analogValue = analogRead(THERMISTOR_PIN);
-  <span class="text-[#c586c0]">if</span>(analogValue > <span class="text-[#b5cea8]">0</span>) {
+  <span class="text-[#c586c0]">if</span> (analogValue > <span class="text-[#b5cea8]">0</span>) {
     <span class="text-[#569cd6]">float</span> resistance = SERIES_RESISTOR / ((ADC_MAX / (<span class="text-[#569cd6]">float</span>)analogValue) - <span class="text-[#b5cea8]">1</span>);
-    <span class="text-[#569cd6]">float</span> steinhart = log(resistance / NOMINAL_RESISTANCE) / B_COEFFICIENT;
+    <span class="text-[#569cd6]">float</span> steinhart  = log(resistance / NOMINAL_RESISTANCE) / B_COEFFICIENT;
     steinhart += <span class="text-[#b5cea8]">1.0</span> / (<span class="text-[#b5cea8]">25</span> + <span class="text-[#b5cea8]">273.15</span>);
     bodyTemp = (<span class="text-[#b5cea8]">1.0</span> / steinhart) - <span class="text-[#b5cea8]">273.15</span>;
   }
@@ -1171,12 +1255,12 @@
   <span class="text-[#4ec9b0]">sensors_event_t</span> a, g, t;
   mpu.getEvent(&amp;a, &amp;g, &amp;t);
   <span class="text-[#569cd6]">float</span> netAcc = sqrt(sq(a.acceleration.x) + sq(a.acceleration.y) + sq(a.acceleration.z));
-  <span class="text-[#c586c0]">if</span> (netAcc > <span class="text-[#b5cea8]">25.0</span>) motion = <span class="text-[#ce9178]">"FALL DETECTED!"</span>;
-  <span class="text-[#c586c0]">else if</span> (netAcc > <span class="text-[#b5cea8]">16.0</span>) motion = <span class="text-[#ce9178]">"Abnormal Shaking"</span>;
+  <span class="text-[#c586c0]">if</span>      (netAcc > <span class="text-[#b5cea8]">25.0</span>)                  motion = <span class="text-[#ce9178]">"FALL DETECTED!"</span>;
+  <span class="text-[#c586c0]">else if</span> (netAcc > <span class="text-[#b5cea8]">16.0</span>)                  motion = <span class="text-[#ce9178]">"Abnormal Shaking"</span>;
   <span class="text-[#c586c0]">else if</span> (netAcc > <span class="text-[#b5cea8]">12.5</span> || netAcc < <span class="text-[#b5cea8]">7.5</span>) motion = <span class="text-[#ce9178]">"Moving"</span>;
-  <span class="text-[#c586c0]">else</span> motion = <span class="text-[#ce9178]">"Stable"</span>;
+  <span class="text-[#c586c0]">else</span>                                     motion = <span class="text-[#ce9178]">"Stable"</span>;
 
-  <span class="text-[#6a9955]">// 3. VITALS (MAX30102/5)</span>
+  <span class="text-[#6a9955]">// 3. VITALS</span>
   <span class="text-[#569cd6]">long</span> irValue = particleSensor.getIR();
   <span class="text-[#c586c0]">if</span> (irValue > <span class="text-[#b5cea8]">50000</span>) {
     <span class="text-[#c586c0]">if</span> (checkForBeat(irValue)) {
@@ -1197,33 +1281,26 @@
     beatAvg = <span class="text-[#b5cea8]">0</span>; approxSpO2 = <span class="text-[#b5cea8]">0</span>;
   }
 
-  <span class="text-[#6a9955]">// 4. SEND DATA TO N8N</span>
+  <span class="text-[#6a9955]">// 4. Transmit Data to n8n</span>
   <span class="text-[#c586c0]">if</span> (millis() - lastPostTime > postInterval) {
     <span class="text-[#c586c0]">if</span> (WiFi.status() == WL_CONNECTED) {
       <span class="text-[#4ec9b0]">HTTPClient</span> http;
       http.begin(n8n_webhook);
       http.addHeader(<span class="text-[#ce9178]">"Content-Type"</span>, <span class="text-[#ce9178]">"application/json"</span>);
-
       <span class="text-[#4ec9b0]">String</span> jsonPayload = <span class="text-[#ce9178]">"{"</span>;
-      jsonPayload += <span class="text-[#ce9178]">"\"temp_obj\":"</span> + String(bodyTemp) + <span class="text-[#ce9178]">","</span>;
-      jsonPayload += <span class="text-[#ce9178]">"\"acc_x\":"</span> + String(a.acceleration.x) + <span class="text-[#ce9178]">","</span>;
-      jsonPayload += <span class="text-[#ce9178]">"\"acc_y\":"</span> + String(a.acceleration.y) + <span class="text-[#ce9178]">","</span>;
-      jsonPayload += <span class="text-[#ce9178]">"\"acc_z\":"</span> + String(a.acceleration.z) + <span class="text-[#ce9178]">","</span>;
-      jsonPayload += <span class="text-[#ce9178]">"\"heart_rate\":"</span> + String(beatAvg) + <span class="text-[#ce9178]">","</span>; 
-      jsonPayload += <span class="text-[#ce9178]">"\"spo2\":"</span> + String(approxSpO2);
+      jsonPayload += <span class="text-[#ce9178]">"\"temp_obj\":"</span>  + String(bodyTemp) + <span class="text-[#ce9178]">","</span>;
+      jsonPayload += <span class="text-[#ce9178]">"\"acc_x\":"</span>    + String(a.acceleration.x) + <span class="text-[#ce9178]">","</span>;
+      jsonPayload += <span class="text-[#ce9178]">"\"acc_y\":"</span>    + String(a.acceleration.y) + <span class="text-[#ce9178]">","</span>;
+      jsonPayload += <span class="text-[#ce9178]">"\"acc_z\":"</span>    + String(a.acceleration.z) + <span class="text-[#ce9178]">","</span>;
+      jsonPayload += <span class="text-[#ce9178]">"\"heart_rate\":"</span> + String(beatAvg) + <span class="text-[#ce9178]">","</span>;
+      jsonPayload += <span class="text-[#ce9178]">"\"spo2\":"</span>     + String(approxSpO2);
       jsonPayload += <span class="text-[#ce9178]">"}"</span>;
-
-      <span class="text-[#569cd6]">int</span> httpResponseCode = http.POST(jsonPayload);
-      
-      Serial.print(<span class="text-[#ce9178]">"n8n HTTP Response: "</span>);
-      Serial.println(httpResponseCode);
-      
+      http.POST(jsonPayload);
       http.end();
     }
     lastPostTime = millis();
   }
-}
-                            </code></pre>
+}\n                            </code></pre>
                         </div>
                     </div>
                 </div>
@@ -1438,14 +1515,259 @@
                 </div>
             </div>
 
+            <!-- Start Automation Workflow (n8n) Section -->
+            <div
+                class="mt-20 lg:mt-28 max-w-6xl mx-auto border-t border-gray-100 dark:border-gray-800 pt-16 lg:pt-20 transition-colors">
+                <div class="text-center mb-10">
+                    <h2
+                        class="text-4xl lg:text-5xl font-bold mb-3 text-[#707070] dark:text-gray-200 font-['Poppins'] transition-colors">
+                        Automation Flowchart </h2>
+                    <p
+                        class="text-base lg:text-lg text-gray-500 dark:text-gray-400 italic transition-colors max-w-2xl mx-auto">
+                        Visualizing the n8n data processing pipeline, intelligent AI branching, and instant
+                        communication.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
+                    <!-- Left Column: Interactive Diagram -->
+                    <div
+                        class="group relative w-full aspect-[4/5] lg:aspect-auto h-[500px] lg:h-[600px] bg-[#0d1117] rounded-[2.5rem] border-[4px] border-gray-800 shadow-2xl overflow-hidden flex flex-col justify-between transition-transform duration-500 hover:scale-[1.02]">
+
+                        <!-- Title / Control -->
+                        <div class="absolute top-4 left-4 right-4 z-30 flex flex-wrap justify-between gap-2">
+                            <span
+                                class="text-gray-400 font-['Poppins'] text-xs uppercase tracking-widest font-bold self-center ml-2 hidden sm:block">Live
+                                Data Flow</span>
+                            <div class="flex gap-2">
+                                <button id="n8n-sim-btn"
+                                    class="bg-blue-600 hover:bg-blue-500 text-white text-[10px] sm:text-xs font-bold py-2 px-3 lg:px-4 rounded-full transition-all shadow-[0_0_10px_rgba(37,99,235,0.5)]">
+                                    <i class="fa-solid fa-play mr-1"></i> Normal
+                                </button>
+                                <button id="n8n-emerg-btn"
+                                    class="bg-gray-700 hover:bg-red-600 text-white text-[10px] sm:text-xs font-bold py-2 px-3 lg:px-4 rounded-full transition-all">
+                                    <i class="fa-solid fa-triangle-exclamation mr-1"></i> Emergency
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Data Labels Overlay -->
+                        <div
+                            class="absolute inset-0 z-0 pointer-events-none opacity-70 text-[10px] sm:text-xs font-mono font-bold text-gray-500">
+                            <!-- Dynamic text logs -->
+                            <div id="log-step-1" style="position: absolute; top: 18%; left: 8%"></div>
+                            <div id="log-step-2" style="position: absolute; top: 35%; right: 8%"></div>
+                            <div id="log-step-3" style="position: absolute; top: 68%; left: 5%"></div>
+                            <div id="log-step-4" style="position: absolute; bottom: 15%; right: 5%"></div>
+                            <div style="position: absolute; bottom: 10%; left: 5%">Status: <span id="n8n-sys-status"
+                                    class="text-blue-500">STANDBY</span></div>
+                        </div>
+
+                        <!-- The SVG Canvas -->
+                        <svg id="n8n-svg" viewBox="0 0 500 600"
+                            class="absolute inset-0 w-full h-full z-10 pointer-events-none"
+                            preserveAspectRatio="xMidYMid meet">
+                            <defs>
+                                <filter id="glow-green">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur" />
+                                        <feMergeNode in="SourceGraphic" />
+                                    </feMerge>
+                                </filter>
+                                <filter id="glow-red">
+                                    <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur" />
+                                        <feMergeNode in="SourceGraphic" />
+                                    </feMerge>
+                                </filter>
+                                <filter id="glow-blue">
+                                    <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur" />
+                                        <feMergeNode in="SourceGraphic" />
+                                    </feMerge>
+                                </filter>
+                            </defs>
+
+                            <!-- Wires -->
+                            <!-- Webhook to Code -->
+                            <path id="w-c" d="M 250 100 L 250 200" fill="none" stroke="#2d3748" stroke-width="3"
+                                stroke-dasharray="4 4" class="opacity-50" />
+                            <!-- Code to GSheet -->
+                            <path id="c-gs" d="M 250 240 C 250 290, 140 290, 140 370" fill="none" stroke="#2d3748"
+                                stroke-width="3" stroke-dasharray="4 4" class="opacity-50" />
+                            <!-- Code to IF -->
+                            <path id="c-if" d="M 250 240 C 250 290, 360 290, 360 370" fill="none" stroke="#2d3748"
+                                stroke-width="3" stroke-dasharray="4 4" class="opacity-50" />
+                            <!-- IF to Gemini -->
+                            <path id="if-ai" d="M 360 410 L 360 460" fill="none" stroke="#2d3748" stroke-width="3"
+                                stroke-dasharray="4 4" class="opacity-50" />
+                            <!-- Gemini to Telegram -->
+                            <path id="ai-tel" d="M 360 500 L 360 550" fill="none" stroke="#2d3748" stroke-width="3"
+                                stroke-dasharray="4 4" class="opacity-50" />
+                        </svg>
+
+                        <!-- HTML Nodes -->
+                        <div
+                            class="absolute inset-0 z-20 pointer-events-none n8n-nodes-container text-[11px] sm:text-xs">
+
+                            <!-- Node 1: Webhook -->
+                            <div id="node-webhook"
+                                class="n8n-node absolute bg-[#1e293b] border border-gray-600 rounded-xl px-3 py-2 text-white font-bold flex items-center shadow-lg transition-all duration-300"
+                                style="left: 50%; top: 12%; transform: translate(-50%, -50%)">
+                                <i class="fa-solid fa-cloud-arrow-down mr-2 text-blue-400"></i> Webhook
+                                <div
+                                    class="node-ring absolute -inset-[3px] rounded-xl border-[2px] border-blue-400 opacity-0 pointer-events-none">
+                                </div>
+                            </div>
+
+                            <!-- Node 2: Code Node -->
+                            <div id="node-code"
+                                class="n8n-node absolute bg-[#1e293b] border border-gray-600 rounded-xl px-3 py-2 text-white font-bold flex items-center shadow-lg transition-all duration-300"
+                                style="left: 50%; top: 38%; transform: translate(-50%, -50%)">
+                                <i class="fa-solid fa-code mr-2 text-orange-400"></i> Parser Node
+                                <div
+                                    class="node-ring absolute -inset-[3px] rounded-xl border-[2px] border-orange-400 opacity-0 pointer-events-none">
+                                </div>
+                            </div>
+
+                            <!-- Node 3: GSheets -->
+                            <div id="node-gs"
+                                class="n8n-node absolute bg-[#1e293b] border border-gray-600 rounded-xl px-3 py-2 text-white font-bold flex items-center shadow-lg transition-all duration-300"
+                                style="left: 28%; top: 65%; transform: translate(-50%, -50%)">
+                                <i
+                                    class="fa-solid fa-table border border-green-400 text-green-400 rounded-sm p-0.5 mr-2 text-[10px]"></i>
+                                Sheets
+                                <div
+                                    class="node-ring absolute -inset-[3px] rounded-xl border-[2px] border-green-400 opacity-0 pointer-events-none">
+                                </div>
+                            </div>
+
+                            <!-- Node 4: IF Node -->
+                            <div id="node-if"
+                                class="n8n-node absolute bg-[#1e293b] border border-gray-600 rounded-xl px-3 py-2 text-white font-bold flex items-center shadow-lg transition-all duration-300"
+                                style="left: 72%; top: 65%; transform: translate(-50%, -50%)">
+                                <i class="fa-solid fa-code-branch mr-2 text-purple-400"></i> Logic: IF
+                                <div
+                                    class="node-ring absolute -inset-[3px] rounded-xl border-[2px] border-purple-400 opacity-0 pointer-events-none">
+                                </div>
+                            </div>
+
+                            <!-- Node 5: Gemini -->
+                            <div id="node-ai"
+                                class="n8n-node absolute bg-[#1e293b] border border-gray-600 rounded-xl px-3 py-2 text-white font-bold flex items-center shadow-lg transition-all duration-300"
+                                style="left: 72%; top: 80%; transform: translate(-50%, -50%); opacity: 0.5;">
+                                <img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg"
+                                    class="w-3.5 h-3.5 mr-2" alt="Gemini"> AI Analyze
+                                <div
+                                    class="node-ring absolute -inset-[3px] rounded-xl border-[2px] border-indigo-400 opacity-0 pointer-events-none">
+                                </div>
+                            </div>
+
+                            <!-- Node 6: Telegram -->
+                            <div id="node-tel"
+                                class="n8n-node absolute bg-[#1e293b] border border-gray-600 rounded-xl px-3 py-2 text-white font-bold flex items-center shadow-lg transition-all duration-300"
+                                style="left: 72%; top: 95%; transform: translate(-50%, -50%); opacity: 0.5;">
+                                <i class="fa-brands fa-telegram mr-2 text-sky-400"></i> Telegram
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Explained Steps -->
+                    <div class="space-y-5 lg:space-y-6 text-left">
+                        <!-- Step 1 -->
+                        <div class="flex items-start space-x-5 group">
+                            <div
+                                class="w-12 h-12 lg:w-14 lg:h-14 bg-blue-50 dark:bg-blue-900/30 rounded-full flex items-center justify-center shrink-0 border-2 border-blue-200 dark:border-blue-800 transition-colors group-hover:bg-blue-500 group-hover:text-white">
+                                <span
+                                    class="font-bold text-xl text-blue-500 group-hover:text-white font-['Poppins']">1</span>
+                            </div>
+                            <div>
+                                <h3
+                                    class="text-xl font-bold mb-2 font-['Poppins'] text-gray-800 dark:text-gray-100 transition-colors">
+                                    Webhook Trigger</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed transition-colors">
+                                    The n8n workflow is initiated by a Webhook Node that receives a POST
+                                    request
+                                    containing real-time JSON sensor data directly from the ESP32.</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="flex items-start space-x-5 group">
+                            <div
+                                class="w-12 h-12 lg:w-14 lg:h-14 bg-orange-50 dark:bg-orange-900/30 rounded-full flex items-center justify-center shrink-0 border-2 border-orange-200 dark:border-orange-800 transition-colors group-hover:bg-orange-500 group-hover:text-white">
+                                <span
+                                    class="font-bold text-xl text-orange-500 group-hover:text-white font-['Poppins']">2</span>
+                            </div>
+                            <div>
+                                <h3
+                                    class="text-xl font-bold mb-2 font-['Poppins'] text-gray-800 dark:text-gray-100 transition-colors">
+                                    Processing & Branching</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed transition-colors">
+                                    A
+                                    Code Node parses the incoming data, calculates acceleration vectors,
+                                    checks medical
+                                    thresholds, and splits the execution into two parallel branches.</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="flex items-start space-x-5 group">
+                            <div
+                                class="w-12 h-12 lg:w-14 lg:h-14 bg-green-50 dark:bg-green-900/30 rounded-full flex items-center justify-center shrink-0 border-2 border-green-200 dark:border-green-800 transition-colors group-hover:bg-green-500 group-hover:text-white">
+                                <span
+                                    class="font-bold text-xl text-green-500 group-hover:text-white font-['Poppins']">3</span>
+                            </div>
+                            <div>
+                                <h3
+                                    class="text-xl font-bold mb-2 font-['Poppins'] text-gray-800 dark:text-gray-100 transition-colors">
+                                    Continuous Data Logging</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed transition-colors">
+                                    On
+                                    the first branch, a Google Sheets Node automatically appends a new row
+                                    with the
+                                    parsed data, maintaining an ongoing historical health record for the
+                                    patient.</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="flex items-start space-x-5 group">
+                            <div
+                                class="w-12 h-12 lg:w-14 lg:h-14 bg-purple-50 dark:bg-purple-900/30 rounded-full flex items-center justify-center shrink-0 border-2 border-purple-200 dark:border-purple-800 transition-colors group-hover:bg-purple-500 group-hover:text-white border-purple-200 dark:border-purple-800">
+                                <span
+                                    class="font-bold text-xl text-purple-500 group-hover:text-white font-['Poppins']">4</span>
+                            </div>
+                            <div>
+                                <h3
+                                    class="text-xl font-bold mb-2 font-['Poppins'] text-gray-800 dark:text-gray-100 transition-colors">
+                                    AI Alerting System</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed transition-colors">
+                                    On
+                                    the second branch, an 'If' Node checks for critical thresholds (e.g., a
+                                    fall). If
+                                    true, a Gemini AI Node generates contextual medical advice, which is
+                                    then instantly
+                                    dispatched to the caregiver via a Telegram Node.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Automation Workflow (n8n) Section -->
+
             <div id="live-monitoring-section"
                 class="mt-20 lg:mt-28 border-t border-gray-200 dark:border-gray-700 pt-16 lg:pt-20 text-center pb-20">
                 <div class="mb-10 lg:mb-12 max-w-4xl mx-auto">
                     <h2
                         class="text-4xl lg:text-5xl font-bold mb-4 lg:mb-6 text-[#707070] dark:text-gray-200 font-['Poppins'] tracking-tight transition-colors">
                         Start Monitoring Now</h2>
-                    <p class="text-lg lg:text-xl text-gray-500 dark:text-gray-400 italic transition-colors">Choose to
-                        view real-time data directly on the web or download the Android App for 24/7 access.</p>
+                    <p class="text-lg lg:text-xl text-gray-500 dark:text-gray-400 italic transition-colors">
+                        Choose to
+                        view real-time data directly on the web or download the Android App for 24/7 access.
+                    </p>
                 </div>
                 <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
                     <a href="live.html"
@@ -1896,6 +2218,213 @@
 
     </section>
 
+    <!-- Future Work Section -->
+    <section id="future"
+        class="py-20 lg:py-32 px-6 bg-gray-50 dark:bg-gray-800 transition-colors duration-300 relative overflow-hidden">
+        <div class="text-center mb-16 lg:mb-24 max-w-4xl mx-auto">
+            <span
+                class="text-[#E22C2C] font-bold tracking-widest uppercase text-xs lg:text-sm mb-3 block font-['Poppins']"><i
+                    class="fa-solid fa-lightbulb mr-2"></i>What's Next</span>
+            <h2
+                class="text-4xl lg:text-5xl font-bold mb-4 lg:mb-6 text-[#707070] dark:text-gray-200 font-['Poppins'] tracking-tight transition-colors">
+                Future Work
+            </h2>
+            <p class="text-lg lg:text-xl text-gray-500 dark:text-gray-400 italic transition-colors">
+                Our vision for the next generation of the Smart Health Monitor.
+            </p>
+        </div>
+
+        <div class="max-w-6xl mx-auto bg-white dark:bg-gray-900 rounded-[2.5rem] shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-colors"
+            style="height: 800px; display: flex; flex-direction: column;">
+            <!-- Top Panel Controls -->
+            <div
+                class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 p-4 lg:p-6 gap-3 lg:gap-4 border-b border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-800/50">
+                <button onclick="updateFutureContent(0)"
+                    class="future-btn py-3 px-2 lg:px-4 rounded-xl font-bold text-xs lg:text-sm xl:text-base font-['Poppins'] transition-all duration-300 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 hover:-translate-y-1 shadow-sm"
+                    data-index="0">AI Doctor Assistant</button>
+                <button onclick="updateFutureContent(1)"
+                    class="future-btn py-3 px-2 lg:px-4 rounded-xl font-bold text-xs lg:text-sm xl:text-base font-['Poppins'] transition-all duration-300 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 hover:-translate-y-1 shadow-sm"
+                    data-index="1">Emotion & Stress</button>
+                <button onclick="updateFutureContent(2)"
+                    class="future-btn py-3 px-2 lg:px-4 rounded-xl font-bold text-xs lg:text-sm xl:text-base font-['Poppins'] transition-all duration-300 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 hover:-translate-y-1 shadow-sm"
+                    data-index="2">Digital Twin</button>
+                <button onclick="updateFutureContent(3)"
+                    class="future-btn py-3 px-2 lg:px-4 rounded-xl font-bold text-xs lg:text-sm xl:text-base font-['Poppins'] transition-all duration-300 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 hover:-translate-y-1 shadow-sm"
+                    data-index="3">Emergency Integration</button>
+                <button onclick="updateFutureContent(4)"
+                    class="future-btn py-3 px-2 lg:px-4 rounded-xl font-bold text-xs lg:text-sm xl:text-base font-['Poppins'] transition-all duration-300 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 hover:-translate-y-1 shadow-sm md:col-span-3 lg:col-span-1"
+                    data-index="4">Federated Learning</button>
+            </div>
+
+            <!-- Bottom Area Display -->
+            <!-- Bottom Area Display -->
+            <div id="future-content-area"
+                class="flex-1 w-full p-6 lg:p-12 overflow-y-auto overflow-x-hidden relative transition-opacity duration-300 opacity-100">
+                <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                    <div class="text-left w-full">
+                        <div id="tab-icon-wrapper"
+                            class="mb-6 w-16 h-16 lg:w-20 lg:h-20 bg-blue-50 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-blue-500 text-3xl lg:text-4xl shadow-inner shrink-0 transition-colors">
+                            <i id="tab-icon" class="fa-solid fa-user-doctor"></i>
+                        </div>
+                        <h3 id="tab-title"
+                            class="text-3xl lg:text-4xl font-bold mb-4 text-gray-800 dark:text-gray-100 font-['Poppins'] leading-tight">
+                            From Monitoring to Decision Support</h3>
+                        <p id="tab-quote" class="text-lg lg:text-xl font-medium italic text-blue-500 mb-6">"Helping
+                            doctors make informed decisions, not just alerting them."</p>
+                        <p id="tab-desc"
+                            class="text-base lg:text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-8">We are
+                            evolving Lifeguard from a passive monitoring tool into an active Decision Support System
+                            (DSS).</p>
+                        <div
+                            class="w-full bg-gray-50 dark:bg-gray-800/80 p-6 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm transition-colors">
+                            <h4
+                                class="text-base uppercase tracking-wider font-bold mb-4 text-gray-800 dark:text-gray-200 border-b border-gray-200 dark:border-gray-700 pb-2 font-['Poppins']">
+                                Key Features</h4>
+                            <ul id="tab-features" class="space-y-4 text-sm md:text-base">
+                                <li class="flex items-start text-left"><i
+                                        class="fa-solid fa-check-circle mt-1 mr-3 text-blue-500"></i><span
+                                        class="text-gray-700 dark:text-gray-300 leading-relaxed">Automated initial
+                                        diagnosis suggestions.</span></li>
+                                <li class="flex items-start text-left"><i
+                                        class="fa-solid fa-check-circle mt-1 mr-3 text-blue-500"></i><span
+                                        class="text-gray-700 dark:text-gray-300 leading-relaxed">Evidence-based
+                                        treatment options.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div
+                        class="relative w-full aspect-square max-w-md mx-auto rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-gray-800 transform hover:scale-[1.02] transition-transform duration-500">
+                        <img id="tab-image"
+                            src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80"
+                            alt="Future Work Theme" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const futureData = [
+            {
+                title: "From Monitoring to Decision Support",
+                icon: "fa-user-doctor",
+                color: "text-blue-500",
+                bg: "bg-blue-50 dark:bg-blue-900/30",
+                quote: "\"Helping doctors make informed decisions, not just alerting them.\"",
+                desc: "We are evolving Lifeguard from a passive monitoring tool into an active Decision Support System (DSS).",
+                features: [
+                    "Automated initial diagnosis suggestions.",
+                    "Evidence-based treatment options."
+                ],
+                img: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "The Psychological Layer",
+                icon: "fa-brain",
+                color: "text-purple-500",
+                bg: "bg-purple-50 dark:bg-purple-900/30",
+                quote: "\"Bridging the gap between physical vitals and mental well-being.\"",
+                desc: "Recognizing that psychological stress is a primary driver of physical illness.",
+                features: [
+                    "Voice tone analysis and facial expression recognition.",
+                    "Stress-level correlation with heart rate/blood pressure."
+                ],
+                img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "Predictive Digital Twins",
+                icon: "fa-users-viewfinder",
+                color: "text-emerald-500",
+                bg: "bg-emerald-50 dark:bg-emerald-900/30",
+                quote: "\"Simulating the future to prevent the problem today.\"",
+                desc: "Creating a complete 1:1 digital replica of the patient's health profile.",
+                features: [
+                    "Predictive modeling for future health events.",
+                    "Virtual treatment testing before real-world application."
+                ],
+                img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "Direct Life-Saving Pipeline",
+                icon: "fa-truck-medical",
+                color: "text-red-500",
+                bg: "bg-red-50 dark:bg-red-900/30",
+                quote: "\"A system that doesn't just watch, but acts when life is on the line.\"",
+                desc: "Fully automating the response chain during critical medical emergencies.",
+                features: [
+                    "Autonomous ambulance dispatching with live GPS.",
+                    "Real-time vital data transmission to paramedics."
+                ],
+                img: "https://images.unsplash.com/photo-1587749021326-0e318182741d?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "Privacy-First Intelligence",
+                icon: "fa-shield-halved",
+                color: "text-orange-500",
+                bg: "bg-orange-50 dark:bg-orange-900/30",
+                quote: "\"100% Privacy. 100% Intelligence. Zero Compromise.\"",
+                desc: "Training our AI models using decentralized data to ensure patient confidentiality.",
+                features: [
+                    "Localized AI training on the device.",
+                    "Personal data never leaves the patient's possession."
+                ],
+                img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80"
+            }
+        ];
+
+        function updateFutureContent(index) {
+            // Update Buttons Styling
+            const btns = document.querySelectorAll('.future-btn');
+            btns.forEach((btn, i) => {
+                let baseClass = "future-btn w-full h-full py-3 px-2 lg:px-4 rounded-xl font-bold text-xs lg:text-sm xl:text-base font-['Poppins'] transition-all duration-300 ";
+                let layoutClass = (i === 4) ? " md:col-span-3 lg:col-span-1" : "";
+
+                if (i === index) {
+                    btn.className = baseClass + "active bg-[#E22C2C] text-white shadow-[0_4px_15px_rgba(226,44,44,0.4)] hover:-translate-y-1" + layoutClass;
+                } else {
+                    btn.className = baseClass + "bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 shadow-sm hover:-translate-y-1" + layoutClass;
+                }
+            });
+
+            const contentArea = document.getElementById('future-content-area');
+            const data = futureData[index];
+
+            // Fade out old content
+            contentArea.classList.add('opacity-0');
+
+            setTimeout(() => {
+                // Update text content
+                document.getElementById('tab-title').textContent = data.title;
+                document.getElementById('tab-quote').textContent = data.quote;
+                document.getElementById('tab-desc').textContent = data.desc;
+
+                // Update Icon & Colors
+                document.getElementById('tab-icon').className = \`fa-solid \${data.icon}\`;
+                document.getElementById('tab-icon-wrapper').className = \`mb-6 w-16 h-16 lg:w-20 lg:h-20 \${data.bg} rounded-full flex items-center justify-center \${data.color} text-3xl lg:text-4xl shadow-inner shrink-0 transition-colors\`;
+                document.getElementById('tab-quote').className = \`text-lg lg:text-xl font-medium italic \${data.color} mb-6\`;
+
+                // Update Image
+                document.getElementById('tab-image').src = data.img;
+
+                // Update Features list
+                const featuresUL = document.getElementById('tab-features');
+                featuresUL.innerHTML = data.features.map(f => \`
+                    <li class="flex items-start text-left">
+                        <i class="fa-solid fa-check-circle mt-1 mr-3 \${data.color}"></i>
+                        <span class="text-gray-700 dark:text-gray-300 leading-relaxed">\${f}</span>
+                    </li>
+                \`).join('');
+
+                // Fade back in with new content
+                contentArea.classList.remove('opacity-0');
+            }, 300);
+        }
+
+        // Ensure buttons default state is correct immediately
+        updateFutureContent(0);
+    </script>
+
     <footer
         class="py-4 px-6 border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 transition-colors text-center relative z-10">
         <p class="text-sm text-gray-500 dark:text-gray-600 font-['Poppins']">&copy; 2026 Smart Health Monitor Team. All
@@ -2064,6 +2593,181 @@
                 simLoopInterval = setInterval(triggerAlertSequence, 16000);
             }
         }
+    </script>
+
+    <!-- N8N interactive widget animation script -->
+    <script>
+        (function () {
+            const svg = document.getElementById('n8n-svg');
+            if (!svg) return;
+            let currentSimTimeout = [];
+
+            function clearSimulations() {
+                currentSimTimeout.forEach(clearTimeout);
+                currentSimTimeout = [];
+
+                document.querySelectorAll('.n8n-node').forEach(node => {
+                    node.classList.remove('node-active', 'node-emergency');
+                    if (node.id === 'node-ai' || node.id === 'node-tel') {
+                        node.style.opacity = '0.5';
+                    }
+                });
+
+                ['log-step-1', 'log-step-2', 'log-step-3', 'log-step-4'].forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.innerText = '';
+                });
+
+                svg.querySelectorAll('circle').forEach(c => c.remove());
+            }
+
+            function updateLog(id, text, colorClass) {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.innerText = text;
+                    el.className = colorClass;
+                }
+            }
+
+            function spawnParticle(pathId, duration, colorClass, shadowFilter) {
+                const path = document.getElementById(pathId);
+                if (!path) return;
+
+                const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                circle.setAttribute("r", shadowFilter === "red" ? "5" : "3");
+                circle.setAttribute("fill", colorClass);
+                circle.setAttribute("filter", "url(#glow-" + shadowFilter + ")");
+                svg.appendChild(circle);
+
+                const length = path.getTotalLength();
+                let start = null;
+
+                function animate(time) {
+                    if (!start) start = time;
+                    const progress = (time - start) / duration;
+                    if (progress >= 1) {
+                        circle.remove();
+                        return;
+                    }
+                    const point = path.getPointAtLength(progress * length);
+                    circle.setAttribute("cx", point.x);
+                    circle.setAttribute("cy", point.y);
+                    requestAnimationFrame(animate);
+                }
+                requestAnimationFrame(animate);
+            }
+
+            window.runN8NSimulation = function (type) {
+                clearSimulations();
+                const isEmergency = type === 'emergency';
+
+                const simBtn = document.getElementById('n8n-sim-btn');
+                const emergBtn = document.getElementById('n8n-emerg-btn');
+                const statusTxt = document.getElementById('n8n-sys-status');
+
+                if (!isEmergency) {
+                    simBtn.className = "bg-blue-600 text-white text-[10px] sm:text-xs font-bold py-2 px-3 lg:px-4 rounded-full transition-all shadow-[0_0_15px_rgba(37,99,235,0.7)]";
+                    emergBtn.className = "bg-gray-800 text-gray-500 hover:bg-red-900 text-[10px] sm:text-xs font-bold py-2 px-3 lg:px-4 rounded-full transition-all opacity-50";
+                    if (statusTxt) {
+                        statusTxt.textContent = "NOMINAL";
+                        statusTxt.className = "text-blue-500 font-bold";
+                    }
+                } else {
+                    emergBtn.className = "bg-red-600 text-white text-[10px] sm:text-xs font-bold py-2 px-3 lg:px-4 rounded-full transition-all shadow-[0_0_20px_rgba(239,68,68,0.9)]";
+                    simBtn.className = "bg-gray-800 text-gray-500 hover:bg-blue-900 text-[10px] sm:text-xs font-bold py-2 px-3 lg:px-4 rounded-full transition-all opacity-50";
+                    if (statusTxt) {
+                        statusTxt.textContent = "CRITICAL ALERT";
+                        statusTxt.className = "text-red-500 font-bold animate-pulse";
+                    }
+                }
+
+                const delay = 800;
+
+                // Step 1: Webhook
+                currentSimTimeout.push(setTimeout(() => {
+                    const wh = document.getElementById('node-webhook');
+                    if (wh) wh.classList.add(isEmergency ? 'node-emergency' : 'node-active');
+                    updateLog('log-step-1', '[sys.log] Receiving packets...', 'text-blue-400');
+                    spawnParticle('w-c', delay, isEmergency ? '#ef4444' : '#60a5fa', isEmergency ? 'red' : 'blue');
+                }, 0));
+
+                // Step 2: Parser
+                currentSimTimeout.push(setTimeout(() => {
+                    const wh = document.getElementById('node-webhook');
+                    const code = document.getElementById('node-code');
+                    if (wh) wh.classList.remove('node-active', 'node-emergency');
+                    if (code) code.classList.add(isEmergency ? 'node-emergency' : 'node-active');
+
+                    if (isEmergency) {
+                        updateLog('log-step-2', '[sys.log] Parsing data: ANOMALY DETECTED', 'text-red-400');
+                        spawnParticle('c-if', delay, '#ef4444', 'red');
+                    } else {
+                        updateLog('log-step-2', '[sys.log] Parsing data: Normal Vitals', 'text-emerald-400');
+                        spawnParticle('c-gs', delay, '#34d399', 'green');
+                    }
+                }, delay));
+
+                // Step 3: Branch
+                currentSimTimeout.push(setTimeout(() => {
+                    const code = document.getElementById('node-code');
+                    if (code) code.classList.remove('node-active', 'node-emergency');
+
+                    if (isEmergency) {
+                        const ifNode = document.getElementById('node-if');
+                        if (ifNode) ifNode.classList.add('node-emergency');
+                        updateLog('log-step-3', 'eval(threshold_metrics) => CRITICAL', 'text-red-400 font-bold max-w-[200px] bg-gray-900/50 p-1');
+                        spawnParticle('if-ai', delay, '#ef4444', 'red');
+                    } else {
+                        const gsNode = document.getElementById('node-gs');
+                        if (gsNode) gsNode.classList.add('node-active');
+                        updateLog('log-step-3', '> POST /sheet/append - SUCCESS', 'text-emerald-400 max-w-[200px] bg-gray-900/50 p-1');
+
+                        currentSimTimeout.push(setTimeout(() => {
+                            if (gsNode) gsNode.classList.remove('node-active');
+                        }, delay));
+                    }
+                }, delay * 2));
+
+                // Step 4 (Emergency Only)
+                if (isEmergency) {
+                    currentSimTimeout.push(setTimeout(() => {
+                        const ifNode = document.getElementById('node-if');
+                        const aiNode = document.getElementById('node-ai');
+                        if (ifNode) ifNode.classList.remove('node-emergency');
+                        if (aiNode) aiNode.classList.add('node-emergency');
+
+                        updateLog('log-step-4', '> Triggering AI Agent & Telegram...', 'text-red-400 font-bold animate-pulse max-w-[200px] bg-gray-900/50 p-1');
+                        spawnParticle('ai-tel', delay, '#ef4444', 'red');
+
+                        currentSimTimeout.push(setTimeout(() => {
+                            const telNode = document.getElementById('node-tel');
+                            if (telNode) telNode.classList.add('node-emergency');
+                            currentSimTimeout.push(setTimeout(() => {
+                                if (aiNode) aiNode.classList.remove('node-emergency');
+                                if (telNode) telNode.classList.remove('node-emergency');
+                            }, delay * 1.5));
+                        }, delay));
+                    }, delay * 3));
+                }
+            }
+
+            let loopInterval = null;
+            function resetSimulationLoop(type) {
+                if (loopInterval) clearInterval(loopInterval);
+                window.runN8NSimulation(type);
+                // loop the sequence every 5 seconds nicely
+                loopInterval = setInterval(() => window.runN8NSimulation(type), 5000);
+            }
+
+            const btnSim = document.getElementById('n8n-sim-btn');
+            const btnEmerg = document.getElementById('n8n-emerg-btn');
+            if (btnSim) btnSim.addEventListener('click', () => resetSimulationLoop('normal'));
+            if (btnEmerg) btnEmerg.addEventListener('click', () => resetSimulationLoop('emergency'));
+
+            // start it automatically
+            setTimeout(() => resetSimulationLoop('normal'), 500);
+
+        })();
     </script>
 </body>
 
