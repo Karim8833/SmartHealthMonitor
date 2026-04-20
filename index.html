@@ -2218,13 +2218,13 @@
 
     </section>
 
-    <!-- Future Work Section -->
     <section id="future"
         class="py-20 lg:py-32 px-6 bg-gray-50 dark:bg-gray-800 transition-colors duration-300 relative overflow-hidden">
         <div class="text-center mb-16 lg:mb-24 max-w-4xl mx-auto">
             <span
-                class="text-[#E22C2C] font-bold tracking-widest uppercase text-xs lg:text-sm mb-3 block font-['Poppins']"><i
-                    class="fa-solid fa-lightbulb mr-2"></i>What's Next</span>
+                class="text-[#E22C2C] font-bold tracking-widest uppercase text-xs lg:text-sm mb-3 block font-['Poppins']">
+                <i class="fa-solid fa-rocket mr-2"></i>What's Next
+            </span>
             <h2
                 class="text-4xl lg:text-5xl font-bold mb-4 lg:mb-6 text-[#707070] dark:text-gray-200 font-['Poppins'] tracking-tight transition-colors">
                 Future Work
@@ -2236,68 +2236,71 @@
 
         <div class="max-w-6xl mx-auto bg-white dark:bg-gray-900 rounded-[2.5rem] shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-colors"
             style="height: 800px; display: flex; flex-direction: column;">
-            <!-- Top Panel Controls -->
+
             <div
                 class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 p-4 lg:p-6 gap-3 lg:gap-4 border-b border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-800/50">
                 <button onclick="updateFutureContent(0)"
-                    class="future-btn py-3 px-2 lg:px-4 rounded-xl font-bold text-xs lg:text-sm xl:text-base font-['Poppins'] transition-all duration-300 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 hover:-translate-y-1 shadow-sm"
-                    data-index="0">AI Doctor Assistant</button>
+                    class="future-btn active py-3 px-2 lg:px-4 rounded-xl font-bold text-xs lg:text-sm xl:text-base font-['Poppins'] transition-all duration-300 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 shadow-sm"
+                    data-index="0">AI Assistant</button>
                 <button onclick="updateFutureContent(1)"
-                    class="future-btn py-3 px-2 lg:px-4 rounded-xl font-bold text-xs lg:text-sm xl:text-base font-['Poppins'] transition-all duration-300 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 hover:-translate-y-1 shadow-sm"
-                    data-index="1">Emotion & Stress</button>
+                    class="future-btn py-3 px-2 lg:px-4 rounded-xl font-bold text-xs lg:text-sm xl:text-base font-['Poppins'] transition-all duration-300 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 shadow-sm"
+                    data-index="1">Emotion/Stress</button>
                 <button onclick="updateFutureContent(2)"
-                    class="future-btn py-3 px-2 lg:px-4 rounded-xl font-bold text-xs lg:text-sm xl:text-base font-['Poppins'] transition-all duration-300 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 hover:-translate-y-1 shadow-sm"
+                    class="future-btn py-3 px-2 lg:px-4 rounded-xl font-bold text-xs lg:text-sm xl:text-base font-['Poppins'] transition-all duration-300 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 shadow-sm"
                     data-index="2">Digital Twin</button>
                 <button onclick="updateFutureContent(3)"
-                    class="future-btn py-3 px-2 lg:px-4 rounded-xl font-bold text-xs lg:text-sm xl:text-base font-['Poppins'] transition-all duration-300 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 hover:-translate-y-1 shadow-sm"
-                    data-index="3">Emergency Integration</button>
+                    class="future-btn py-3 px-2 lg:px-4 rounded-xl font-bold text-xs lg:text-sm xl:text-base font-['Poppins'] transition-all duration-300 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 shadow-sm"
+                    data-index="3">Emergency Link</button>
                 <button onclick="updateFutureContent(4)"
-                    class="future-btn py-3 px-2 lg:px-4 rounded-xl font-bold text-xs lg:text-sm xl:text-base font-['Poppins'] transition-all duration-300 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 hover:-translate-y-1 shadow-sm md:col-span-3 lg:col-span-1"
-                    data-index="4">Federated Learning</button>
+                    class="future-btn py-3 px-2 lg:px-4 rounded-xl font-bold text-xs lg:text-sm xl:text-base font-['Poppins'] transition-all duration-300 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 shadow-sm md:col-span-3 lg:col-span-1"
+                    data-index="4">Privacy (FL)</button>
             </div>
 
-            <!-- Bottom Area Display -->
-            <!-- Bottom Area Display -->
             <div id="future-content-area"
                 class="flex-1 w-full p-6 lg:p-12 overflow-y-auto overflow-x-hidden relative transition-opacity duration-300 opacity-100">
                 <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
                     <div class="text-left w-full">
                         <div id="tab-icon-wrapper"
-                            class="mb-6 w-16 h-16 lg:w-20 lg:h-20 bg-blue-50 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-blue-500 text-3xl lg:text-4xl shadow-inner shrink-0 transition-colors">
-                            <i id="tab-icon" class="fa-solid fa-user-doctor"></i>
+                            class="mb-6 w-16 h-16 lg:w-20 lg:h-20 bg-red-50 dark:bg-red-900/20 rounded-full flex items-center justify-center text-[#E22C2C] text-3xl lg:text-4xl shadow-inner shrink-0 transition-colors">
+                            <i id="tab-icon" class="fa-solid fa-robot"></i>
                         </div>
                         <h3 id="tab-title"
                             class="text-3xl lg:text-4xl font-bold mb-4 text-gray-800 dark:text-gray-100 font-['Poppins'] leading-tight">
-                            From Monitoring to Decision Support</h3>
-                        <p id="tab-quote" class="text-lg lg:text-xl font-medium italic text-blue-500 mb-6">"Helping
-                            doctors make informed decisions, not just alerting them."</p>
+                            AI Doctor Assistant (DSS)
+                        </h3>
+                        <p id="tab-quote" class="text-lg lg:text-xl font-medium italic text-[#E22C2C] mb-6">
+                            "Evolving from monitoring to a Decision Support System."
+                        </p>
                         <p id="tab-desc"
-                            class="text-base lg:text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-8">We are
-                            evolving Lifeguard from a passive monitoring tool into an active Decision Support System
-                            (DSS).</p>
+                            class="text-base lg:text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
+                            Lifeguard isn't just about watching; it's about helping doctors make the right call through
+                            AI-driven insights.
+                        </p>
                         <div
-                            class="w-full bg-gray-50 dark:bg-gray-800/80 p-6 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm transition-colors">
+                            class="w-full bg-gray-50 dark:bg-gray-800/80 p-6 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm">
                             <h4
                                 class="text-base uppercase tracking-wider font-bold mb-4 text-gray-800 dark:text-gray-200 border-b border-gray-200 dark:border-gray-700 pb-2 font-['Poppins']">
-                                Key Features</h4>
-                            <ul id="tab-features" class="space-y-4 text-sm md:text-base">
-                                <li class="flex items-start text-left"><i
-                                        class="fa-solid fa-check-circle mt-1 mr-3 text-blue-500"></i><span
+                                Proposed Features
+                            </h4>
+                            <ul id="tab-features" class="space-y-4 text-sm md:text-base text-left">
+                                <li class="flex items-start"><i
+                                        class="fa-solid fa-circle-check mt-1 mr-3 text-[#E22C2C]"></i><span
                                         class="text-gray-700 dark:text-gray-300 leading-relaxed">Automated initial
-                                        diagnosis suggestions.</span></li>
-                                <li class="flex items-start text-left"><i
-                                        class="fa-solid fa-check-circle mt-1 mr-3 text-blue-500"></i><span
-                                        class="text-gray-700 dark:text-gray-300 leading-relaxed">Evidence-based
-                                        treatment options.</span></li>
+                                        Diagnosis (Medical Intelligence).</span></li>
+                                <li class="flex items-start"><i
+                                        class="fa-solid fa-circle-check mt-1 mr-3 text-[#E22C2C]"></i><span
+                                        class="text-gray-700 dark:text-gray-300 leading-relaxed">Personalized Treatment
+                                        Options.</span></li>
                             </ul>
                         </div>
                     </div>
                     <div
-                        class="relative w-full aspect-square max-w-md mx-auto rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-gray-800 transform hover:scale-[1.02] transition-transform duration-500">
+                        class="relative w-full aspect-square max-w-md mx-auto rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-gray-800 transform hover:scale-[1.01] transition-all">
                         <img id="tab-image"
-                            src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80"
-                            alt="Future Work Theme" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                            src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80"
+                            alt="Future Theme" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2305,10 +2308,100 @@
     </section>
 
     <script>
+        const futureTabs = {
+            0: {
+                title: "AI Doctor Assistant (DSS)",
+                icon: "fa-stethoscope",
+                quote: "Evolving from monitoring to a Decision Support System.",
+                desc: "We are transforming the system so it doesn't just say 'There is a problem,' but proactively suggests medical steps to assist the doctor.",
+                features: ["Initial Diagnosis (AI Diagnosis).", "Suggested Treatment Options.", "Real-time decision support for healthcare providers."],
+                img: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80"
+            },
+            1: {
+                title: "Emotion & Stress Detection",
+                icon: "fa-face-smile",
+                quote: "Linking physiological metrics with mental health.",
+                desc: "Mental state deeply impacts physical illness. We are adding an AI layer to analyze the emotional state and its impact on the heart.",
+                features: ["Voice & Facial Expression Analysis.", "Real-time Stress Level Detection.", "Correlating stress with Heart Rate & Blood Pressure."],
+                img: "https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=800&q=80"
+            },
+            2: {
+                title: "Patient Digital Twin",
+                icon: "fa-dna",
+                quote: "Simulating the future to prevent the problem today.",
+                desc: "Creating a 1:1 digital replica of the patient to forecast health outcomes and test treatments virtually before real-world application.",
+                features: ["Predictive health forecasting.", "Virtual treatment simulation.", "Proactive intervention planning."],
+                img: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=80"
+            },
+            3: {
+                title: "Emergency Services Integration",
+                icon: "fa-house-medical-circle-exclamation",
+                quote: "From monitoring to life-saving automated actions.",
+                desc: "In critical conditions, the system directly contacts emergency services, turning the project into a real-time life-saving ecosystem.",
+                features: ["Autonomous Ambulance Dispatching.", "Live GPS & Vitals data transmission.", "Automated Emergency protocols."],
+                img: "https://images.unsplash.com/photo-1583911860205-72f8ac8ddcbe?auto=format&fit=crop&w=800&q=80" // صورة جديدة للإسعاف والطوارئ
+            },
+            4: {
+                title: "Federated Learning (Privacy)",
+                icon: "fa-shield-halved",
+                quote: "Balancing advanced intelligence with absolute privacy.",
+                desc: "Data stays with the patient. Our AI model learns locally from the data without ever transferring sensitive files to the cloud.",
+                features: ["On-device model training.", "Decentralized data privacy (GDPR compliant).", "Secure intelligence sharing without data exposure."],
+                img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80"
+            }
+        };
+
+        function updateFutureContent(index) {
+            const data = futureTabs[index];
+            const area = document.getElementById('future-content-area');
+            area.style.opacity = '0';
+
+            setTimeout(() => {
+                document.getElementById('tab-icon').className = `fa-solid ${data.icon}`;
+                document.getElementById('tab-title').innerText = data.title;
+                document.getElementById('tab-quote').innerText = `"${data.quote}"`;
+                document.getElementById('tab-desc').innerText = data.desc;
+                document.getElementById('tab-image').src = data.img;
+
+                const list = document.getElementById('tab-features');
+                list.innerHTML = data.features.map(f => `
+            <li class="flex items-start text-left">
+                <i class="fa-solid fa-circle-check mt-1 mr-3 text-[#E22C2C]"></i>
+                <span class="text-gray-700 dark:text-gray-300 leading-relaxed">${f}</span>
+            </li>
+        `).join('');
+
+                document.querySelectorAll('.future-btn').forEach(btn => {
+                    btn.classList.remove('active', 'bg-[#E22C2C]', 'text-white');
+                    btn.classList.add('bg-white', 'dark:bg-gray-800', 'text-gray-600', 'dark:text-gray-300');
+                });
+
+                const activeBtn = document.querySelector(`.future-btn[data-index="${index}"]`);
+                activeBtn.classList.add('active', 'bg-[#E22C2C]', 'text-white');
+                activeBtn.classList.remove('bg-white', 'dark:bg-gray-800', 'text-gray-600', 'dark:text-gray-300');
+
+                area.style.opacity = '1';
+            }, 300);
+        }
+
+        // Initialize
+        window.addEventListener('DOMContentLoaded', () => updateFutureContent(0));
+    </script>
+
+    <style>
+        .future-btn.active {
+            background-color: #E22C2C !important;
+            color: white !important;
+            border-color: #E22C2C !important;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px -5px rgba(226, 44, 44, 0.4);
+        }
+    </style>
+    <script>
         const futureData = [
             {
                 title: "From Monitoring to Decision Support",
-                icon: "fa-user-doctor",
+                icon: "fa-stethoscope",
                 color: "text-blue-500",
                 bg: "bg-blue-50 dark:bg-blue-900/30",
                 quote: "\"Helping doctors make informed decisions, not just alerting them.\"",
@@ -2321,7 +2414,7 @@
             },
             {
                 title: "The Psychological Layer",
-                icon: "fa-brain",
+                icon: "fa-smile-beam",
                 color: "text-purple-500",
                 bg: "bg-purple-50 dark:bg-purple-900/30",
                 quote: "\"Bridging the gap between physical vitals and mental well-being.\"",
