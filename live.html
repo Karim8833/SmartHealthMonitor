@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Patient Monitor | Health System</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        darkMode: 'class',
+    }
+</script>
+
+<script>
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark')
+    }
+</script>
+
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  
+  /* --- المتغيرات هنا اتصلحت عشان تسمع في كل الصفحة --- */
+  :root {
+    /* اللايت مود */
+    --bg: #f4f5f7;
+    --card: #ffffff;
+    --border: #e5e7eb;
+    --text: #1f2937;
+    --red: #ef4444;
+    --cyan: #06b6d4;
+    --orange: #f59e0b;
+    --green: #10b981;
+    --grey: #6b7280;
+  }
+
+  html.dark {
+    /* الدارك مود */
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #30363d;
+    --text: #e6edf3;
+    --red: #ff4d6d;
+    --cyan: #00e5ff;
+    --orange: #ffb300;
+    --green: #00e676;
+    --grey: #8b949e;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    min-height: 100vh; 
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .monitor-header {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px; 
+    border-radius: 12px; 
+    transition: all 0.3s;
+  }
+  
+  .title{font-size:1.1rem;font-weight:700;display:flex;align-items:center;gap:8px}
+  .badge{font-size:.7rem;font-weight:800;letter-spacing:.6px;padding:4px 10px;border-radius:20px;transition:all .4s}
+  .badge.online{background:rgba(0,230,118,.12);color:var(--green);border:1px solid rgba(0,230,118,.4)}
+  .badge.offline{background:rgba(255,77,109,.12);color:var(--red);border:1px solid rgba(255,77,109,.4)}
+  .ts{font-size:.7rem;color:var(--grey);margin-top:2px;text-align:right}
+  
+  .monitor-container{padding:16px; padding-top: 100px; max-width:600px; margin:0 auto;}
+  main{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  
+  .card {
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-radius: 18px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: all .35s;
+    overflow: hidden;
+  }
+  
+  .card.warn-red{border-color:rgba(255,77,109,.7);box-shadow:0 0 22px rgba(255,77,109,.18)}
+  .card.warn-cyan{border-color:rgba(0,229,255,.7);box-shadow:0 0 22px rgba(0,229,255,.18)}
+  .card.warn-orange{border-color:rgba(255,179,0,.7);box-shadow:0 0 22px rgba(255,179,0,.18)}
+  .card.warn-fall{border-color:var(--red);animation:fallPulse 1s infinite alternate}
+  @keyframes fallPulse{from{box-shadow:0 0 10px rgba(255,77,109,.3)}to{box-shadow:0 0 28px rgba(255,77,109,.7)}}
+  
+  .card-top{display:flex;align-items:center;gap:6px}
+  .emoji{font-size:1.2rem;line-height:1}
+  .label{font-size:.72rem;font-weight:700;letter-spacing:.3px;text-transform:uppercase;opacity:.8}
+  .value{font-size:2.1rem;font-weight:800;font-family:'Courier New',monospace;line-height:1.1; color:var(--text); transition: color 0.3s;}
+  .unit{font-size:.75rem;color:var(--grey);margin-top:-4px}
+  .warn-text{font-size:.68rem;font-weight:700;border-radius:6px;padding:2px 6px;margin-top:2px;display:none}
+  .card.warn-red .warn-text,.card.warn-cyan .warn-text,.card.warn-orange .warn-text,.card.warn-fall .warn-text{display:inline-block}
+  canvas{width:100%;height:36px;display:block;margin-top:4px;border-radius:4px}
+  
+  #fallOverlay{display:none;position:fixed;inset:0;background:rgba(255,0,40,.88);z-index:100;flex-direction:column;align-items:center;justify-content:center;gap:18px}
+  #fallOverlay.show{display:flex}
+  #fallOverlay h1{font-size:2rem;font-weight:900;text-align:center; color: white;}
+  #fallOverlay p{font-size:1rem;opacity:.85;text-align:center;max-width:280px; color: white;}
+  #dismissBtn{background:#fff;color:#c0002a;font-weight:800;border:none;border-radius:14px;padding:14px 36px;font-size:1rem;cursor:pointer; transition: 0.3s;}
+  #dismissBtn:hover{transform: scale(1.05);}
+  
+  .demo-badge{text-align:center;padding:6px;background:rgba(255,179,0,.1);color:var(--orange);font-size:.75rem;border-bottom:1px solid rgba(255,179,0,.2); position: fixed; top: 0; left: 0; width: 100%; z-index: 60;}
+</style>
+</head>
+<body class="transition-colors duration-300">
+
+<div class="demo-badge">⚡ DEMO MODE — Simulated Data</div>
+
+<nav class="w-full bg-white/90 dark:bg-[#0d1117]/90 backdrop-blur-md shadow-sm border-b border-gray-200 dark:border-[#30363d] px-4 lg:px-6 py-3 lg:py-4 flex justify-between items-center fixed top-[33px] z-50 transition-colors duration-300">
+    <div class="flex items-center space-x-2 lg:space-x-3">
+        <i class="fa-solid fa-heart-pulse text-[#E22C2C] text-xl lg:text-2xl"></i>
+        <span class="font-bold text-lg lg:text-xl font-['Poppins'] tracking-tight text-gray-900 dark:text-white transition-colors">HealthMonitor</span>
+    </div>
+    
+    <div class="flex items-center space-x-4 lg:space-x-6">
+        <a href="index.html" class="text-gray-500 dark:text-gray-400 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] font-['Poppins'] font-bold text-xs lg:text-sm uppercase transition-colors flex items-center">
+            <i class="fa-solid fa-arrow-left mr-1 lg:mr-2"></i> 
+            <span>Back <span class="hidden sm:inline">to Home</span></span>
+        </a>
+        
+        <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-full text-sm p-2 transition-colors">
+            <i id="theme-toggle-dark-icon" class="fa-solid fa-moon text-base lg:text-lg hidden"></i>
+            <i id="theme-toggle-light-icon" class="fa-solid fa-sun text-base lg:text-lg hidden"></i>
+        </button>
+    </div>
+</nav>
+
+<div class="monitor-container">
+    
+    <div class="monitor-header">
+      <div>
+        <div class="title" style="color: var(--cyan);">
+          <i class="fa-solid fa-satellite-dish"></i>
+          Live Stream
+        </div>
+        <div class="ts" id="ts">--</div>
+      </div>
+      <div><div class="badge online" id="badge">ONLINE</div></div>
+    </div>
+
+    <main>
+      <div class="card" id="card-hr">
+        <div class="card-top"><span class="emoji">❤️</span><span class="label" style="color:var(--red)">Heart Rate</span></div>
+        <div class="value" id="val-hr" style="color:var(--text)">--</div>
+        <div class="unit">BPM</div>
+        <div class="warn-text" id="warn-hr" style="background:rgba(255,77,109,.18);color:var(--red)"></div>
+        <canvas id="spark-hr"></canvas>
+      </div>
+      <div class="card" id="card-spo2">
+        <div class="card-top"><span class="emoji">💨</span><span class="label" style="color:var(--cyan)">SpO2</span></div>
+        <div class="value" id="val-spo2" style="color:var(--text)">--</div>
+        <div class="unit">%</div>
+        <div class="warn-text" id="warn-spo2" style="background:rgba(0,229,255,.18);color:var(--cyan)"></div>
+        <canvas id="spark-spo2"></canvas>
+      </div>
+      <div class="card" id="card-temp">
+        <div class="card-top"><span class="emoji">🌡️</span><span class="label" style="color:var(--orange)">Temperature</span></div>
+        <div class="value" id="val-temp" style="color:var(--text)">--</div>
+        <div class="unit">°C</div>
+        <div class="warn-text" id="warn-temp" style="background:rgba(255,179,0,.18);color:var(--orange)"></div>
+        <canvas id="spark-temp"></canvas>
+      </div>
+      <div class="card" id="card-motion">
+        <div class="card-top"><span class="emoji">🚶</span><span class="label" style="color:var(--green)">Motion</span></div>
+        <div class="value" id="val-motion" style="color:var(--text);font-size:1.1rem;margin-top:6px">--</div>
+        <div class="unit"></div>
+        <div class="warn-text" id="warn-motion" style="background:rgba(255,77,109,.18);color:var(--red)">⚠️ FALL DETECTED!</div>
+        <canvas id="spark-motion"></canvas>
+      </div>
+    </main>
+
+</div>
+
+<div id="fallOverlay">
+  <h1>🚨 FALL DETECTED!</h1>
+  <p>Patient may have fallen. Check immediately.</p>
+  <button id="dismissBtn" onclick="dismissFall()">Dismiss Alert</button>
+</div>
+    <footer class="py-5 px-9 border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 transition-colors text-center relative z-14">
+        <p class="text-sm text-gray-500 dark:text-gray-600 font-['Poppins']">&copy; 2026 Smart Health Monitor Team. All rights reserved.</p>
+    </footer>
+
+<script>
+  // --- سكريبت المود (Dark/Light) ---
+  var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+  var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+  if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      themeToggleLightIcon.classList.remove('hidden');
+  } else {
+      themeToggleDarkIcon.classList.remove('hidden');
+  }
+
+  var themeToggleBtn = document.getElementById('theme-toggle');
+  themeToggleBtn.addEventListener('click', function() {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+
+      if (localStorage.getItem('color-theme')) {
+          if (localStorage.getItem('color-theme') === 'light') {
+              document.documentElement.classList.add('dark');
+              localStorage.setItem('color-theme', 'dark');
+          } else {
+              document.documentElement.classList.remove('dark');
+              localStorage.setItem('color-theme', 'light');
+          }
+      } else {
+          if (document.documentElement.classList.contains('dark')) {
+              document.documentElement.classList.remove('dark');
+              localStorage.setItem('color-theme', 'light');
+          } else {
+              document.documentElement.classList.add('dark');
+              localStorage.setItem('color-theme', 'dark');
+          }
+      }
+  });
+
+
+  // --- سكريبت القرايات ---
+  const HIST=20;
+  const history={hr:[],spo2:[],temp:[],motion:[]};
+  let fallDismissed=false;
+  let tick=0;
+
+  function getDummyData() {
+    tick++;
+    const isFall = (tick % 30 === 0);
+    const motions = ['Stable','Stable','Stable','Moving','Stable','Abnormal Shaking'];
+    return {
+      heart_rate: Math.round(72 + Math.sin(tick/5)*8 + (Math.random()-0.5)*4),
+      spo2: Math.round(97 + Math.sin(tick/8)*2),
+      temp: parseFloat((36.6 + Math.sin(tick/10)*0.4).toFixed(1)),
+      motion: isFall ? 'FALL DETECTED!' : motions[tick % motions.length]
+    };
+  }
+
+  function drawSpark(id,data,color){
+    const c=document.getElementById(id);
+    if(!c||data.length<2)return;
+    const dpr=window.devicePixelRatio||1,W=c.clientWidth,H=36;
+    c.width=W*dpr;c.height=H*dpr;
+    const ctx=c.getContext('2d');ctx.scale(dpr,dpr);
+    const min=Math.min(...data),max=Math.max(...data),range=max-min||1;
+    const pts=data.map((v,i)=>({x:(i/(data.length-1))*W,y:H-((v-min)/range)*(H-4)-2}));
+    const g=ctx.createLinearGradient(0,0,0,H);
+    g.addColorStop(0,color+'55');g.addColorStop(1,color+'00');
+    ctx.beginPath();ctx.moveTo(pts[0].x,H);
+    pts.forEach(p=>ctx.lineTo(p.x,p.y));
+    ctx.lineTo(pts[pts.length-1].x,H);ctx.closePath();
+    ctx.fillStyle=g;ctx.fill();
+    ctx.beginPath();pts.forEach((p,i)=>i===0?ctx.moveTo(p.x,p.y):ctx.lineTo(p.x,p.y));
+    ctx.strokeStyle=color;ctx.lineWidth=1.8;ctx.lineJoin='round';ctx.stroke();
+  }
+
+  function push(arr,val){arr.push(val);if(arr.length>HIST)arr.shift();}
+
+  function updateUI(d){
+    const hr=d.heart_rate,spo2=d.spo2,temp=d.temp,motion=d.motion;
+    document.getElementById('ts').textContent='Updated '+new Date().toLocaleTimeString();
+
+    document.getElementById('val-hr').textContent=hr;
+    push(history.hr,hr);
+    const cHr=document.getElementById('card-hr'),wHr=document.getElementById('warn-hr');
+    cHr.className='card';
+    if(hr>100){cHr.classList.add('warn-red');wHr.textContent='⚠️ Too High!';}
+    else if(hr<60&&hr>0){cHr.classList.add('warn-red');wHr.textContent='⚠️ Too Low!';}
+    drawSpark('spark-hr',history.hr,'#ff4d6d');
+
+    document.getElementById('val-spo2').textContent=spo2;
+    push(history.spo2,spo2);
+    const cS=document.getElementById('card-spo2'),wS=document.getElementById('warn-spo2');
+    cS.className='card';
+    if(spo2>0&&spo2<95){cS.classList.add('warn-cyan');wS.textContent='⚠️ Low Oxygen!';}
+    drawSpark('spark-spo2',history.spo2,'#00e5ff');
+
+    document.getElementById('val-temp').textContent=parseFloat(temp).toFixed(1);
+    push(history.temp,parseFloat(temp));
+    const cT=document.getElementById('card-temp'),wT=document.getElementById('warn-temp');
+    cT.className='card';
+    if(temp>37.5){cT.classList.add('warn-orange');wT.textContent='⚠️ Fever!';}
+    drawSpark('spark-temp',history.temp,'#ffb300');
+
+    const mEl=document.getElementById('val-motion'),cM=document.getElementById('card-motion');
+    mEl.textContent=motion;cM.className='card';
+    const mv=motion==='Stable'?0:motion==='Moving'?1:motion==='Abnormal Shaking'?2:3;
+    push(history.motion,mv);
+    if(motion==='FALL DETECTED!'){
+      cM.classList.add('warn-fall');mEl.style.color='var(--red)';
+      if(!fallDismissed)document.getElementById('fallOverlay').classList.add('show');
+    } else {
+      mEl.style.color='var(--text)';
+    }
+    drawSpark('spark-motion',history.motion,'#00e676');
+  }
+
+  function dismissFall(){
+    document.getElementById('fallOverlay').classList.remove('show');
+    fallDismissed=true;
+    setTimeout(()=>fallDismissed=false,10000);
+  }
+
+  function tick_update(){
+    updateUI(getDummyData());
+  }
+
+  tick_update();
+  setInterval(tick_update, 1000);
+</script>
+
+</body>
+</html>
