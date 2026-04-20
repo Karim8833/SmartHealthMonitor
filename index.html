@@ -1,44 +1,91 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Health Monitoring | Graduation Project</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lora:wght@400;500&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
         }
     </script>
-    
+
     <style>
-        body { font-family: 'Lora', serif; }
-        .nav-link { font-family: 'Poppins', sans-serif; transition: 0.3s; position: relative; }
-        
-        .nav-link.active { color: #E22C2C !important; font-weight: 700; }
-        .nav-link.active::after {
-            content: ''; position: absolute; bottom: -5px; left: 0;
-            width: 100%; height: 2px; background: #E22C2C;
+        body {
+            font-family: 'Lora', serif;
         }
 
-        .hero-gradient { background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%); }
-        .dark .hero-gradient { background: linear-gradient(135deg, #111827 0%, #1f2937 100%); }
+        .nav-link {
+            font-family: 'Poppins', sans-serif;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .nav-link.active {
+            color: #E22C2C !important;
+            font-weight: 700;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #E22C2C;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
+        }
+
+        .dark .hero-gradient {
+            background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+        }
 
         @keyframes pulse-red {
-            0% { transform: scale(1); opacity: 0.5; }
-            100% { transform: scale(2.2); opacity: 0; }
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: scale(2.2);
+                opacity: 0;
+            }
         }
-        .animate-pulse-red { animation: pulse-red 2.5s cubic-bezier(0, 0, 0.2, 1) infinite; }
+
+        .animate-pulse-red {
+            animation: pulse-red 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
 
         @keyframes voice-distress {
-            0% { transform: scale(0.8); opacity: 0.8; }
-            50% { transform: scale(1.5); opacity: 0.3; }
-            100% { transform: scale(1); opacity: 0.8; }
+            0% {
+                transform: scale(0.8);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: scale(1.5);
+                opacity: 0.3;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
         }
-        .animate-voice-distress { animation: voice-distress 3s cubic-bezier(0, 0, 0.2, 1) infinite; }
+
+        .animate-voice-distress {
+            animation: voice-distress 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
 
         .video-overlay:hover .play-btn {
             transform: scale(1.1);
@@ -46,25 +93,62 @@
             color: white;
         }
 
-        .code-scroll::-webkit-scrollbar { height: 8px; width: 8px; }
-        .code-scroll::-webkit-scrollbar-track { background: #1f2937; border-radius: 4px; }
-        .code-scroll::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
+        .code-scroll::-webkit-scrollbar {
+            height: 8px;
+            width: 8px;
+        }
+
+        .code-scroll::-webkit-scrollbar-track {
+            background: #1f2937;
+            border-radius: 4px;
+        }
+
+        .code-scroll::-webkit-scrollbar-thumb {
+            background: #4b5563;
+            border-radius: 4px;
+        }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
         }
-        .animate-float { animation: float 4s ease-in-out infinite; }
+
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
 
         @keyframes spin-slow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
-        .animate-spin-slow { animation: spin-slow 15s linear infinite; }
-        .animate-spin-slow-reverse { animation: spin-slow 10s linear infinite reverse; }
-        
-        .mobile-glow { box-shadow: 0 0 40px rgba(226, 44, 44, 0.15); }
-        .dark .mobile-glow { box-shadow: 0 0 40px rgba(226, 44, 44, 0.3); }
+
+        .animate-spin-slow {
+            animation: spin-slow 15s linear infinite;
+        }
+
+        .animate-spin-slow-reverse {
+            animation: spin-slow 10s linear infinite reverse;
+        }
+
+        .mobile-glow {
+            box-shadow: 0 0 40px rgba(226, 44, 44, 0.15);
+        }
+
+        .dark .mobile-glow {
+            box-shadow: 0 0 40px rgba(226, 44, 44, 0.3);
+        }
 
         #mobile-menu {
             transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
@@ -72,6 +156,7 @@
             opacity: 0;
             overflow: hidden;
         }
+
         #mobile-menu.open {
             max-height: 500px;
             opacity: 1;
@@ -80,12 +165,13 @@
         /* ======================================================== */
         /* 🚀 ستايل الأنيميشن الذكي للـ n8n Workflow 🚀             */
         /* ======================================================== */
-        
+
         /* الكورتين (واحدة هتطلع فوق للإنذار وواحدة هتنزل للشيت) */
-        .smart-packet-top, .smart-packet-bottom {
+        .smart-packet-top,
+        .smart-packet-bottom {
             position: absolute;
-            width: 14px; 
-            height: 14px; 
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
             z-index: 20;
             transform: translate(-50%, -50%);
@@ -95,36 +181,179 @@
         #workflow-anim-container.is-running .smart-packet-top {
             animation: pathTop 16s ease-in-out infinite;
         }
+
         #workflow-anim-container.is-running .smart-packet-bottom {
             animation: pathBottom 16s ease-in-out infinite;
         }
 
         /* مسار الإنذار (فوق) */
         @keyframes pathTop {
-            0%, 5.9% { opacity: 0; left: 8%; top: 49%; background: #00e5ff; box-shadow: 0 0 15px 3px #00e5ff; } /* Webhook Loading */
-            6% { opacity: 1; left: 8%; top: 49%; }
-            17.9% { opacity: 1; left: 24.5%; top: 49%; } /* Arrive JS */
-            18%, 29.9% { opacity: 0; left: 24.5%; top: 49%; } /* JS Loading */
-            30% { opacity: 1; left: 24.5%; top: 49%; background: #00e5ff; box-shadow: 0 0 15px 3px #00e5ff; }
-            41.9% { opacity: 1; left: 45.5%; top: 25%; } /* Arrive If */
-            42%, 53.9% { opacity: 0; left: 45.5%; top: 25%; background: #00e5ff; box-shadow: 0 0 15px 3px #00e5ff; } /* If Loading */
-            54% { opacity: 1; left: 45.5%; top: 25%; background: #00e676; box-shadow: 0 0 15px 3px #00e676; } /* Turn Green */
-            65.9% { opacity: 1; left: 65%; top: 25%; } /* Arrive AI */
-            66%, 77.9% { opacity: 0; left: 65%; top: 25%; background: #00e676; box-shadow: 0 0 15px 3px #00e676; } /* AI Loading */
-            78% { opacity: 1; left: 65%; top: 25%; }
-            89.9% { opacity: 1; left: 88.5%; top: 57%; } /* Arrive Telegram */
-            90%, 100% { opacity: 0; left: 88.5%; top: 57%; } /* Alert state */
+
+            0%,
+            5.9% {
+                opacity: 0;
+                left: 8%;
+                top: 49%;
+                background: #00e5ff;
+                box-shadow: 0 0 15px 3px #00e5ff;
+            }
+
+            /* Webhook Loading */
+            6% {
+                opacity: 1;
+                left: 8%;
+                top: 49%;
+            }
+
+            17.9% {
+                opacity: 1;
+                left: 24.5%;
+                top: 49%;
+            }
+
+            /* Arrive JS */
+            18%,
+            29.9% {
+                opacity: 0;
+                left: 24.5%;
+                top: 49%;
+            }
+
+            /* JS Loading */
+            30% {
+                opacity: 1;
+                left: 24.5%;
+                top: 49%;
+                background: #00e5ff;
+                box-shadow: 0 0 15px 3px #00e5ff;
+            }
+
+            41.9% {
+                opacity: 1;
+                left: 45.5%;
+                top: 25%;
+            }
+
+            /* Arrive If */
+            42%,
+            53.9% {
+                opacity: 0;
+                left: 45.5%;
+                top: 25%;
+                background: #00e5ff;
+                box-shadow: 0 0 15px 3px #00e5ff;
+            }
+
+            /* If Loading */
+            54% {
+                opacity: 1;
+                left: 45.5%;
+                top: 25%;
+                background: #00e676;
+                box-shadow: 0 0 15px 3px #00e676;
+            }
+
+            /* Turn Green */
+            65.9% {
+                opacity: 1;
+                left: 65%;
+                top: 25%;
+            }
+
+            /* Arrive AI */
+            66%,
+            77.9% {
+                opacity: 0;
+                left: 65%;
+                top: 25%;
+                background: #00e676;
+                box-shadow: 0 0 15px 3px #00e676;
+            }
+
+            /* AI Loading */
+            78% {
+                opacity: 1;
+                left: 65%;
+                top: 25%;
+            }
+
+            89.9% {
+                opacity: 1;
+                left: 88.5%;
+                top: 57%;
+            }
+
+            /* Arrive Telegram */
+            90%,
+            100% {
+                opacity: 0;
+                left: 88.5%;
+                top: 57%;
+            }
+
+            /* Alert state */
         }
 
         /* مسار الشيت (تحت) متزامن مع فوق لحد الـ JS */
         @keyframes pathBottom {
-            0%, 5.9% { opacity: 0; left: 8%; top: 49%; background: #00e5ff; box-shadow: 0 0 15px 3px #00e5ff; } /* Webhook Loading */
-            6% { opacity: 1; left: 8%; top: 49%; }
-            17.9% { opacity: 1; left: 24.5%; top: 49%; } /* Arrive JS */
-            18%, 29.9% { opacity: 0; left: 24.5%; top: 49%; } /* JS Loading */
-            30% { opacity: 1; left: 24.5%; top: 49%; background: #ffb300; box-shadow: 0 0 15px 3px #ffb300; } /* Turn Orange & SPLIT */
-            41.9% { opacity: 1; left: 45.5%; top: 73%; } /* Arrive Sheets */
-            42%, 100% { opacity: 0; left: 45.5%; top: 73%; background: #ffb300; box-shadow: 0 0 15px 3px #ffb300; } /* Sheets Loading & wait */
+
+            0%,
+            5.9% {
+                opacity: 0;
+                left: 8%;
+                top: 49%;
+                background: #00e5ff;
+                box-shadow: 0 0 15px 3px #00e5ff;
+            }
+
+            /* Webhook Loading */
+            6% {
+                opacity: 1;
+                left: 8%;
+                top: 49%;
+            }
+
+            17.9% {
+                opacity: 1;
+                left: 24.5%;
+                top: 49%;
+            }
+
+            /* Arrive JS */
+            18%,
+            29.9% {
+                opacity: 0;
+                left: 24.5%;
+                top: 49%;
+            }
+
+            /* JS Loading */
+            30% {
+                opacity: 1;
+                left: 24.5%;
+                top: 49%;
+                background: #ffb300;
+                box-shadow: 0 0 15px 3px #ffb300;
+            }
+
+            /* Turn Orange & SPLIT */
+            41.9% {
+                opacity: 1;
+                left: 45.5%;
+                top: 73%;
+            }
+
+            /* Arrive Sheets */
+            42%,
+            100% {
+                opacity: 0;
+                left: 45.5%;
+                top: 73%;
+                background: #ffb300;
+                box-shadow: 0 0 15px 3px #ffb300;
+            }
+
+            /* Sheets Loading & wait */
         }
 
         /* اللودينج في نص كل بلوك */
@@ -135,12 +364,29 @@
             opacity: 0;
         }
 
-        #workflow-anim-container.is-running .loader-1 { animation: vis-webhook 16s infinite; }
-        #workflow-anim-container.is-running .loader-2 { animation: vis-code 16s infinite; }
-        #workflow-anim-container.is-running .loader-3 { animation: vis-if 16s infinite; }
-        #workflow-anim-container.is-running .loader-4 { animation: vis-ai 16s infinite; }
-        #workflow-anim-container.is-running .loader-5 { animation: vis-telegram 16s infinite; }
-        #workflow-anim-container.is-running .loader-6 { animation: vis-sheets 16s infinite; }
+        #workflow-anim-container.is-running .loader-1 {
+            animation: vis-webhook 16s infinite;
+        }
+
+        #workflow-anim-container.is-running .loader-2 {
+            animation: vis-code 16s infinite;
+        }
+
+        #workflow-anim-container.is-running .loader-3 {
+            animation: vis-if 16s infinite;
+        }
+
+        #workflow-anim-container.is-running .loader-4 {
+            animation: vis-ai 16s infinite;
+        }
+
+        #workflow-anim-container.is-running .loader-5 {
+            animation: vis-telegram 16s infinite;
+        }
+
+        #workflow-anim-container.is-running .loader-6 {
+            animation: vis-sheets 16s infinite;
+        }
 
         .cyber-loader {
             position: relative;
@@ -150,39 +396,149 @@
             align-items: center;
             justify-content: center;
         }
-        .cyber-loader::before, .cyber-loader::after {
+
+        .cyber-loader::before,
+        .cyber-loader::after {
             content: '';
             position: absolute;
             border-radius: 50%;
             border: 3px solid transparent;
         }
+
         .cyber-loader::before {
-            width: 100%; height: 100%;
+            width: 100%;
+            height: 100%;
             border-top-color: currentColor;
             border-bottom-color: currentColor;
             animation: spin-forward 1s linear infinite;
             box-shadow: inset 0 0 10px currentColor;
         }
+
         .cyber-loader::after {
-            width: 55%; height: 55%;
+            width: 55%;
+            height: 55%;
             border-left-color: currentColor;
             border-right-color: currentColor;
             animation: spin-backward 0.6s linear infinite;
         }
-        @keyframes spin-forward { 100% { transform: rotate(360deg); } }
-        @keyframes spin-backward { 100% { transform: rotate(-360deg); } }
+
+        @keyframes spin-forward {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin-backward {
+            100% {
+                transform: rotate(-360deg);
+            }
+        }
 
         /* توقيت ظهور اللودينج بالظبط في وقت اختفاء الكور */
-        @keyframes vis-webhook { 0%, 5.9% {opacity:1} 6%, 100% {opacity:0} }
-        @keyframes vis-code { 0%, 17.9% {opacity:0} 18%, 29.9% {opacity:1} 30%, 100% {opacity:0} }
-        @keyframes vis-if { 0%, 41.9% {opacity:0} 42%, 53.9% {opacity:1} 54%, 100% {opacity:0} }
-        @keyframes vis-sheets { 0%, 41.9% {opacity:0} 42%, 53.9% {opacity:1} 54%, 100% {opacity:0} }
-        @keyframes vis-ai { 0%, 65.9% {opacity:0} 66%, 77.9% {opacity:1} 78%, 100% {opacity:0} }
-        
+        @keyframes vis-webhook {
+
+            0%,
+            5.9% {
+                opacity: 1
+            }
+
+            6%,
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes vis-code {
+
+            0%,
+            17.9% {
+                opacity: 0
+            }
+
+            18%,
+            29.9% {
+                opacity: 1
+            }
+
+            30%,
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes vis-if {
+
+            0%,
+            41.9% {
+                opacity: 0
+            }
+
+            42%,
+            53.9% {
+                opacity: 1
+            }
+
+            54%,
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes vis-sheets {
+
+            0%,
+            41.9% {
+                opacity: 0
+            }
+
+            42%,
+            53.9% {
+                opacity: 1
+            }
+
+            54%,
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes vis-ai {
+
+            0%,
+            65.9% {
+                opacity: 0
+            }
+
+            66%,
+            77.9% {
+                opacity: 1
+            }
+
+            78%,
+            100% {
+                opacity: 0
+            }
+        }
+
         @keyframes vis-telegram {
-            0%, 89.9% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
-            90%, 98.9% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-            99%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+
+            0%,
+            89.9% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.5);
+            }
+
+            90%,
+            98.9% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            99%,
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.5);
+            }
         }
 
         .alert-beacon {
@@ -192,15 +548,21 @@
             align-items: center;
             justify-content: center;
         }
+
         .alert-beacon .icon-bg {
-            width: 56px; height: 56px;
+            width: 56px;
+            height: 56px;
             background-color: #ff4d6d;
             border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            color: white; font-size: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 26px;
             box-shadow: 0 0 20px #ff4d6d, 0 0 60px #ff4d6d;
-            animation: extreme-pulse 0.3s infinite alternate; 
+            animation: extreme-pulse 0.3s infinite alternate;
         }
+
         .alert-beacon .alert-text {
             position: absolute;
             top: -50px;
@@ -215,18 +577,38 @@
             box-shadow: 0 5px 15px rgba(255, 77, 109, 0.5);
             animation: bounce-text 0.4s infinite alternate;
         }
+
         .alert-beacon .alert-text::after {
-            content: ''; position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%);
-            border-width: 6px 6px 0; border-style: solid; border-color: #ff4d6d transparent transparent;
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 6px 6px 0;
+            border-style: solid;
+            border-color: #ff4d6d transparent transparent;
         }
-        
+
         @keyframes extreme-pulse {
-            0% { transform: scale(1); box-shadow: 0 0 20px #ff4d6d; }
-            100% { transform: scale(1.3); box-shadow: 0 0 50px #ff4d6d, 0 0 90px #ff4d6d; }
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 20px #ff4d6d;
+            }
+
+            100% {
+                transform: scale(1.3);
+                box-shadow: 0 0 50px #ff4d6d, 0 0 90px #ff4d6d;
+            }
         }
+
         @keyframes bounce-text {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-10px); }
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-10px);
+            }
         }
     </style>
 
@@ -238,58 +620,93 @@
         }
     </script>
 </head>
-<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 overflow-x-hidden relative transition-colors duration-300">
 
-    <nav class="fixed top-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-100 dark:border-gray-800 transition-colors duration-300">
+<body
+    class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 overflow-x-hidden relative transition-colors duration-300">
+
+    <nav
+        class="fixed top-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-100 dark:border-gray-800 transition-colors duration-300">
         <div class="px-6 py-4 flex justify-between items-center max-w-7xl mx-auto">
             <div class="flex items-center space-x-3 z-50">
                 <i class="fa-solid fa-heart-pulse text-[#E22C2C] text-2xl"></i>
                 <span class="font-bold text-xl font-['Poppins'] tracking-tight dark:text-white">HealthMonitor</span>
             </div>
-            
+
             <div class="hidden lg:flex items-center space-x-8">
-                <a href="#home" class="nav-link text-gray-500 dark:text-gray-400 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] text-sm uppercase active"><i class="fa-solid fa-house mr-1"></i> Home</a>
-                <a href="#product" class="nav-link text-gray-500 dark:text-gray-400 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] text-sm uppercase"><i class="fa-solid fa-box-archive mr-1"></i> Product</a>
-                
+                <a href="#home"
+                    class="nav-link text-gray-500 dark:text-gray-400 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] text-sm uppercase active"><i
+                        class="fa-solid fa-house mr-1"></i> Home</a>
+                <a href="#product"
+                    class="nav-link text-gray-500 dark:text-gray-400 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] text-sm uppercase"><i
+                        class="fa-solid fa-box-archive mr-1"></i> Product</a>
+
                 <div class="relative group">
-                    <a href="#debug" class="nav-link flex items-center text-gray-500 dark:text-gray-400 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] text-sm uppercase cursor-pointer py-2">
-                        <i class="fa-solid fa-bug mr-1"></i> Debug <i class="fa-solid fa-chevron-down ml-1.5 text-[10px]"></i>
+                    <a href="#debug"
+                        class="nav-link flex items-center text-gray-500 dark:text-gray-400 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] text-sm uppercase cursor-pointer py-2">
+                        <i class="fa-solid fa-bug mr-1"></i> Debug <i
+                            class="fa-solid fa-chevron-down ml-1.5 text-[10px]"></i>
                     </a>
-                    <div class="absolute left-0 mt-0 w-52 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left scale-95 group-hover:scale-100 z-50">
+                    <div
+                        class="absolute left-0 mt-0 w-52 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left scale-95 group-hover:scale-100 z-50">
                         <div class="py-2">
-                            <a href="#debug" class="block px-4 py-2.5 text-sm font-['Poppins'] text-gray-700 dark:text-gray-300 hover:bg-red-50 dark:hover:bg-gray-700 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] transition-colors"><i class="fa-solid fa-network-wired mr-2 w-4 text-center"></i>Circuit Diagram</a>
-                            <a href="#app-part" class="block px-4 py-2.5 text-sm font-['Poppins'] text-gray-700 dark:text-gray-300 hover:bg-red-50 dark:hover:bg-gray-700 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] transition-colors"><i class="fa-solid fa-mobile-screen mr-2 w-4 text-center"></i>Mobile App</a>
-                            <a href="#automation-section" class="block px-4 py-2.5 text-sm font-['Poppins'] text-gray-700 dark:text-gray-300 hover:bg-red-50 dark:hover:bg-gray-700 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] transition-colors"><i class="fa-solid fa-gears mr-2 w-4 text-center"></i>Automation</a>
-                            <a href="#live-monitoring-section" class="block px-4 py-2.5 text-sm font-['Poppins'] text-gray-700 dark:text-gray-300 hover:bg-red-50 dark:hover:bg-gray-700 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] transition-colors"><i class="fa-solid fa-satellite-dish mr-2 w-4 text-center"></i>Live Monitoring</a>
+                            <a href="#debug"
+                                class="block px-4 py-2.5 text-sm font-['Poppins'] text-gray-700 dark:text-gray-300 hover:bg-red-50 dark:hover:bg-gray-700 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] transition-colors"><i
+                                    class="fa-solid fa-network-wired mr-2 w-4 text-center"></i>Circuit Diagram</a>
+                            <a href="#app-part"
+                                class="block px-4 py-2.5 text-sm font-['Poppins'] text-gray-700 dark:text-gray-300 hover:bg-red-50 dark:hover:bg-gray-700 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] transition-colors"><i
+                                    class="fa-solid fa-mobile-screen mr-2 w-4 text-center"></i>Mobile App</a>
+                            <a href="#automation-section"
+                                class="block px-4 py-2.5 text-sm font-['Poppins'] text-gray-700 dark:text-gray-300 hover:bg-red-50 dark:hover:bg-gray-700 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] transition-colors"><i
+                                    class="fa-solid fa-gears mr-2 w-4 text-center"></i>Automation</a>
+                            <a href="#live-monitoring-section"
+                                class="block px-4 py-2.5 text-sm font-['Poppins'] text-gray-700 dark:text-gray-300 hover:bg-red-50 dark:hover:bg-gray-700 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] transition-colors"><i
+                                    class="fa-solid fa-satellite-dish mr-2 w-4 text-center"></i>Live Monitoring</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="relative group">
-                    <a href="#sensors" class="nav-link flex items-center text-gray-500 dark:text-gray-400 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] text-sm uppercase cursor-pointer py-2">
-                        <i class="fa-solid fa-microchip mr-1"></i> Sensors <i class="fa-solid fa-chevron-down ml-1.5 text-[10px]"></i>
+                    <a href="#sensors"
+                        class="nav-link flex items-center text-gray-500 dark:text-gray-400 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] text-sm uppercase cursor-pointer py-2">
+                        <i class="fa-solid fa-microchip mr-1"></i> Sensors <i
+                            class="fa-solid fa-chevron-down ml-1.5 text-[10px]"></i>
                     </a>
-                    <div class="absolute left-0 mt-0 w-48 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left scale-95 group-hover:scale-100 z-50">
+                    <div
+                        class="absolute left-0 mt-0 w-48 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left scale-95 group-hover:scale-100 z-50">
                         <div class="py-2">
-                            <a href="#esp32" class="block px-4 py-2.5 text-sm font-['Poppins'] text-gray-700 dark:text-gray-300 hover:bg-red-50 dark:hover:bg-gray-700 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] transition-colors"><i class="fa-solid fa-microchip mr-2 w-4 text-center"></i>ESP32</a>
-                            <a href="#max30105" class="block px-4 py-2.5 text-sm font-['Poppins'] text-gray-700 dark:text-gray-300 hover:bg-red-50 dark:hover:bg-gray-700 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] transition-colors"><i class="fa-solid fa-heart-pulse mr-2 w-4 text-center"></i>MAX30105</a>
-                            <a href="#mpu6050" class="block px-4 py-2.5 text-sm font-['Poppins'] text-gray-700 dark:text-gray-300 hover:bg-red-50 dark:hover:bg-gray-700 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] transition-colors"><i class="fa-solid fa-person-falling mr-2 w-4 text-center"></i>MPU6050</a>
-                            <a href="#mlx90614" class="block px-4 py-2.5 text-sm font-['Poppins'] text-gray-700 dark:text-gray-300 hover:bg-red-50 dark:hover:bg-gray-700 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] transition-colors"><i class="fa-solid fa-temperature-half mr-2 w-4 text-center"></i>MLX90614</a>
-                            <a href="#ad8232" class="block px-4 py-2.5 text-sm font-['Poppins'] text-gray-700 dark:text-gray-300 hover:bg-red-50 dark:hover:bg-gray-700 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] transition-colors"><i class="fa-solid fa-wave-square mr-2 w-4 text-center"></i>AD8232</a>
+                            <a href="#esp32"
+                                class="block px-4 py-2.5 text-sm font-['Poppins'] text-gray-700 dark:text-gray-300 hover:bg-red-50 dark:hover:bg-gray-700 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] transition-colors"><i
+                                    class="fa-solid fa-microchip mr-2 w-4 text-center"></i>ESP32</a>
+                            <a href="#max30105"
+                                class="block px-4 py-2.5 text-sm font-['Poppins'] text-gray-700 dark:text-gray-300 hover:bg-red-50 dark:hover:bg-gray-700 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] transition-colors"><i
+                                    class="fa-solid fa-heart-pulse mr-2 w-4 text-center"></i>MAX30105</a>
+                            <a href="#mpu6050"
+                                class="block px-4 py-2.5 text-sm font-['Poppins'] text-gray-700 dark:text-gray-300 hover:bg-red-50 dark:hover:bg-gray-700 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] transition-colors"><i
+                                    class="fa-solid fa-person-falling mr-2 w-4 text-center"></i>MPU6050</a>
+                            <a href="#mlx90614"
+                                class="block px-4 py-2.5 text-sm font-['Poppins'] text-gray-700 dark:text-gray-300 hover:bg-red-50 dark:hover:bg-gray-700 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] transition-colors"><i
+                                    class="fa-solid fa-temperature-half mr-2 w-4 text-center"></i>MLX90614</a>
+                            <a href="#ad8232"
+                                class="block px-4 py-2.5 text-sm font-['Poppins'] text-gray-700 dark:text-gray-300 hover:bg-red-50 dark:hover:bg-gray-700 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] transition-colors"><i
+                                    class="fa-solid fa-wave-square mr-2 w-4 text-center"></i>AD8232</a>
                         </div>
                     </div>
                 </div>
 
-                <a href="#future" class="nav-link text-gray-500 dark:text-gray-400 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] text-sm uppercase"><i class="fa-solid fa-rocket mr-1"></i> Future</a>
-                
-                <button type="button" class="theme-toggle-btn text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full text-sm p-2 transition-colors">
+                <a href="#future"
+                    class="nav-link text-gray-500 dark:text-gray-400 hover:text-[#E22C2C] dark:hover:text-[#E22C2C] text-sm uppercase"><i
+                        class="fa-solid fa-rocket mr-1"></i> Future</a>
+
+                <button type="button"
+                    class="theme-toggle-btn text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full text-sm p-2 transition-colors">
                     <i class="fa-solid fa-moon text-lg hidden dark-icon"></i>
                     <i class="fa-solid fa-sun text-lg hidden light-icon"></i>
                 </button>
             </div>
 
             <div class="lg:hidden flex items-center space-x-4 z-50">
-                <button type="button" class="theme-toggle-btn text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full text-sm p-2 transition-colors">
+                <button type="button"
+                    class="theme-toggle-btn text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full text-sm p-2 transition-colors">
                     <i class="fa-solid fa-moon text-lg hidden dark-icon"></i>
                     <i class="fa-solid fa-sun text-lg hidden light-icon"></i>
                 </button>
@@ -299,51 +716,76 @@
             </div>
         </div>
 
-        <div id="mobile-menu" class="lg:hidden bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 absolute w-full left-0 z-40 shadow-lg">
+        <div id="mobile-menu"
+            class="lg:hidden bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 absolute w-full left-0 z-40 shadow-lg">
             <div class="flex flex-col px-6 py-4 space-y-4 font-['Poppins']">
-                <a href="#home" class="mobile-link text-gray-600 dark:text-gray-300 hover:text-[#E22C2C]"><i class="fa-solid fa-house mr-2 w-5"></i> Home</a>
-                <a href="#product" class="mobile-link text-gray-600 dark:text-gray-300 hover:text-[#E22C2C]"><i class="fa-solid fa-box-archive mr-2 w-5"></i> Product</a>
-                
+                <a href="#home" class="mobile-link text-gray-600 dark:text-gray-300 hover:text-[#E22C2C]"><i
+                        class="fa-solid fa-house mr-2 w-5"></i> Home</a>
+                <a href="#product" class="mobile-link text-gray-600 dark:text-gray-300 hover:text-[#E22C2C]"><i
+                        class="fa-solid fa-box-archive mr-2 w-5"></i> Product</a>
+
                 <div>
-                    <span class="text-gray-800 dark:text-gray-200 font-bold block mb-2"><i class="fa-solid fa-bug mr-2 w-5"></i> Debug</span>
+                    <span class="text-gray-800 dark:text-gray-200 font-bold block mb-2"><i
+                            class="fa-solid fa-bug mr-2 w-5"></i> Debug</span>
                     <div class="pl-7 flex flex-col space-y-3 border-l-2 border-gray-100 dark:border-gray-700 ml-2">
-                        <a href="#debug" class="mobile-link text-sm text-gray-500 dark:text-gray-400 hover:text-[#E22C2C]"><i class="fa-solid fa-network-wired mr-2 w-4 text-center"></i> Circuit Diagram</a>
-                        <a href="#app-part" class="mobile-link text-sm text-gray-500 dark:text-gray-400 hover:text-[#E22C2C]"><i class="fa-solid fa-mobile-screen mr-2 w-4 text-center"></i> Mobile App</a>
-                        <a href="#automation-section" class="mobile-link text-sm text-gray-500 dark:text-gray-400 hover:text-[#E22C2C]"><i class="fa-solid fa-gears mr-2 w-4 text-center"></i> Automation</a>
-                        <a href="#live-monitoring-section" class="mobile-link text-sm text-gray-500 dark:text-gray-400 hover:text-[#E22C2C]"><i class="fa-solid fa-satellite-dish mr-2 w-4 text-center"></i> Live Monitoring</a>
+                        <a href="#debug"
+                            class="mobile-link text-sm text-gray-500 dark:text-gray-400 hover:text-[#E22C2C]"><i
+                                class="fa-solid fa-network-wired mr-2 w-4 text-center"></i> Circuit Diagram</a>
+                        <a href="#app-part"
+                            class="mobile-link text-sm text-gray-500 dark:text-gray-400 hover:text-[#E22C2C]"><i
+                                class="fa-solid fa-mobile-screen mr-2 w-4 text-center"></i> Mobile App</a>
+                        <a href="#automation-section"
+                            class="mobile-link text-sm text-gray-500 dark:text-gray-400 hover:text-[#E22C2C]"><i
+                                class="fa-solid fa-gears mr-2 w-4 text-center"></i> Automation</a>
+                        <a href="#live-monitoring-section"
+                            class="mobile-link text-sm text-gray-500 dark:text-gray-400 hover:text-[#E22C2C]"><i
+                                class="fa-solid fa-satellite-dish mr-2 w-4 text-center"></i> Live Monitoring</a>
                     </div>
                 </div>
 
-                <a href="#sensors" class="mobile-link text-gray-600 dark:text-gray-300 hover:text-[#E22C2C]"><i class="fa-solid fa-microchip mr-2 w-5"></i> Sensors</a>
-                <a href="#future" class="mobile-link text-gray-600 dark:text-gray-300 hover:text-[#E22C2C]"><i class="fa-solid fa-rocket mr-2 w-5"></i> Future</a>
+                <a href="#sensors" class="mobile-link text-gray-600 dark:text-gray-300 hover:text-[#E22C2C]"><i
+                        class="fa-solid fa-microchip mr-2 w-5"></i> Sensors</a>
+                <a href="#future" class="mobile-link text-gray-600 dark:text-gray-300 hover:text-[#E22C2C]"><i
+                        class="fa-solid fa-rocket mr-2 w-5"></i> Future</a>
             </div>
         </div>
     </nav>
 
-    <section id="home" class="hero-gradient min-h-screen lg:min-h-[90vh] flex items-center pt-28 lg:pt-24 px-6 lg:px-8 overflow-hidden">
+    <section id="home"
+        class="hero-gradient min-h-screen lg:min-h-[90vh] flex items-center pt-28 lg:pt-24 px-6 lg:px-8 overflow-hidden">
         <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
             <div class="z-10 text-center lg:text-left mt-10 lg:mt-0">
-                <h1 class="text-5xl lg:text-[85px] font-bold text-[#707070] dark:text-gray-200 font-['Poppins'] leading-tight mb-4 transition-colors">
-                    Smart Health <br><span class="text-[#E22C2C]">Monitoring</span>
+                <h1
+                    class="text-5xl lg:text-[85px] font-bold text-[#707070] dark:text-gray-200 font-['Poppins'] leading-tight mb-4 transition-colors">
+                    Life Guard <br><span class="text-[#E22C2C]">Automated Health Monitoring System</span>
                 </h1>
-                
-                <div class="border-l-4 border-[#E22C2C] pl-6 py-2 my-8 mx-auto lg:mx-0 max-w-md lg:max-w-none text-left">
-                    <p class="text-xl lg:text-2xl italic font-['Lora'] text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">
+
+                <div
+                    class="border-l-4 border-[#E22C2C] pl-6 py-2 my-8 mx-auto lg:mx-0 max-w-md lg:max-w-none text-left">
+                    <p
+                        class="text-xl lg:text-2xl italic font-['Lora'] text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">
                         Total Care, Zero Worry: Your Patient is Safe in Our Hands.
                     </p>
                 </div>
 
-                <a href="#product" class="inline-block bg-[#E22C2C] text-white px-10 py-4 rounded-full font-bold shadow-xl hover:bg-black dark:hover:bg-gray-800 transition-all font-['Poppins'] cursor-pointer">
+                <a href="#product"
+                    class="inline-block bg-[#E22C2C] text-white px-10 py-4 rounded-full font-bold shadow-xl hover:bg-black dark:hover:bg-gray-800 transition-all font-['Poppins'] cursor-pointer">
                     Explore Solution
                 </a>
             </div>
 
             <div class="relative flex justify-center items-center mt-10 lg:mt-0 h-[300px] lg:h-auto">
-                <div class="absolute -z-10 w-[300px] lg:w-[500px] h-[300px] lg:h-[500px] bg-red-50 dark:bg-red-900/20 rounded-full blur-[100px] opacity-70 transition-colors"></div>
-                <span class="absolute inline-flex rounded-full bg-[#E22C2C] opacity-70 animate-pulse-red w-[150px] lg:w-[250px] h-[150px] lg:h-[250px]"></span>
-                <span class="absolute inline-flex rounded-full bg-[#E22C2C] opacity-50 animate-pulse-red w-[150px] lg:w-[250px] h-[150px] lg:h-[250px]" style="animation-delay: 0.8s; animation-duration: 3s;"></span>
+                <div
+                    class="absolute -z-10 w-[300px] lg:w-[500px] h-[300px] lg:h-[500px] bg-red-50 dark:bg-red-900/20 rounded-full blur-[100px] opacity-70 transition-colors">
+                </div>
+                <span
+                    class="absolute inline-flex rounded-full bg-[#E22C2C] opacity-70 animate-pulse-red w-[150px] lg:w-[250px] h-[150px] lg:h-[250px]"></span>
+                <span
+                    class="absolute inline-flex rounded-full bg-[#E22C2C] opacity-50 animate-pulse-red w-[150px] lg:w-[250px] h-[150px] lg:h-[250px]"
+                    style="animation-delay: 0.8s; animation-duration: 3s;"></span>
                 <div class="relative transform scale-110 lg:scale-150 transition-transform duration-700">
-                    <img src="images/home1.png" alt="Main Heart System" class="w-64 lg:w-full h-auto drop-shadow-[0_35px_35px_rgba(226,44,44,0.15)] dark:drop-shadow-[0_35px_35px_rgba(226,44,44,0.3)]">
+                    <img src="images/home1.png" alt="Main Heart System"
+                        class="w-64 lg:w-full h-auto drop-shadow-[0_35px_35px_rgba(226,44,44,0.15)] dark:drop-shadow-[0_35px_35px_rgba(226,44,44,0.3)]">
                 </div>
             </div>
         </div>
@@ -351,177 +793,257 @@
 
     <section id="product" class="py-20 lg:py-32 px-6 bg-white dark:bg-gray-900 transition-colors duration-300">
         <div class="max-w-6xl mx-auto text-center">
-            
-            <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-[#707070] dark:text-gray-200 font-['Poppins'] transition-colors">Our Mission</h2>
-            <p class="text-lg lg:text-2xl leading-relaxed text-gray-600 dark:text-gray-400 mb-12 lg:mb-16 transition-colors max-w-4xl mx-auto">
-                In the realm of healthcare, we bridge the gap for those who cannot articulate their pain, acting as a digital voice and a 24/7 guardian.
+
+            <h2
+                class="text-4xl lg:text-5xl font-bold mb-6 text-[#707070] dark:text-gray-200 font-['Poppins'] transition-colors">
+                Our Mission</h2>
+            <p
+                class="text-lg lg:text-2xl leading-relaxed text-gray-600 dark:text-gray-400 mb-12 lg:mb-16 transition-colors max-w-4xl mx-auto">
+                In the realm of healthcare, we bridge the gap for those who cannot articulate their pain, acting as a
+                digital voice and a 24/7 guardian.
             </p>
 
             <div class="grid md:grid-cols-3 gap-6 lg:gap-8 mb-20 lg:mb-24 max-w-4xl mx-auto">
-                <div class="p-6 lg:p-8 bg-gray-50 dark:bg-gray-800 rounded-2xl hover:shadow-xl transition-all border border-gray-100 dark:border-gray-700">
+                <div
+                    class="p-6 lg:p-8 bg-gray-50 dark:bg-gray-800 rounded-2xl hover:shadow-xl transition-all border border-gray-100 dark:border-gray-700">
                     <i class="fa-solid fa-bolt text-[#E22C2C] text-3xl mb-4"></i>
                     <h3 class="font-bold mb-2 font-['Poppins'] dark:text-white">Real-time</h3>
                     <p class="text-sm text-gray-500 dark:text-gray-400">Instant vitals processing via ESP32.</p>
                 </div>
-                <div class="p-6 lg:p-8 bg-gray-50 dark:bg-gray-800 rounded-2xl hover:shadow-xl transition-all border border-gray-100 dark:border-gray-700">
+                <div
+                    class="p-6 lg:p-8 bg-gray-50 dark:bg-gray-800 rounded-2xl hover:shadow-xl transition-all border border-gray-100 dark:border-gray-700">
                     <i class="fa-solid fa-shield-heart text-[#E22C2C] text-3xl mb-4"></i>
                     <h3 class="font-bold mb-2 font-['Poppins'] dark:text-white">Secure</h3>
                     <p class="text-sm text-gray-500 dark:text-gray-400">Encrypted health data for patient privacy.</p>
                 </div>
-                <div class="p-6 lg:p-8 bg-gray-50 dark:bg-gray-800 rounded-2xl hover:shadow-xl transition-all border border-gray-100 dark:border-gray-700">
+                <div
+                    class="p-6 lg:p-8 bg-gray-50 dark:bg-gray-800 rounded-2xl hover:shadow-xl transition-all border border-gray-100 dark:border-gray-700">
                     <i class="fa-solid fa-mobile-screen-button text-[#E22C2C] text-3xl mb-4"></i>
                     <h3 class="font-bold mb-2 font-['Poppins'] dark:text-white">Accessible</h3>
                     <p class="text-sm text-gray-500 dark:text-gray-400">Dedicated mobile interface for caregivers.</p>
                 </div>
             </div>
 
-            <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-[#707070] dark:text-gray-200 font-['Poppins'] transition-colors">Product Overview</h2>
-            <p class="text-lg lg:text-2xl leading-relaxed text-gray-600 dark:text-gray-400 mb-12 lg:mb-16 transition-colors max-w-4xl mx-auto">
-                This innovative wearable device is designed to provide continuous, real-time health monitoring for elderly individuals and patients with limited mobility. By integrating advanced IoT technology with precision medical sensors, our system ensures that vital signs are constantly tracked, providing peace of mind for both patients and caregivers.
+            <h2
+                class="text-4xl lg:text-5xl font-bold mb-6 text-[#707070] dark:text-gray-200 font-['Poppins'] transition-colors">
+                Product Overview</h2>
+            <p
+                class="text-lg lg:text-2xl leading-relaxed text-gray-600 dark:text-gray-400 mb-12 lg:mb-16 transition-colors max-w-4xl mx-auto">
+                This innovative wearable device is designed to provide continuous, real-time health monitoring for
+                elderly individuals and patients with limited mobility. By integrating advanced IoT technology with
+                precision medical sensors, our system ensures that vital signs are constantly tracked, providing peace
+                of mind for both patients and caregivers.
             </p>
 
-            <div class="max-w-4xl mx-auto mb-20 lg:mb-32 relative group cursor-pointer video-overlay rounded-3xl" onclick="playFullscreenVideo()">
-                <div class="absolute -inset-1 bg-gradient-to-r from-[#E22C2C] to-red-400 rounded-3xl blur opacity-25 group-hover:opacity-60 transition duration-500"></div>
-                <div class="relative bg-white dark:bg-gray-800 rounded-3xl p-2 shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
-                    <video id="projectVideo" class="w-full rounded-2xl object-cover h-[250px] sm:h-[350px] md:h-[500px]" preload="metadata">
+            <div class="max-w-4xl mx-auto mb-20 lg:mb-32 relative group cursor-pointer video-overlay rounded-3xl"
+                onclick="playFullscreenVideo()">
+                <div
+                    class="absolute -inset-1 bg-gradient-to-r from-[#E22C2C] to-red-400 rounded-3xl blur opacity-25 group-hover:opacity-60 transition duration-500">
+                </div>
+                <div
+                    class="relative bg-white dark:bg-gray-800 rounded-3xl p-2 shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
+                    <video id="projectVideo" class="w-full rounded-2xl object-cover h-[250px] sm:h-[350px] md:h-[500px]"
+                        preload="metadata">
                         <source src="images/v3.mp4#t=10" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                        <div class="play-btn w-16 h-16 lg:w-20 lg:h-20 bg-white/90 dark:bg-gray-800/90 rounded-full flex items-center justify-center text-[#E22C2C] shadow-[0_10px_25px_rgba(226,44,44,0.3)] backdrop-blur-sm transition-all duration-300">
+                        <div
+                            class="play-btn w-16 h-16 lg:w-20 lg:h-20 bg-white/90 dark:bg-gray-800/90 rounded-full flex items-center justify-center text-[#E22C2C] shadow-[0_10px_25px_rgba(226,44,44,0.3)] backdrop-blur-sm transition-all duration-300">
                             <i class="fa-solid fa-play text-2xl lg:text-3xl ml-1 lg:ml-2"></i>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <h2 class="text-4xl lg:text-5xl font-bold mb-8 lg:mb-12 text-[#707070] dark:text-gray-200 font-['Poppins'] transition-colors">Key Features</h2>
+            <h2
+                class="text-4xl lg:text-5xl font-bold mb-8 lg:mb-12 text-[#707070] dark:text-gray-200 font-['Poppins'] transition-colors">
+                Key Features</h2>
             <div class="grid md:grid-cols-2 gap-6 lg:gap-8 text-left mb-20 lg:mb-32 max-w-5xl mx-auto">
-                <div class="group bg-white dark:bg-gray-800 p-6 lg:p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                <div
+                    class="group bg-white dark:bg-gray-800 p-6 lg:p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
                     <div class="absolute top-0 left-0 w-2 h-full bg-[#E22C2C]"></div>
                     <div class="flex items-start space-x-4 lg:space-x-5">
-                        <div class="bg-red-50 dark:bg-red-900/30 p-3 lg:p-4 rounded-2xl group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-300 shrink-0">
+                        <div
+                            class="bg-red-50 dark:bg-red-900/30 p-3 lg:p-4 rounded-2xl group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-300 shrink-0">
                             <i class="fa-solid fa-heart-pulse text-[#E22C2C] text-2xl lg:text-3xl"></i>
                         </div>
                         <div>
-                            <h3 class="text-lg lg:text-xl font-bold mb-2 font-['Poppins'] text-gray-800 dark:text-gray-100">Real-time Vital Signs Tracking</h3>
-                            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Monitors Heart Rate (BPM) and Blood Oxygen Saturation (SpO2) levels using the MAX30105 high-sensitivity pulse oximeter.</p>
+                            <h3
+                                class="text-lg lg:text-xl font-bold mb-2 font-['Poppins'] text-gray-800 dark:text-gray-100">
+                                Real-time Vital Signs Tracking</h3>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Monitors Heart Rate
+                                (BPM) and Blood Oxygen Saturation (SpO2) levels using the MAX30105 high-sensitivity
+                                pulse oximeter.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="group bg-white dark:bg-gray-800 p-6 lg:p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                <div
+                    class="group bg-white dark:bg-gray-800 p-6 lg:p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
                     <div class="absolute top-0 left-0 w-2 h-full bg-orange-400"></div>
                     <div class="flex items-start space-x-4 lg:space-x-5">
-                        <div class="bg-orange-50 dark:bg-orange-900/30 p-3 lg:p-4 rounded-2xl group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-300 shrink-0">
+                        <div
+                            class="bg-orange-50 dark:bg-orange-900/30 p-3 lg:p-4 rounded-2xl group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-300 shrink-0">
                             <i class="fa-solid fa-temperature-three-quarters text-orange-400 text-2xl lg:text-3xl"></i>
                         </div>
                         <div>
-                            <h3 class="text-lg lg:text-xl font-bold mb-2 font-['Poppins'] text-gray-800 dark:text-gray-100">Precision Temperature Monitoring</h3>
-                            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Utilizes a calibrated thermistor and the Steinhart-Hart equation to provide accurate body temperature readings.</p>
+                            <h3
+                                class="text-lg lg:text-xl font-bold mb-2 font-['Poppins'] text-gray-800 dark:text-gray-100">
+                                Precision Temperature Monitoring</h3>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Utilizes a calibrated
+                                thermistor and the Steinhart-Hart equation to provide accurate body temperature
+                                readings.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="group bg-white dark:bg-gray-800 p-6 lg:p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                <div
+                    class="group bg-white dark:bg-gray-800 p-6 lg:p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
                     <div class="absolute top-0 left-0 w-2 h-full bg-blue-500"></div>
                     <div class="flex items-start space-x-4 lg:space-x-5">
-                        <div class="bg-blue-50 dark:bg-blue-900/30 p-3 lg:p-4 rounded-2xl group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-300 shrink-0">
+                        <div
+                            class="bg-blue-50 dark:bg-blue-900/30 p-3 lg:p-4 rounded-2xl group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-300 shrink-0">
                             <i class="fa-solid fa-person-falling text-blue-500 text-2xl lg:text-3xl"></i>
                         </div>
                         <div>
-                            <h3 class="text-lg lg:text-xl font-bold mb-2 font-['Poppins'] text-gray-800 dark:text-gray-100">Intelligent Fall Detection</h3>
-                            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Powered by the MPU6050 accelerometer, the device can instantly detect falls or abnormal shaking, triggering alerts.</p>
+                            <h3
+                                class="text-lg lg:text-xl font-bold mb-2 font-['Poppins'] text-gray-800 dark:text-gray-100">
+                                Intelligent Fall Detection</h3>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Powered by the MPU6050
+                                accelerometer, the device can instantly detect falls or abnormal shaking, triggering
+                                alerts.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="group bg-white dark:bg-gray-800 p-6 lg:p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                <div
+                    class="group bg-white dark:bg-gray-800 p-6 lg:p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
                     <div class="absolute top-0 left-0 w-2 h-full bg-green-500"></div>
                     <div class="flex items-start space-x-4 lg:space-x-5">
-                        <div class="bg-green-50 dark:bg-green-900/30 p-3 lg:p-4 rounded-2xl group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-300 shrink-0">
+                        <div
+                            class="bg-green-50 dark:bg-green-900/30 p-3 lg:p-4 rounded-2xl group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-300 shrink-0">
                             <i class="fa-solid fa-wifi text-green-500 text-2xl lg:text-3xl"></i>
                         </div>
                         <div>
-                            <h3 class="text-lg lg:text-xl font-bold mb-2 font-['Poppins'] text-gray-800 dark:text-gray-100">Wireless Accessibility (IoT)</h3>
-                            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Features a built-in web server that allows caregivers to view the patient’s health status from any connected device.</p>
+                            <h3
+                                class="text-lg lg:text-xl font-bold mb-2 font-['Poppins'] text-gray-800 dark:text-gray-100">
+                                Wireless Accessibility (IoT)</h3>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Features a built-in web
+                                server that allows caregivers to view the patient’s health status from any connected
+                                device.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <h2 class="text-4xl lg:text-5xl font-bold mb-8 lg:mb-16 text-[#707070] dark:text-gray-200 font-['Poppins'] transition-colors">Technical Breakdown</h2>
-            
+            <h2
+                class="text-4xl lg:text-5xl font-bold mb-8 lg:mb-16 text-[#707070] dark:text-gray-200 font-['Poppins'] transition-colors">
+                Technical Breakdown</h2>
+
             <div class="grid lg:grid-cols-3 gap-8 lg:gap-12 text-left max-w-6xl mx-auto mb-8">
-                <div class="bg-white dark:bg-gray-800 p-6 lg:p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-2 transition-all duration-300">
-                    <div class="bg-indigo-50 dark:bg-indigo-900/30 w-14 h-14 lg:w-16 lg:h-16 rounded-2xl flex items-center justify-center mb-6 border border-indigo-100 dark:border-indigo-800/50">
+                <div
+                    class="bg-white dark:bg-gray-800 p-6 lg:p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-2 transition-all duration-300">
+                    <div
+                        class="bg-indigo-50 dark:bg-indigo-900/30 w-14 h-14 lg:w-16 lg:h-16 rounded-2xl flex items-center justify-center mb-6 border border-indigo-100 dark:border-indigo-800/50">
                         <i class="fa-solid fa-microchip text-indigo-500 text-xl lg:text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold mb-3 font-['Poppins'] text-gray-800 dark:text-gray-100">A. Core Logic & Connectivity</h3>
+                    <h3 class="text-lg font-bold mb-3 font-['Poppins'] text-gray-800 dark:text-gray-100">A. Core Logic &
+                        Connectivity</h3>
                     <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                        The system is built on the ESP32 microcontroller, utilizing its dual-core capabilities to handle sensor data processing while simultaneously hosting a Web Server. 
+                        The system is built on the ESP32 microcontroller, utilizing its dual-core capabilities to handle
+                        sensor data processing while simultaneously hosting a Web Server.
                     </p>
                 </div>
 
-                <div class="bg-white dark:bg-gray-800 p-6 lg:p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-2 transition-all duration-300">
-                    <div class="bg-rose-50 dark:bg-rose-900/30 w-14 h-14 lg:w-16 lg:h-16 rounded-2xl flex items-center justify-center mb-6 border border-rose-100 dark:border-rose-800/50">
+                <div
+                    class="bg-white dark:bg-gray-800 p-6 lg:p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-2 transition-all duration-300">
+                    <div
+                        class="bg-rose-50 dark:bg-rose-900/30 w-14 h-14 lg:w-16 lg:h-16 rounded-2xl flex items-center justify-center mb-6 border border-rose-100 dark:border-rose-800/50">
                         <i class="fa-solid fa-wave-square text-rose-500 text-xl lg:text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold mb-3 font-['Poppins'] text-gray-800 dark:text-gray-100">B. Advanced Sensor Integration</h3>
+                    <h3 class="text-lg font-bold mb-3 font-['Poppins'] text-gray-800 dark:text-gray-100">B. Advanced
+                        Sensor Integration</h3>
                     <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-3">
-                        <strong class="text-gray-700 dark:text-gray-300">Heart Rate & SpO2:</strong> Processes IR and Red light absorption to calculate heartbeats and oxygen levels reliably.
+                        <strong class="text-gray-700 dark:text-gray-300">Heart Rate & SpO2:</strong> Processes IR and
+                        Red light absorption to calculate heartbeats and oxygen levels reliably.
                     </p>
                     <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                        <strong class="text-gray-700 dark:text-gray-300">Motion & Fall Detection:</strong> Calculates the Net Acceleration Vector <span class="font-mono bg-gray-50 dark:bg-gray-900 px-1 rounded">&radic;(x&sup2;+y&sup2;+z&sup2;)</span> to distinguish critical events.
+                        <strong class="text-gray-700 dark:text-gray-300">Motion & Fall Detection:</strong> Calculates
+                        the Net Acceleration Vector <span
+                            class="font-mono bg-gray-50 dark:bg-gray-900 px-1 rounded">&radic;(x&sup2;+y&sup2;+z&sup2;)</span>
+                        to distinguish critical events.
                     </p>
                 </div>
 
-                <div class="bg-white dark:bg-gray-800 p-6 lg:p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-2 transition-all duration-300">
-                    <div class="bg-orange-50 dark:bg-orange-900/30 w-14 h-14 lg:w-16 lg:h-16 rounded-2xl flex items-center justify-center mb-6 border border-orange-100 dark:border-orange-800/50">
+                <div
+                    class="bg-white dark:bg-gray-800 p-6 lg:p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-2 transition-all duration-300">
+                    <div
+                        class="bg-orange-50 dark:bg-orange-900/30 w-14 h-14 lg:w-16 lg:h-16 rounded-2xl flex items-center justify-center mb-6 border border-orange-100 dark:border-orange-800/50">
                         <i class="fa-solid fa-calculator text-orange-500 text-xl lg:text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold mb-3 font-['Poppins'] text-gray-800 dark:text-gray-100">C. Thermal Calculation</h3>
+                    <h3 class="text-lg font-bold mb-3 font-['Poppins'] text-gray-800 dark:text-gray-100">C. Thermal
+                        Calculation</h3>
                     <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-4">
-                        To ensure medical-grade accuracy, the temperature is calculated using the Steinhart-Hart Equation:
+                        To ensure medical-grade accuracy, the temperature is calculated using the Steinhart-Hart
+                        Equation:
                     </p>
-                    <div class="bg-gray-50 dark:bg-gray-900 p-3 lg:p-4 rounded-xl text-center font-mono text-sm text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700 mb-4 overflow-x-auto shadow-inner">
+                    <div
+                        class="bg-gray-50 dark:bg-gray-900 p-3 lg:p-4 rounded-xl text-center font-mono text-sm text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700 mb-4 overflow-x-auto shadow-inner">
                         1/T = 1/T<sub>0</sub> + (1/B) ln(R/R<sub>0</sub>)
                     </div>
                 </div>
             </div>
 
-            <div class="mt-12 max-w-6xl mx-auto border-t border-gray-100 dark:border-gray-800 pt-12 transition-colors text-center">
-                <h2 class="text-3xl lg:text-5xl font-bold mb-6 text-[#707070] dark:text-gray-200 font-['Poppins'] tracking-tight transition-colors">Why This Project Matters</h2>
-                <p class="text-lg lg:text-2xl leading-relaxed text-gray-600 dark:text-gray-400 mb-0 transition-colors max-w-4xl mx-auto">
-                    This product acts as a "voice" for those who cannot express their physical distress. By automating the monitoring process, we reduce the risk of human error and ensure that help is dispatched the moment a medical anomaly or a fall occurs.
+            <div
+                class="mt-12 max-w-6xl mx-auto border-t border-gray-100 dark:border-gray-800 pt-12 transition-colors text-center">
+                <h2
+                    class="text-3xl lg:text-5xl font-bold mb-6 text-[#707070] dark:text-gray-200 font-['Poppins'] tracking-tight transition-colors">
+                    Why This Project Matters</h2>
+                <p
+                    class="text-lg lg:text-2xl leading-relaxed text-gray-600 dark:text-gray-400 mb-0 transition-colors max-w-4xl mx-auto">
+                    This product acts as a "voice" for those who cannot express their physical distress. By automating
+                    the monitoring process, we reduce the risk of human error and ensure that help is dispatched the
+                    moment a medical anomaly or a fall occurs.
                 </p>
             </div>
         </div>
     </section>
 
-    <section id="debug" class="py-20 lg:py-32 px-6 bg-gray-50 dark:bg-gray-800/50 transition-colors duration-300 border-y border-gray-200 dark:border-gray-800">
+    <section id="debug"
+        class="py-20 lg:py-32 px-6 bg-gray-50 dark:bg-gray-800/50 transition-colors duration-300 border-y border-gray-200 dark:border-gray-800">
         <div class="max-w-7xl mx-auto">
-            
+
             <div class="text-center mb-12 lg:mb-16">
-                <span class="text-[#E22C2C] font-bold tracking-widest uppercase text-sm mb-2 block font-['Poppins']"><i class="fa-solid fa-code mr-1"></i> Behind The Scenes</span>
-                <h2 class="text-4xl lg:text-5xl font-bold text-[#707070] dark:text-gray-200 font-['Poppins'] transition-colors">System Architecture</h2>
+                <span class="text-[#E22C2C] font-bold tracking-widest uppercase text-sm mb-2 block font-['Poppins']"><i
+                        class="fa-solid fa-code mr-1"></i> Behind The Scenes</span>
+                <h2
+                    class="text-4xl lg:text-5xl font-bold text-[#707070] dark:text-gray-200 font-['Poppins'] transition-colors">
+                    System Architecture</h2>
             </div>
 
             <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
-                <div class="bg-white dark:bg-gray-900 p-6 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700 transition-colors flex flex-col">
-                    <h3 class="text-lg lg:text-xl font-bold mb-4 font-['Poppins'] text-gray-800 dark:text-gray-100 border-b border-gray-100 dark:border-gray-800 pb-4 shrink-0">
+                <div
+                    class="bg-white dark:bg-gray-900 p-6 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700 transition-colors flex flex-col">
+                    <h3
+                        class="text-lg lg:text-xl font-bold mb-4 font-['Poppins'] text-gray-800 dark:text-gray-100 border-b border-gray-100 dark:border-gray-800 pb-4 shrink-0">
                         <i class="fa-solid fa-network-wired text-[#E22C2C] mr-2"></i> Circuit Diagram
                     </h3>
-                    <div class="w-full h-[300px] lg:h-[450px] bg-gray-100 dark:bg-gray-800 rounded-2xl overflow-hidden flex items-center justify-center border border-dashed border-gray-300 dark:border-gray-600 relative shrink-0">
-                        <img src="images/circuitdiagram.png" alt="Circuit Design" class="w-full h-full object-contain p-2 z-10 relative">
-                        <div class="absolute text-gray-400 dark:text-gray-500 text-sm font-['Poppins'] z-0 flex flex-col items-center">
+                    <div
+                        class="w-full h-[300px] lg:h-[450px] bg-gray-100 dark:bg-gray-800 rounded-2xl overflow-hidden flex items-center justify-center border border-dashed border-gray-300 dark:border-gray-600 relative shrink-0">
+                        <img src="images/circuitdiagram.png" alt="Circuit Design"
+                            class="w-full h-full object-contain p-2 z-10 relative">
+                        <div
+                            class="absolute text-gray-400 dark:text-gray-500 text-sm font-['Poppins'] z-0 flex flex-col items-center">
                             <i class="fa-regular fa-image text-3xl mb-2"></i>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-[#1e1e1e] rounded-3xl shadow-2xl overflow-hidden border border-gray-700 flex flex-col mt-8 lg:mt-0">
-                    <div class="bg-[#2d2d2d] px-4 py-3 flex items-center justify-between border-b border-gray-800 shrink-0">
+                <div
+                    class="bg-[#1e1e1e] rounded-3xl shadow-2xl overflow-hidden border border-gray-700 flex flex-col mt-8 lg:mt-0">
+                    <div
+                        class="bg-[#2d2d2d] px-4 py-3 flex items-center justify-between border-b border-gray-800 shrink-0">
                         <div class="flex space-x-2">
                             <div class="w-3 h-3 rounded-full bg-red-500"></div>
                             <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
@@ -530,9 +1052,9 @@
                         <div class="text-gray-400 text-[10px] lg:text-xs font-mono font-bold tracking-widest uppercase">
                             main.cpp — ESP32
                         </div>
-                        <div></div> 
+                        <div></div>
                     </div>
-                    
+
                     <div class="flex-1 relative bg-[#1e1e1e] h-[300px] lg:h-auto min-h-0">
                         <div class="absolute inset-0 p-4 lg:p-6 overflow-y-auto overflow-x-auto code-scroll text-left">
                             <pre><code class="text-xs lg:text-[13px] font-mono leading-relaxed text-[#d4d4d4]">
@@ -708,53 +1230,88 @@
 
             <div id="app-part" class="mt-24 lg:mt-32 border-t border-gray-200 dark:border-gray-700 pt-16 lg:pt-24">
                 <div class="text-center mb-16 lg:mb-24">
-                    <span class="text-[#E22C2C] font-bold tracking-widest uppercase text-sm mb-2 block font-['Poppins']"><i class="fa-solid fa-mobile-screen mr-1"></i> Caregiver Interface</span>
-                    <h2 class="text-4xl lg:text-5xl font-bold text-[#707070] dark:text-gray-200 font-['Poppins'] transition-colors">Mobile Application</h2>
+                    <span
+                        class="text-[#E22C2C] font-bold tracking-widest uppercase text-sm mb-2 block font-['Poppins']"><i
+                            class="fa-solid fa-mobile-screen mr-1"></i> Caregiver Interface</span>
+                    <h2
+                        class="text-4xl lg:text-5xl font-bold text-[#707070] dark:text-gray-200 font-['Poppins'] transition-colors">
+                        Mobile Application</h2>
                 </div>
 
                 <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                     <div class="order-2 lg:order-1 flex justify-center relative mt-10 lg:mt-0">
-                        <div class="absolute w-[240px] lg:w-[280px] h-[450px] lg:h-[500px] bg-[#E22C2C] rounded-[3rem] blur-[60px] opacity-20 mobile-glow z-0 transition-all duration-300"></div>
-                        <div class="relative z-10 w-[260px] lg:w-[300px] h-[520px] lg:h-[600px] bg-gray-900 dark:bg-black rounded-[2.5rem] lg:rounded-[3rem] p-2 lg:p-3 shadow-2xl border-[3px] lg:border-[4px] border-gray-300 dark:border-gray-700">
-                            <div class="absolute top-3 lg:top-4 left-1/2 transform -translate-x-1/2 w-24 lg:w-32 h-5 lg:h-6 bg-black rounded-b-xl z-20"></div>
-                            <div class="w-full h-full bg-white dark:bg-gray-800 rounded-[2rem] lg:rounded-[2.2rem] overflow-hidden relative flex items-center justify-center border border-gray-200 dark:border-gray-800">
+                        <div
+                            class="absolute w-[240px] lg:w-[280px] h-[450px] lg:h-[500px] bg-[#E22C2C] rounded-[3rem] blur-[60px] opacity-20 mobile-glow z-0 transition-all duration-300">
+                        </div>
+                        <div
+                            class="relative z-10 w-[260px] lg:w-[300px] h-[520px] lg:h-[600px] bg-gray-900 dark:bg-black rounded-[2.5rem] lg:rounded-[3rem] p-2 lg:p-3 shadow-2xl border-[3px] lg:border-[4px] border-gray-300 dark:border-gray-700">
+                            <div
+                                class="absolute top-3 lg:top-4 left-1/2 transform -translate-x-1/2 w-24 lg:w-32 h-5 lg:h-6 bg-black rounded-b-xl z-20">
+                            </div>
+                            <div
+                                class="w-full h-full bg-white dark:bg-gray-800 rounded-[2rem] lg:rounded-[2.2rem] overflow-hidden relative flex items-center justify-center border border-gray-200 dark:border-gray-800">
                                 <img src="images/mobileapp.jpg" alt="Mobile App UI" class="w-full h-full object-cover">
                             </div>
                         </div>
                     </div>
 
                     <div class="order-1 lg:order-2 text-center lg:text-left">
-                        <h3 class="text-3xl lg:text-4xl font-bold text-gray-800 dark:text-gray-100 font-['Poppins'] mb-4 lg:mb-6 leading-tight transition-colors">Real-Time Health Dashboard</h3>
-                        <p class="text-base lg:text-lg text-gray-600 dark:text-gray-400 mb-10 lg:mb-10 leading-relaxed transition-colors">
-                            Our dedicated mobile application acts as a real-time dashboard for caregivers, displaying all critical sensor readings in one centralized, easy-to-read interface.
+                        <h3
+                            class="text-3xl lg:text-4xl font-bold text-gray-800 dark:text-gray-100 font-['Poppins'] mb-4 lg:mb-6 leading-tight transition-colors">
+                            Real-Time Health Dashboard</h3>
+                        <p
+                            class="text-base lg:text-lg text-gray-600 dark:text-gray-400 mb-10 lg:mb-10 leading-relaxed transition-colors">
+                            Our dedicated mobile application acts as a real-time dashboard for caregivers, displaying
+                            all critical sensor readings in one centralized, easy-to-read interface.
                         </p>
 
                         <div class="space-y-6 lg:space-y-8 text-left">
                             <div class="flex items-start space-x-4 lg:space-x-5 group">
-                                <div class="w-12 h-12 lg:w-14 lg:h-14 bg-red-50 dark:bg-red-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-[#E22C2C] group-hover:text-white transition-all duration-300">
-                                    <i class="fa-solid fa-heart-pulse text-[#E22C2C] group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
+                                <div
+                                    class="w-12 h-12 lg:w-14 lg:h-14 bg-red-50 dark:bg-red-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-[#E22C2C] group-hover:text-white transition-all duration-300">
+                                    <i
+                                        class="fa-solid fa-heart-pulse text-[#E22C2C] group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">Live Vitals Display</h4>
-                                    <p class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">Continuously updates and displays Heart Rate, SpO2, and Body Temperature directly from the hardware sensors.</p>
+                                    <h4
+                                        class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">
+                                        Live Vitals Display</h4>
+                                    <p
+                                        class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">
+                                        Continuously updates and displays Heart Rate, SpO2, and Body Temperature
+                                        directly from the hardware sensors.</p>
                                 </div>
                             </div>
                             <div class="flex items-start space-x-4 lg:space-x-5 group">
-                                <div class="w-12 h-12 lg:w-14 lg:h-14 bg-indigo-50 dark:bg-indigo-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300">
-                                    <i class="fa-solid fa-person-running text-indigo-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
+                                <div
+                                    class="w-12 h-12 lg:w-14 lg:h-14 bg-indigo-50 dark:bg-indigo-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300">
+                                    <i
+                                        class="fa-solid fa-person-running text-indigo-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">Activity & Motion Status</h4>
-                                    <p class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">Shows the current physical state of the patient, instantly updating if a fall or abnormal movement is detected.</p>
+                                    <h4
+                                        class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">
+                                        Activity & Motion Status</h4>
+                                    <p
+                                        class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">
+                                        Shows the current physical state of the patient, instantly updating if a fall or
+                                        abnormal movement is detected.</p>
                                 </div>
                             </div>
                             <div class="flex items-start space-x-4 lg:space-x-5 group">
-                                <div class="w-12 h-12 lg:w-14 lg:h-14 bg-green-50 dark:bg-green-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-green-500 group-hover:text-white transition-all duration-300">
-                                    <i class="fa-solid fa-bell text-green-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
+                                <div
+                                    class="w-12 h-12 lg:w-14 lg:h-14 bg-green-50 dark:bg-green-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-green-500 group-hover:text-white transition-all duration-300">
+                                    <i
+                                        class="fa-solid fa-bell text-green-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">Seamless Sync</h4>
-                                    <p class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">Receives wireless telemetry data effortlessly, ensuring caregivers are always informed without delay.</p>
+                                    <h4
+                                        class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">
+                                        Seamless Sync</h4>
+                                    <p
+                                        class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">
+                                        Receives wireless telemetry data effortlessly, ensuring caregivers are always
+                                        informed without delay.</p>
                                 </div>
                             </div>
                         </div>
@@ -762,22 +1319,31 @@
                 </div>
             </div>
 
-            <div id="automation-section" class="mt-24 lg:mt-32 border-t border-gray-200 dark:border-gray-700 pt-16 lg:pt-24">
+            <div id="automation-section"
+                class="mt-24 lg:mt-32 border-t border-gray-200 dark:border-gray-700 pt-16 lg:pt-24">
                 <div class="text-center mb-10 lg:mb-14">
-                    <span class="text-[#E22C2C] font-bold tracking-widest uppercase text-sm mb-2 block font-['Poppins']"><i class="fa-solid fa-gears mr-1"></i> Cloud Processing</span>
-                    <h2 class="text-4xl lg:text-5xl font-bold text-[#707070] dark:text-gray-200 font-['Poppins'] transition-colors">Automation Workflow</h2>
-                    <p class="text-base lg:text-lg text-gray-600 dark:text-gray-400 mt-4 max-w-3xl mx-auto leading-relaxed transition-colors">
-                        How we process the ESP32 data in the cloud, log it for history, and trigger instant AI-powered emergency alerts.
+                    <span
+                        class="text-[#E22C2C] font-bold tracking-widest uppercase text-sm mb-2 block font-['Poppins']"><i
+                            class="fa-solid fa-gears mr-1"></i> Cloud Processing</span>
+                    <h2
+                        class="text-4xl lg:text-5xl font-bold text-[#707070] dark:text-gray-200 font-['Poppins'] transition-colors">
+                        Automation Workflow</h2>
+                    <p
+                        class="text-base lg:text-lg text-gray-600 dark:text-gray-400 mt-4 max-w-3xl mx-auto leading-relaxed transition-colors">
+                        How we process the ESP32 data in the cloud, log it for history, and trigger instant AI-powered
+                        emergency alerts.
                     </p>
                 </div>
 
-                <div class="w-full bg-gray-50 dark:bg-gray-800/50 rounded-3xl overflow-hidden p-2 lg:p-4 shadow-lg border border-gray-200 dark:border-gray-700 transition-colors mb-8 flex justify-center">
-                    
+                <div
+                    class="w-full bg-gray-50 dark:bg-gray-800/50 rounded-3xl overflow-hidden p-2 lg:p-4 shadow-lg border border-gray-200 dark:border-gray-700 transition-colors mb-8 flex justify-center">
+
                     <div id="workflow-anim-container" class="relative inline-block w-full max-w-5xl">
-                        <img src="images/automation.jpg" alt="n8n Automation Workflow" class="w-full h-auto rounded-2xl border border-gray-200 dark:border-gray-700 block relative z-0">
-                        
+                        <img src="images/automation.jpg" alt="n8n Automation Workflow"
+                            class="w-full h-auto rounded-2xl border border-gray-200 dark:border-gray-700 block relative z-0">
+
                         <div class="absolute inset-0 z-10 pointer-events-none">
-                            
+
                             <div class="smart-packet-top"></div>
                             <div class="smart-packet-bottom"></div>
 
@@ -813,7 +1379,8 @@
                 </div>
 
                 <div class="flex justify-center mb-16">
-                    <button onclick="toggleSimulation()" class="group flex items-center space-x-3 bg-[#1e1e1e] dark:bg-gray-700 text-white px-8 py-3.5 rounded-full font-bold font-['Poppins'] shadow-[0_10px_20px_rgba(0,0,0,0.2)] hover:bg-[#E22C2C] dark:hover:bg-[#E22C2C] hover:-translate-y-1 transition-all duration-300">
+                    <button onclick="toggleSimulation()"
+                        class="group flex items-center space-x-3 bg-[#1e1e1e] dark:bg-gray-700 text-white px-8 py-3.5 rounded-full font-bold font-['Poppins'] shadow-[0_10px_20px_rgba(0,0,0,0.2)] hover:bg-[#E22C2C] dark:hover:bg-[#E22C2C] hover:-translate-y-1 transition-all duration-300">
                         <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
                             <i id="sim-play-icon" class="fa-solid fa-play text-sm"></i>
                         </div>
@@ -822,52 +1389,78 @@
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-6 lg:gap-8 text-left max-w-6xl mx-auto">
-                    <div class="bg-white dark:bg-gray-800 p-6 lg:p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-2 transition-all duration-300">
-                        <div class="bg-blue-50 dark:bg-blue-900/30 w-12 h-12 rounded-xl flex items-center justify-center mb-5 border border-blue-100 dark:border-blue-800/50">
+                    <div
+                        class="bg-white dark:bg-gray-800 p-6 lg:p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-2 transition-all duration-300">
+                        <div
+                            class="bg-blue-50 dark:bg-blue-900/30 w-12 h-12 rounded-xl flex items-center justify-center mb-5 border border-blue-100 dark:border-blue-800/50">
                             <i class="fa-solid fa-cloud-arrow-down text-blue-500 text-xl"></i>
                         </div>
-                        <h4 class="text-lg font-bold mb-2 font-['Poppins'] text-gray-800 dark:text-gray-100">1. Data Ingestion & Logging</h4>
+                        <h4 class="text-lg font-bold mb-2 font-['Poppins'] text-gray-800 dark:text-gray-100">1. Data
+                            Ingestion & Logging</h4>
                         <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                            The ESP32 sends real-time sensor data to an <strong class="text-gray-700 dark:text-gray-300">Webhook</strong>. The data is parsed using JavaScript and simultaneously appended to a <strong class="text-gray-700 dark:text-gray-300">Google Sheet</strong> to maintain a complete historical health record.
+                            The ESP32 sends real-time sensor data to an <strong
+                                class="text-gray-700 dark:text-gray-300">Webhook</strong>. The data is parsed using
+                            JavaScript and simultaneously appended to a <strong
+                                class="text-gray-700 dark:text-gray-300">Google Sheet</strong> to maintain a complete
+                            historical health record.
                         </p>
                     </div>
-                    <div class="bg-white dark:bg-gray-800 p-6 lg:p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-2 transition-all duration-300">
-                        <div class="bg-purple-50 dark:bg-purple-900/30 w-12 h-12 rounded-xl flex items-center justify-center mb-5 border border-purple-100 dark:border-purple-800/50">
+                    <div
+                        class="bg-white dark:bg-gray-800 p-6 lg:p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-2 transition-all duration-300">
+                        <div
+                            class="bg-purple-50 dark:bg-purple-900/30 w-12 h-12 rounded-xl flex items-center justify-center mb-5 border border-purple-100 dark:border-purple-800/50">
                             <i class="fa-solid fa-microchip text-purple-500 text-xl"></i>
                         </div>
-                        <h4 class="text-lg font-bold mb-2 font-['Poppins'] text-gray-800 dark:text-gray-100">2. Logic & AI Analysis</h4>
+                        <h4 class="text-lg font-bold mb-2 font-['Poppins'] text-gray-800 dark:text-gray-100">2. Logic &
+                            AI Analysis</h4>
                         <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                            An <strong class="text-gray-700 dark:text-gray-300">If condition</strong> continuously monitors the incoming vitals. If an emergency is detected (e.g., a fall), the data is routed to an <strong class="text-gray-700 dark:text-gray-300">AI Model</strong> to generate a contextual and clear emergency message.
+                            An <strong class="text-gray-700 dark:text-gray-300">If condition</strong> continuously
+                            monitors the incoming vitals. If an emergency is detected (e.g., a fall), the data is routed
+                            to an <strong class="text-gray-700 dark:text-gray-300">AI Model</strong> to generate a
+                            contextual and clear emergency message.
                         </p>
                     </div>
-                    <div class="bg-white dark:bg-gray-800 p-6 lg:p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-2 transition-all duration-300">
-                        <div class="bg-sky-50 dark:bg-sky-900/30 w-12 h-12 rounded-xl flex items-center justify-center mb-5 border border-sky-100 dark:border-sky-800/50">
+                    <div
+                        class="bg-white dark:bg-gray-800 p-6 lg:p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-2 transition-all duration-300">
+                        <div
+                            class="bg-sky-50 dark:bg-sky-900/30 w-12 h-12 rounded-xl flex items-center justify-center mb-5 border border-sky-100 dark:border-sky-800/50">
                             <i class="fa-brands fa-telegram text-sky-500 text-xl"></i>
                         </div>
-                        <h4 class="text-lg font-bold mb-2 font-['Poppins'] text-gray-800 dark:text-gray-100">3. Instant Notification</h4>
+                        <h4 class="text-lg font-bold mb-2 font-['Poppins'] text-gray-800 dark:text-gray-100">3. Instant
+                            Notification</h4>
                         <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                            The processed AI alert is instantly pushed to the caregiver's phone via <strong class="text-gray-700 dark:text-gray-300">Telegram</strong>, ensuring immediate action can be taken without checking the dashboard manually.
+                            The processed AI alert is instantly pushed to the caregiver's phone via <strong
+                                class="text-gray-700 dark:text-gray-300">Telegram</strong>, ensuring immediate action
+                            can be taken without checking the dashboard manually.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <div id="live-monitoring-section" class="mt-20 lg:mt-28 border-t border-gray-200 dark:border-gray-700 pt-16 lg:pt-20 text-center pb-20">
+            <div id="live-monitoring-section"
+                class="mt-20 lg:mt-28 border-t border-gray-200 dark:border-gray-700 pt-16 lg:pt-20 text-center pb-20">
                 <div class="mb-10 lg:mb-12 max-w-4xl mx-auto">
-                    <h2 class="text-4xl lg:text-5xl font-bold mb-4 lg:mb-6 text-[#707070] dark:text-gray-200 font-['Poppins'] tracking-tight transition-colors">Start Monitoring Now</h2>
-                    <p class="text-lg lg:text-xl text-gray-500 dark:text-gray-400 italic transition-colors">Choose to view real-time data directly on the web or download the Android App for 24/7 access.</p>
+                    <h2
+                        class="text-4xl lg:text-5xl font-bold mb-4 lg:mb-6 text-[#707070] dark:text-gray-200 font-['Poppins'] tracking-tight transition-colors">
+                        Start Monitoring Now</h2>
+                    <p class="text-lg lg:text-xl text-gray-500 dark:text-gray-400 italic transition-colors">Choose to
+                        view real-time data directly on the web or download the Android App for 24/7 access.</p>
                 </div>
                 <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
-                    <a href="live.html" class="group relative px-8 py-4 bg-[#E22C2C] text-white rounded-full font-bold font-['Poppins'] text-lg shadow-[0_10px_25px_rgba(226,44,44,0.4)] hover:bg-red-700 hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto flex items-center justify-center">
+                    <a href="live.html"
+                        class="group relative px-8 py-4 bg-[#E22C2C] text-white rounded-full font-bold font-['Poppins'] text-lg shadow-[0_10px_25px_rgba(226,44,44,0.4)] hover:bg-red-700 hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto flex items-center justify-center">
                         <span class="absolute flex h-3 w-3 top-0 right-0 -mt-1 -mr-1">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
                             <span class="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
                         </span>
                         <i class="fa-solid fa-satellite-dish mr-3 group-hover:animate-pulse"></i>
                         Live Sensor Data
                     </a>
-                    <a href="app-release.apk" download class="group px-8 py-4 bg-gray-900 dark:bg-gray-700 text-white rounded-full font-bold font-['Poppins'] text-lg shadow-lg hover:bg-gray-800 dark:hover:bg-gray-600 hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto flex items-center justify-center border border-gray-700 dark:border-gray-600">
-                        <i class="fa-brands fa-android mr-3 text-green-400 group-hover:-translate-y-1 transition-transform duration-300"></i>
+                    <a href="app-release.apk" download
+                        class="group px-8 py-4 bg-gray-900 dark:bg-gray-700 text-white rounded-full font-bold font-['Poppins'] text-lg shadow-lg hover:bg-gray-800 dark:hover:bg-gray-600 hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto flex items-center justify-center border border-gray-700 dark:border-gray-600">
+                        <i
+                            class="fa-brands fa-android mr-3 text-green-400 group-hover:-translate-y-1 transition-transform duration-300"></i>
                         Download APK
                     </a>
                 </div>
@@ -876,116 +1469,193 @@
         </div>
     </section>
 
-    <a href="about.html" class="fixed bottom-6 right-6 lg:bottom-8 lg:right-8 z-[100] w-12 h-12 lg:w-16 lg:h-16 bg-[#E22C2C] text-white rounded-full flex flex-col items-center justify-center shadow-[0_10px_25px_rgba(226,44,44,0.4)] hover:bg-black dark:hover:bg-gray-700 hover:scale-110 transition-all duration-300 cursor-pointer group">
+    <a href="about.html"
+        class="fixed bottom-6 right-6 lg:bottom-8 lg:right-8 z-[100] w-12 h-12 lg:w-16 lg:h-16 bg-[#E22C2C] text-white rounded-full flex flex-col items-center justify-center shadow-[0_10px_25px_rgba(226,44,44,0.4)] hover:bg-black dark:hover:bg-gray-700 hover:scale-110 transition-all duration-300 cursor-pointer group">
         <i class="fa-solid fa-users text-lg lg:text-xl mb-0 lg:mb-1 group-hover:animate-bounce"></i>
-        <span class="text-[6px] lg:text-[8px] font-bold font-['Poppins'] uppercase tracking-widest hidden lg:block">About Us</span>
+        <span
+            class="text-[6px] lg:text-[8px] font-bold font-['Poppins'] uppercase tracking-widest hidden lg:block">About
+            Us</span>
     </a>
-      </section>
+    </section>
 
-    <section id="sensors" class="py-20 lg:py-32 px-6 bg-white dark:bg-gray-900 transition-colors duration-300 relative overflow-hidden">
-        
+    <section id="sensors"
+        class="py-20 lg:py-32 px-6 bg-white dark:bg-gray-900 transition-colors duration-300 relative overflow-hidden">
+
         <div class="text-center mb-16 lg:mb-24 max-w-4xl mx-auto">
-            <h2 class="text-4xl lg:text-5xl font-bold mb-4 lg:mb-6 text-[#707070] dark:text-gray-200 font-['Poppins'] tracking-tight transition-colors">Hardware Components</h2>
-            <p class="text-lg lg:text-xl text-gray-500 dark:text-gray-400 italic transition-colors">The powerful hardware that makes our system reliable and efficient.</p>
+            <h2
+                class="text-4xl lg:text-5xl font-bold mb-4 lg:mb-6 text-[#707070] dark:text-gray-200 font-['Poppins'] tracking-tight transition-colors">
+                Hardware Components</h2>
+            <p class="text-lg lg:text-xl text-gray-500 dark:text-gray-400 italic transition-colors">The powerful
+                hardware that makes our system reliable and efficient.</p>
         </div>
 
         <div id="esp32" class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div class="order-2 lg:order-1 text-center lg:text-left">
-                <span class="text-[#E22C2C] font-bold tracking-widest uppercase text-xs lg:text-sm mb-3 block font-['Poppins']"><i class="fa-solid fa-microchip mr-2"></i>The Brain</span>
-                <h3 class="text-3xl lg:text-4xl font-bold text-gray-800 dark:text-gray-100 font-['Poppins'] mb-4 lg:mb-6 leading-tight transition-colors">ESP32 Dev Module</h3>
-                <p class="text-base lg:text-lg text-gray-600 dark:text-gray-400 mb-8 lg:mb-10 leading-relaxed transition-colors">
-                    The core of our wearable system is the ESP32, a powerful microcontroller designed for the modern IoT era.
+                <span
+                    class="text-[#E22C2C] font-bold tracking-widest uppercase text-xs lg:text-sm mb-3 block font-['Poppins']"><i
+                        class="fa-solid fa-microchip mr-2"></i>The Brain</span>
+                <h3
+                    class="text-3xl lg:text-4xl font-bold text-gray-800 dark:text-gray-100 font-['Poppins'] mb-4 lg:mb-6 leading-tight transition-colors">
+                    ESP32 Dev Module</h3>
+                <p
+                    class="text-base lg:text-lg text-gray-600 dark:text-gray-400 mb-8 lg:mb-10 leading-relaxed transition-colors">
+                    The core of our wearable system is the ESP32, a powerful microcontroller designed for the modern IoT
+                    era.
                 </p>
 
                 <div class="space-y-6 lg:space-y-8 text-left">
                     <div class="flex items-start space-x-4 lg:space-x-5 group">
-                        <div class="w-12 h-12 lg:w-14 lg:h-14 bg-blue-50 dark:bg-blue-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-blue-500 group-hover:text-white transition-all duration-300">
-                            <i class="fa-solid fa-wifi text-blue-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
+                        <div
+                            class="w-12 h-12 lg:w-14 lg:h-14 bg-blue-50 dark:bg-blue-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-blue-500 group-hover:text-white transition-all duration-300">
+                            <i
+                                class="fa-solid fa-wifi text-blue-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
                         </div>
                         <div>
-                            <h4 class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">Wireless Connectivity</h4>
-                            <p class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">Features built-in Wi-Fi and Bluetooth, allowing for seamless real-time data transfer to the cloud or mobile apps.</p>
+                            <h4
+                                class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">
+                                Wireless Connectivity</h4>
+                            <p
+                                class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">
+                                Features built-in Wi-Fi and Bluetooth, allowing for seamless real-time data transfer to
+                                the cloud or mobile apps.</p>
                         </div>
                     </div>
 
                     <div class="flex items-start space-x-4 lg:space-x-5 group">
-                        <div class="w-12 h-12 lg:w-14 lg:h-14 bg-green-50 dark:bg-green-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-green-500 group-hover:text-white transition-all duration-300">
-                            <i class="fa-solid fa-leaf text-green-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
+                        <div
+                            class="w-12 h-12 lg:w-14 lg:h-14 bg-green-50 dark:bg-green-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-green-500 group-hover:text-white transition-all duration-300">
+                            <i
+                                class="fa-solid fa-leaf text-green-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
                         </div>
                         <div>
-                            <h4 class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">Efficiency</h4>
-                            <p class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">Engineered for low power consumption, making it the ideal choice for wearable, battery-operated devices.</p>
+                            <h4
+                                class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">
+                                Efficiency</h4>
+                            <p
+                                class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">
+                                Engineered for low power consumption, making it the ideal choice for wearable,
+                                battery-operated devices.</p>
                         </div>
                     </div>
 
                     <div class="flex items-start space-x-4 lg:space-x-5 group">
-                        <div class="w-12 h-12 lg:w-14 lg:h-14 bg-purple-50 dark:bg-purple-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-purple-500 group-hover:text-white transition-all duration-300">
-                            <i class="fa-solid fa-gauge-high text-purple-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
+                        <div
+                            class="w-12 h-12 lg:w-14 lg:h-14 bg-purple-50 dark:bg-purple-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-purple-500 group-hover:text-white transition-all duration-300">
+                            <i
+                                class="fa-solid fa-gauge-high text-purple-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
                         </div>
                         <div>
-                            <h4 class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">Performance</h4>
-                            <p class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">Offers faster processing speeds and more GPIO pins compared to traditional boards like the Arduino Uno.</p>
+                            <h4
+                                class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">
+                                Performance</h4>
+                            <p
+                                class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">
+                                Offers faster processing speeds and more GPIO pins compared to traditional boards like
+                                the Arduino Uno.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="order-1 lg:order-2 relative flex justify-center items-center h-[300px] lg:h-[500px]">
-                <div class="absolute w-[200px] lg:w-[350px] h-[200px] lg:h-[350px] bg-blue-500/20 dark:bg-blue-500/10 rounded-full blur-[60px] lg:blur-[80px] transition-colors"></div>
-                <div class="absolute w-[250px] lg:w-[400px] h-[250px] lg:h-[400px] border-[2px] border-dashed border-gray-300 dark:border-gray-700 rounded-full animate-spin-slow"></div>
-                <div class="absolute w-[180px] lg:w-[300px] h-[180px] lg:h-[300px] border-[2px] border-solid border-blue-400/40 rounded-full animate-spin-slow-reverse"></div>
-                <div class="absolute w-[120px] lg:w-[200px] h-[120px] lg:h-[200px] border-[1px] border-dashed border-[#E22C2C]/50 rounded-full animate-spin-slow" style="animation-duration: 10s;"></div>
-                
-                <img src="images/esp32.png" alt="ESP32 Vector" class="relative z-10 w-48 lg:w-80 h-auto animate-float drop-shadow-[0_25px_35px_rgba(0,0,0,0.2)]">
+                <div
+                    class="absolute w-[200px] lg:w-[350px] h-[200px] lg:h-[350px] bg-blue-500/20 dark:bg-blue-500/10 rounded-full blur-[60px] lg:blur-[80px] transition-colors">
+                </div>
+                <div
+                    class="absolute w-[250px] lg:w-[400px] h-[250px] lg:h-[400px] border-[2px] border-dashed border-gray-300 dark:border-gray-700 rounded-full animate-spin-slow">
+                </div>
+                <div
+                    class="absolute w-[180px] lg:w-[300px] h-[180px] lg:h-[300px] border-[2px] border-solid border-blue-400/40 rounded-full animate-spin-slow-reverse">
+                </div>
+                <div class="absolute w-[120px] lg:w-[200px] h-[120px] lg:h-[200px] border-[1px] border-dashed border-[#E22C2C]/50 rounded-full animate-spin-slow"
+                    style="animation-duration: 10s;"></div>
+
+                <img src="images/esp32.png" alt="ESP32 Vector"
+                    class="relative z-10 w-48 lg:w-80 h-auto animate-float drop-shadow-[0_25px_35px_rgba(0,0,0,0.2)]">
             </div>
         </div>
 
-        <div id="max30105" class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mt-20 lg:mt-32 border-t border-gray-100 dark:border-gray-800 pt-20 lg:pt-32 transition-colors">
-            
+        <div id="max30105"
+            class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mt-20 lg:mt-32 border-t border-gray-100 dark:border-gray-800 pt-20 lg:pt-32 transition-colors">
+
             <div class="order-1 lg:order-1 relative flex justify-center items-center h-[300px] lg:h-[500px]">
-                <div class="absolute w-[200px] lg:w-[350px] h-[200px] lg:h-[350px] bg-red-500/20 dark:bg-red-500/10 rounded-full blur-[60px] lg:blur-[80px] transition-colors"></div>
-                <div class="absolute w-[250px] lg:w-[400px] h-[250px] lg:h-[400px] border-[2px] border-dashed border-gray-300 dark:border-gray-700 rounded-full animate-spin-slow"></div>
-                <div class="absolute w-[180px] lg:w-[300px] h-[180px] lg:h-[300px] border-[2px] border-solid border-red-400/40 rounded-full animate-spin-slow-reverse"></div>
-                <div class="absolute w-[120px] lg:w-[200px] h-[120px] lg:h-[200px] border-[1px] border-dashed border-red-500/50 rounded-full animate-spin-slow" style="animation-duration: 10s;"></div>
-                
-                <img src="images/max30105.png" alt="MAX30102 Vector" class="relative z-10 w-48 lg:w-80 h-auto animate-float drop-shadow-[0_25px_35px_rgba(0,0,0,0.2)]">
+                <div
+                    class="absolute w-[200px] lg:w-[350px] h-[200px] lg:h-[350px] bg-red-500/20 dark:bg-red-500/10 rounded-full blur-[60px] lg:blur-[80px] transition-colors">
+                </div>
+                <div
+                    class="absolute w-[250px] lg:w-[400px] h-[250px] lg:h-[400px] border-[2px] border-dashed border-gray-300 dark:border-gray-700 rounded-full animate-spin-slow">
+                </div>
+                <div
+                    class="absolute w-[180px] lg:w-[300px] h-[180px] lg:h-[300px] border-[2px] border-solid border-red-400/40 rounded-full animate-spin-slow-reverse">
+                </div>
+                <div class="absolute w-[120px] lg:w-[200px] h-[120px] lg:h-[200px] border-[1px] border-dashed border-red-500/50 rounded-full animate-spin-slow"
+                    style="animation-duration: 10s;"></div>
+
+                <img src="images/max30105.png" alt="MAX30102 Vector"
+                    class="relative z-10 w-48 lg:w-80 h-auto animate-float drop-shadow-[0_25px_35px_rgba(0,0,0,0.2)]">
             </div>
 
             <div class="order-2 lg:order-2 text-center lg:text-left">
-                <span class="text-[#E22C2C] font-bold tracking-widest uppercase text-xs lg:text-sm mb-3 block font-['Poppins']"><i class="fa-solid fa-heart-pulse mr-2"></i>Vital Signs</span>
-                <h3 class="text-3xl lg:text-4xl font-bold text-gray-800 dark:text-gray-100 font-['Poppins'] mb-4 lg:mb-6 leading-tight transition-colors">Heart Rate Sensor (MAX30105)</h3>
-                <p class="text-base lg:text-lg text-gray-600 dark:text-gray-400 mb-8 lg:mb-10 leading-relaxed transition-colors">
-                    To monitor the patient's cardiovascular health, we integrated the MAX30102 high-sensitivity pulse oximeter.
+                <span
+                    class="text-[#E22C2C] font-bold tracking-widest uppercase text-xs lg:text-sm mb-3 block font-['Poppins']"><i
+                        class="fa-solid fa-heart-pulse mr-2"></i>Vital Signs</span>
+                <h3
+                    class="text-3xl lg:text-4xl font-bold text-gray-800 dark:text-gray-100 font-['Poppins'] mb-4 lg:mb-6 leading-tight transition-colors">
+                    Heart Rate Sensor (MAX30105)</h3>
+                <p
+                    class="text-base lg:text-lg text-gray-600 dark:text-gray-400 mb-8 lg:mb-10 leading-relaxed transition-colors">
+                    To monitor the patient's cardiovascular health, we integrated the MAX30102 high-sensitivity pulse
+                    oximeter.
                 </p>
 
                 <div class="space-y-6 lg:space-y-8 text-left">
                     <div class="flex items-start space-x-4 lg:space-x-5 group">
-                        <div class="w-12 h-12 lg:w-14 lg:h-14 bg-red-50 dark:bg-red-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-red-500 group-hover:text-white transition-all duration-300">
-                            <i class="fa-solid fa-heart-circle-check text-red-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
+                        <div
+                            class="w-12 h-12 lg:w-14 lg:h-14 bg-red-50 dark:bg-red-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-red-500 group-hover:text-white transition-all duration-300">
+                            <i
+                                class="fa-solid fa-heart-circle-check text-red-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
                         </div>
                         <div>
-                            <h4 class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">Dual Monitoring</h4>
-                            <p class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">It measures both heart rate and blood oxygen saturation (SpO2) using advanced PPG technology.</p>
+                            <h4
+                                class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">
+                                Dual Monitoring</h4>
+                            <p
+                                class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">
+                                It measures both heart rate and blood oxygen saturation (SpO2) using advanced PPG
+                                technology.</p>
                         </div>
                     </div>
 
                     <div class="flex items-start space-x-4 lg:space-x-5 group">
-                        <div class="w-12 h-12 lg:w-14 lg:h-14 bg-teal-50 dark:bg-teal-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-teal-500 group-hover:text-white transition-all duration-300">
-                            <i class="fa-solid fa-compress text-teal-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
+                        <div
+                            class="w-12 h-12 lg:w-14 lg:h-14 bg-teal-50 dark:bg-teal-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-teal-500 group-hover:text-white transition-all duration-300">
+                            <i
+                                class="fa-solid fa-compress text-teal-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
                         </div>
                         <div>
-                            <h4 class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">Wearable Design</h4>
-                            <p class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">Its ultra-compact size allows it to be integrated into clothing without causing discomfort to the user.</p>
+                            <h4
+                                class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">
+                                Wearable Design</h4>
+                            <p
+                                class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">
+                                Its ultra-compact size allows it to be integrated into clothing without causing
+                                discomfort to the user.</p>
                         </div>
                     </div>
 
                     <div class="flex items-start space-x-4 lg:space-x-5 group">
-                        <div class="w-12 h-12 lg:w-14 lg:h-14 bg-orange-50 dark:bg-orange-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-orange-500 group-hover:text-white transition-all duration-300">
-                            <i class="fa-solid fa-bullseye text-orange-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
+                        <div
+                            class="w-12 h-12 lg:w-14 lg:h-14 bg-orange-50 dark:bg-orange-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-orange-500 group-hover:text-white transition-all duration-300">
+                            <i
+                                class="fa-solid fa-bullseye text-orange-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
                         </div>
                         <div>
-                            <h4 class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">Reliability</h4>
-                            <p class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">Provides high-precision readings especially when the user is in a resting state.</p>
+                            <h4
+                                class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">
+                                Reliability</h4>
+                            <p
+                                class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">
+                                Provides high-precision readings especially when the user is in a resting state.</p>
                         </div>
                     </div>
                 </div>
@@ -993,85 +1663,140 @@
 
         </div>
 
-        <div id="mpu6050" class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mt-20 lg:mt-32 border-t border-gray-100 dark:border-gray-800 pt-20 lg:pt-32 transition-colors">
-            
+        <div id="mpu6050"
+            class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mt-20 lg:mt-32 border-t border-gray-100 dark:border-gray-800 pt-20 lg:pt-32 transition-colors">
+
             <div class="order-2 lg:order-1 text-center lg:text-left">
-                <span class="text-indigo-500 font-bold tracking-widest uppercase text-xs lg:text-sm mb-3 block font-['Poppins']"><i class="fa-solid fa-person-falling mr-2"></i>Activity Tracking</span>
-                <h3 class="text-3xl lg:text-4xl font-bold text-gray-800 dark:text-gray-100 font-['Poppins'] mb-4 lg:mb-6 leading-tight transition-colors">Motion Sensor (MPU6050)</h3>
-                <p class="text-base lg:text-lg text-gray-600 dark:text-gray-400 mb-8 lg:mb-10 leading-relaxed transition-colors">
+                <span
+                    class="text-indigo-500 font-bold tracking-widest uppercase text-xs lg:text-sm mb-3 block font-['Poppins']"><i
+                        class="fa-solid fa-person-falling mr-2"></i>Activity Tracking</span>
+                <h3
+                    class="text-3xl lg:text-4xl font-bold text-gray-800 dark:text-gray-100 font-['Poppins'] mb-4 lg:mb-6 leading-tight transition-colors">
+                    Motion Sensor (MPU6050)</h3>
+                <p
+                    class="text-base lg:text-lg text-gray-600 dark:text-gray-400 mb-8 lg:mb-10 leading-relaxed transition-colors">
                     Safety is our priority, which is why we use the MPU6050 to track the patient’s physical activity.
                 </p>
 
                 <div class="space-y-6 lg:space-y-8 text-left">
                     <div class="flex items-start space-x-4 lg:space-x-5 group">
-                        <div class="w-12 h-12 lg:w-14 lg:h-14 bg-indigo-50 dark:bg-indigo-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300">
-                            <i class="fa-solid fa-arrows-up-down-left-right text-indigo-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
+                        <div
+                            class="w-12 h-12 lg:w-14 lg:h-14 bg-indigo-50 dark:bg-indigo-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300">
+                            <i
+                                class="fa-solid fa-arrows-up-down-left-right text-indigo-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
                         </div>
                         <div>
-                            <h4 class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">Movement Analysis</h4>
-                            <p class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">Provides both acceleration and rotation data, detecting motion and tilt with high resolution.</p>
+                            <h4
+                                class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">
+                                Movement Analysis</h4>
+                            <p
+                                class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">
+                                Provides both acceleration and rotation data, detecting motion and tilt with high
+                                resolution.</p>
                         </div>
                     </div>
 
                     <div class="flex items-start space-x-4 lg:space-x-5 group">
-                        <div class="w-12 h-12 lg:w-14 lg:h-14 bg-rose-50 dark:bg-rose-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-rose-500 group-hover:text-white transition-all duration-300">
-                            <i class="fa-solid fa-triangle-exclamation text-rose-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
+                        <div
+                            class="w-12 h-12 lg:w-14 lg:h-14 bg-rose-50 dark:bg-rose-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-rose-500 group-hover:text-white transition-all duration-300">
+                            <i
+                                class="fa-solid fa-triangle-exclamation text-rose-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
                         </div>
                         <div>
-                            <h4 class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">Emergency Detection</h4>
-                            <p class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">Crucial for detecting sudden falls or abnormal movements, vital for disabled users.</p>
+                            <h4
+                                class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">
+                                Emergency Detection</h4>
+                            <p
+                                class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">
+                                Crucial for detecting sudden falls or abnormal movements, vital for disabled users.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="order-1 lg:order-2 relative flex justify-center items-center h-[300px] lg:h-[500px]">
-                <div class="absolute w-[200px] lg:w-[350px] h-[200px] lg:h-[350px] bg-indigo-500/20 dark:bg-indigo-500/10 rounded-full blur-[60px] lg:blur-[80px] transition-colors"></div>
-                <div class="absolute w-[250px] lg:w-[400px] h-[250px] lg:h-[400px] border-[2px] border-dashed border-gray-300 dark:border-gray-700 rounded-full animate-spin-slow"></div>
-                <div class="absolute w-[180px] lg:w-[300px] h-[180px] lg:h-[300px] border-[2px] border-solid border-indigo-400/40 rounded-full animate-spin-slow-reverse"></div>
-                <div class="absolute w-[120px] lg:w-[200px] h-[120px] lg:h-[200px] border-[1px] border-dashed border-indigo-500/50 rounded-full animate-spin-slow" style="animation-duration: 10s;"></div>
-                
-                <img src="images/mpu6050.png" alt="MPU6050 Vector" class="relative z-10 w-48 lg:w-80 h-auto animate-float drop-shadow-[0_25px_35px_rgba(0,0,0,0.2)]">
+                <div
+                    class="absolute w-[200px] lg:w-[350px] h-[200px] lg:h-[350px] bg-indigo-500/20 dark:bg-indigo-500/10 rounded-full blur-[60px] lg:blur-[80px] transition-colors">
+                </div>
+                <div
+                    class="absolute w-[250px] lg:w-[400px] h-[250px] lg:h-[400px] border-[2px] border-dashed border-gray-300 dark:border-gray-700 rounded-full animate-spin-slow">
+                </div>
+                <div
+                    class="absolute w-[180px] lg:w-[300px] h-[180px] lg:h-[300px] border-[2px] border-solid border-indigo-400/40 rounded-full animate-spin-slow-reverse">
+                </div>
+                <div class="absolute w-[120px] lg:w-[200px] h-[120px] lg:h-[200px] border-[1px] border-dashed border-indigo-500/50 rounded-full animate-spin-slow"
+                    style="animation-duration: 10s;"></div>
+
+                <img src="images/mpu6050.png" alt="MPU6050 Vector"
+                    class="relative z-10 w-48 lg:w-80 h-auto animate-float drop-shadow-[0_25px_35px_rgba(0,0,0,0.2)]">
             </div>
 
         </div>
 
-        <div id="mlx90614" class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mt-20 lg:mt-32 border-t border-gray-100 dark:border-gray-800 pt-20 lg:pt-32 transition-colors">
-            
+        <div id="mlx90614"
+            class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mt-20 lg:mt-32 border-t border-gray-100 dark:border-gray-800 pt-20 lg:pt-32 transition-colors">
+
             <div class="order-1 lg:order-1 relative flex justify-center items-center h-[300px] lg:h-[500px]">
-                <div class="absolute w-[200px] lg:w-[350px] h-[200px] lg:h-[350px] bg-orange-500/20 dark:bg-orange-500/10 rounded-full blur-[60px] lg:blur-[80px] transition-colors"></div>
-                <div class="absolute w-[250px] lg:w-[400px] h-[250px] lg:h-[400px] border-[2px] border-dashed border-gray-300 dark:border-gray-700 rounded-full animate-spin-slow"></div>
-                <div class="absolute w-[180px] lg:w-[300px] h-[180px] lg:h-[300px] border-[2px] border-solid border-orange-400/40 rounded-full animate-spin-slow-reverse"></div>
-                <div class="absolute w-[120px] lg:w-[200px] h-[120px] lg:h-[200px] border-[1px] border-dashed border-orange-500/50 rounded-full animate-spin-slow" style="animation-duration: 10s;"></div>
-                
-                <img src="images/mlx90614.png" alt="MLX90614 Vector" class="relative z-10 w-48 lg:w-80 h-auto animate-float drop-shadow-[0_25px_35px_rgba(0,0,0,0.2)]">
+                <div
+                    class="absolute w-[200px] lg:w-[350px] h-[200px] lg:h-[350px] bg-orange-500/20 dark:bg-orange-500/10 rounded-full blur-[60px] lg:blur-[80px] transition-colors">
+                </div>
+                <div
+                    class="absolute w-[250px] lg:w-[400px] h-[250px] lg:h-[400px] border-[2px] border-dashed border-gray-300 dark:border-gray-700 rounded-full animate-spin-slow">
+                </div>
+                <div
+                    class="absolute w-[180px] lg:w-[300px] h-[180px] lg:h-[300px] border-[2px] border-solid border-orange-400/40 rounded-full animate-spin-slow-reverse">
+                </div>
+                <div class="absolute w-[120px] lg:w-[200px] h-[120px] lg:h-[200px] border-[1px] border-dashed border-orange-500/50 rounded-full animate-spin-slow"
+                    style="animation-duration: 10s;"></div>
+
+                <img src="images/mlx90614.png" alt="MLX90614 Vector"
+                    class="relative z-10 w-48 lg:w-80 h-auto animate-float drop-shadow-[0_25px_35px_rgba(0,0,0,0.2)]">
             </div>
 
             <div class="order-2 lg:order-2 text-center lg:text-left">
-                <span class="text-orange-500 font-bold tracking-widest uppercase text-xs lg:text-sm mb-3 block font-['Poppins']"><i class="fa-solid fa-temperature-half mr-2"></i>Body Temperature</span>
-                <h3 class="text-3xl lg:text-4xl font-bold text-gray-800 dark:text-gray-100 font-['Poppins'] mb-4 lg:mb-6 leading-tight transition-colors">Temp Sensor (MLX90614)</h3>
-                <p class="text-base lg:text-lg text-gray-600 dark:text-gray-400 mb-8 lg:mb-10 leading-relaxed transition-colors">
-                    For body temperature tracking, we chose the MLX90614 infrared thermometer for its clinical-grade performance.
+                <span
+                    class="text-orange-500 font-bold tracking-widest uppercase text-xs lg:text-sm mb-3 block font-['Poppins']"><i
+                        class="fa-solid fa-temperature-half mr-2"></i>Body Temperature</span>
+                <h3
+                    class="text-3xl lg:text-4xl font-bold text-gray-800 dark:text-gray-100 font-['Poppins'] mb-4 lg:mb-6 leading-tight transition-colors">
+                    Temp Sensor (MLX90614)</h3>
+                <p
+                    class="text-base lg:text-lg text-gray-600 dark:text-gray-400 mb-8 lg:mb-10 leading-relaxed transition-colors">
+                    For body temperature tracking, we chose the MLX90614 infrared thermometer for its clinical-grade
+                    performance.
                 </p>
 
                 <div class="space-y-6 lg:space-y-8 text-left">
                     <div class="flex items-start space-x-4 lg:space-x-5 group">
-                        <div class="w-12 h-12 lg:w-14 lg:h-14 bg-orange-50 dark:bg-orange-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-orange-500 group-hover:text-white transition-all duration-300">
-                            <i class="fa-solid fa-hands-bubbles text-orange-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
+                        <div
+                            class="w-12 h-12 lg:w-14 lg:h-14 bg-orange-50 dark:bg-orange-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-orange-500 group-hover:text-white transition-all duration-300">
+                            <i
+                                class="fa-solid fa-hands-bubbles text-orange-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
                         </div>
                         <div>
-                            <h4 class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">Hygiene & Comfort</h4>
-                            <p class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">Allows for non-contact measurement, meaning it can read temperature accurately even through thin clothing.</p>
+                            <h4
+                                class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">
+                                Hygiene & Comfort</h4>
+                            <p
+                                class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">
+                                Allows for non-contact measurement, meaning it can read temperature accurately even
+                                through thin clothing.</p>
                         </div>
                     </div>
 
                     <div class="flex items-start space-x-4 lg:space-x-5 group">
-                        <div class="w-12 h-12 lg:w-14 lg:h-14 bg-yellow-50 dark:bg-yellow-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-yellow-500 group-hover:text-white transition-all duration-300">
-                            <i class="fa-solid fa-crosshairs text-yellow-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
+                        <div
+                            class="w-12 h-12 lg:w-14 lg:h-14 bg-yellow-50 dark:bg-yellow-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-yellow-500 group-hover:text-white transition-all duration-300">
+                            <i
+                                class="fa-solid fa-crosshairs text-yellow-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
                         </div>
                         <div>
-                            <h4 class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">Precision</h4>
-                            <p class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">Delivers fast and highly accurate responses to thermal changes.</p>
+                            <h4
+                                class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">
+                                Precision</h4>
+                            <p
+                                class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">
+                                Delivers fast and highly accurate responses to thermal changes.</p>
                         </div>
                     </div>
                 </div>
@@ -1079,70 +1804,111 @@
 
         </div>
 
-        <div id="ad8232" class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mt-20 lg:mt-32 border-t border-gray-100 dark:border-gray-800 pt-20 lg:pt-32 transition-colors">
-            
+        <div id="ad8232"
+            class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mt-20 lg:mt-32 border-t border-gray-100 dark:border-gray-800 pt-20 lg:pt-32 transition-colors">
+
             <div class="order-2 lg:order-1 text-center lg:text-left">
-                <span class="text-pink-500 font-bold tracking-widest uppercase text-xs lg:text-sm mb-3 block font-['Poppins']"><i class="fa-solid fa-wave-square mr-2"></i>ECG Analysis</span>
-                <h3 class="text-3xl lg:text-4xl font-bold text-gray-800 dark:text-gray-100 font-['Poppins'] mb-4 lg:mb-6 leading-tight transition-colors">Cardiac Monitor (AD8232)</h3>
-                <p class="text-base lg:text-lg text-gray-600 dark:text-gray-400 mb-8 lg:mb-10 leading-relaxed transition-colors">
-                    To provide a comprehensive cardiovascular analysis, we integrated the AD8232 heart rate monitor, which acts as a single-lead ECG.
+                <span
+                    class="text-pink-500 font-bold tracking-widest uppercase text-xs lg:text-sm mb-3 block font-['Poppins']"><i
+                        class="fa-solid fa-wave-square mr-2"></i>ECG Analysis</span>
+                <h3
+                    class="text-3xl lg:text-4xl font-bold text-gray-800 dark:text-gray-100 font-['Poppins'] mb-4 lg:mb-6 leading-tight transition-colors">
+                    Cardiac Monitor (AD8232)</h3>
+                <p
+                    class="text-base lg:text-lg text-gray-600 dark:text-gray-400 mb-8 lg:mb-10 leading-relaxed transition-colors">
+                    To provide a comprehensive cardiovascular analysis, we integrated the AD8232 heart rate monitor,
+                    which acts as a single-lead ECG.
                 </p>
 
                 <div class="space-y-6 lg:space-y-8 text-left">
                     <div class="flex items-start space-x-4 lg:space-x-5 group">
-                        <div class="w-12 h-12 lg:w-14 lg:h-14 bg-pink-50 dark:bg-pink-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-pink-500 group-hover:text-white transition-all duration-300">
-                            <i class="fa-solid fa-bolt text-pink-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
+                        <div
+                            class="w-12 h-12 lg:w-14 lg:h-14 bg-pink-50 dark:bg-pink-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-pink-500 group-hover:text-white transition-all duration-300">
+                            <i
+                                class="fa-solid fa-bolt text-pink-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
                         </div>
                         <div>
-                            <h4 class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">Electrophysiological Tracking</h4>
-                            <p class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">Measures the actual electrical activity of the heart, providing an Electrocardiogram (ECG) signal.</p>
+                            <h4
+                                class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">
+                                Electrophysiological Tracking</h4>
+                            <p
+                                class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">
+                                Measures the actual electrical activity of the heart, providing an Electrocardiogram
+                                (ECG) signal.</p>
                         </div>
                     </div>
 
                     <div class="flex items-start space-x-4 lg:space-x-5 group">
-                        <div class="w-12 h-12 lg:w-14 lg:h-14 bg-fuchsia-50 dark:bg-fuchsia-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-fuchsia-500 group-hover:text-white transition-all duration-300">
-                            <i class="fa-solid fa-filter text-fuchsia-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
+                        <div
+                            class="w-12 h-12 lg:w-14 lg:h-14 bg-fuchsia-50 dark:bg-fuchsia-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-fuchsia-500 group-hover:text-white transition-all duration-300">
+                            <i
+                                class="fa-solid fa-filter text-fuchsia-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
                         </div>
                         <div>
-                            <h4 class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">Signal Clarity</h4>
-                            <p class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">Designed to extract, amplify, and filter small bio-potential signals even in noisy environments.</p>
+                            <h4
+                                class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">
+                                Signal Clarity</h4>
+                            <p
+                                class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">
+                                Designed to extract, amplify, and filter small bio-potential signals even in noisy
+                                environments.</p>
                         </div>
                     </div>
 
                     <div class="flex items-start space-x-4 lg:space-x-5 group">
-                        <div class="w-12 h-12 lg:w-14 lg:h-14 bg-purple-50 dark:bg-purple-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-purple-500 group-hover:text-white transition-all duration-300">
-                            <i class="fa-solid fa-stethoscope text-purple-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
+                        <div
+                            class="w-12 h-12 lg:w-14 lg:h-14 bg-purple-50 dark:bg-purple-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-purple-500 group-hover:text-white transition-all duration-300">
+                            <i
+                                class="fa-solid fa-stethoscope text-purple-500 group-hover:text-white text-xl lg:text-2xl transition-colors"></i>
                         </div>
                         <div>
-                            <h4 class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">Advanced Diagnostics</h4>
-                            <p class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">Crucial for detecting irregular heart rhythms (Arrhythmias) and providing deeper clinical insights in real-time.</p>
+                            <h4
+                                class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] mb-1 lg:mb-2 transition-colors">
+                                Advanced Diagnostics</h4>
+                            <p
+                                class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors">
+                                Crucial for detecting irregular heart rhythms (Arrhythmias) and providing deeper
+                                clinical insights in real-time.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="order-1 lg:order-2 relative flex justify-center items-center h-[300px] lg:h-[500px]">
-                <div class="absolute w-[200px] lg:w-[350px] h-[200px] lg:h-[350px] bg-pink-500/20 dark:bg-pink-500/10 rounded-full blur-[60px] lg:blur-[80px] transition-colors"></div>
-                <div class="absolute w-[250px] lg:w-[400px] h-[250px] lg:h-[400px] border-[2px] border-dashed border-gray-300 dark:border-gray-700 rounded-full animate-spin-slow"></div>
-                <div class="absolute w-[180px] lg:w-[300px] h-[180px] lg:h-[300px] border-[2px] border-solid border-pink-400/40 rounded-full animate-spin-slow-reverse"></div>
-                <div class="absolute w-[120px] lg:w-[200px] h-[120px] lg:h-[200px] border-[1px] border-dashed border-pink-500/50 rounded-full animate-spin-slow" style="animation-duration: 10s;"></div>
-                
-                <img src="images/ad8232.png" alt="AD8232 Vector" class="relative z-10 w-48 lg:w-80 h-auto animate-float drop-shadow-[0_25px_35px_rgba(0,0,0,0.2)]">
+                <div
+                    class="absolute w-[200px] lg:w-[350px] h-[200px] lg:h-[350px] bg-pink-500/20 dark:bg-pink-500/10 rounded-full blur-[60px] lg:blur-[80px] transition-colors">
+                </div>
+                <div
+                    class="absolute w-[250px] lg:w-[400px] h-[250px] lg:h-[400px] border-[2px] border-dashed border-gray-300 dark:border-gray-700 rounded-full animate-spin-slow">
+                </div>
+                <div
+                    class="absolute w-[180px] lg:w-[300px] h-[180px] lg:h-[300px] border-[2px] border-solid border-pink-400/40 rounded-full animate-spin-slow-reverse">
+                </div>
+                <div class="absolute w-[120px] lg:w-[200px] h-[120px] lg:h-[200px] border-[1px] border-dashed border-pink-500/50 rounded-full animate-spin-slow"
+                    style="animation-duration: 10s;"></div>
+
+                <img src="images/ad8232.png" alt="AD8232 Vector"
+                    class="relative z-10 w-48 lg:w-80 h-auto animate-float drop-shadow-[0_25px_35px_rgba(0,0,0,0.2)]">
             </div>
 
         </div>
 
     </section>
 
-    <footer class="py-4 px-6 border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 transition-colors text-center relative z-10">
-        <p class="text-sm text-gray-500 dark:text-gray-600 font-['Poppins']">&copy; 2026 Smart Health Monitor Team. All rights reserved.</p>
+    <footer
+        class="py-4 px-6 border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 transition-colors text-center relative z-10">
+        <p class="text-sm text-gray-500 dark:text-gray-600 font-['Poppins']">&copy; 2026 Smart Health Monitor Team. All
+            rights reserved.</p>
     </footer>
 
-    <a href="about.html" class="fixed bottom-6 right-6 lg:bottom-8 lg:right-8 z-[100] w-12 h-12 lg:w-16 lg:h-16 bg-[#E22C2C] text-white rounded-full flex flex-col items-center justify-center shadow-[0_10px_25px_rgba(226,44,44,0.4)] hover:bg-black dark:hover:bg-gray-700 hover:scale-110 transition-all duration-300 cursor-pointer group">
+    <a href="about.html"
+        class="fixed bottom-6 right-6 lg:bottom-8 lg:right-8 z-[100] w-12 h-12 lg:w-16 lg:h-16 bg-[#E22C2C] text-white rounded-full flex flex-col items-center justify-center shadow-[0_10px_25px_rgba(226,44,44,0.4)] hover:bg-black dark:hover:bg-gray-700 hover:scale-110 transition-all duration-300 cursor-pointer group">
         <i class="fa-solid fa-users text-lg lg:text-xl mb-0 lg:mb-1 group-hover:animate-bounce"></i>
-        <span class="text-[6px] lg:text-[8px] font-bold font-['Poppins'] uppercase tracking-widest hidden lg:block">About Us</span>
+        <span
+            class="text-[6px] lg:text-[8px] font-bold font-['Poppins'] uppercase tracking-widest hidden lg:block">About
+            Us</span>
     </a>
-<audio id="alert-sound" preload="auto">
+    <audio id="alert-sound" preload="auto">
         <source src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" type="audio/mpeg">
     </audio>
     <script>
@@ -1194,7 +1960,7 @@
         }
 
         themeToggleBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
+            btn.addEventListener('click', function () {
                 darkIcons.forEach(icon => icon.classList.toggle('hidden'));
                 lightIcons.forEach(icon => icon.classList.toggle('hidden'));
 
@@ -1221,19 +1987,19 @@
         // Fullscreen Video logic
         function playFullscreenVideo() {
             var video = document.getElementById("projectVideo");
-            if (video.requestFullscreen) { video.requestFullscreen(); } 
-            else if (video.webkitRequestFullscreen) { video.webkitRequestFullscreen(); } 
+            if (video.requestFullscreen) { video.requestFullscreen(); }
+            else if (video.webkitRequestFullscreen) { video.webkitRequestFullscreen(); }
             else if (video.msRequestFullscreen) { video.msRequestFullscreen(); }
             video.play();
             document.querySelector('.play-btn').style.display = 'none';
         }
 
-        document.getElementById("projectVideo").addEventListener('pause', function() {
+        document.getElementById("projectVideo").addEventListener('pause', function () {
             document.querySelector('.play-btn').style.display = 'flex';
         });
 
         // سكريبت تشغيل وإيقاف أنيميشن الـ n8n
-// متغيرات للتحكم في توقيت الصوت
+        // متغيرات للتحكم في توقيت الصوت
         let simLoopInterval;
         let alertTimeout;
         let beepInterval;
@@ -1250,7 +2016,7 @@
                 container.classList.remove('is-running');
                 btnIcon.classList.replace('fa-pause', 'fa-play');
                 btnText.innerText = "Run Simulation";
-                
+
                 // إيقاف وتصفير كل الأصوات والتايمرات
                 clearInterval(simLoopInterval);
                 clearTimeout(alertTimeout);
@@ -1262,7 +2028,7 @@
                 container.classList.remove('is-running');
                 void container.offsetWidth; // ريفريش للأنيميشن
                 container.classList.add('is-running');
-                
+
                 btnIcon.classList.replace('fa-play', 'fa-pause');
                 btnText.innerText = "Pause Simulation";
 
@@ -1271,32 +2037,33 @@
                     // الإنذار بيظهر عند 85% من الـ 16 ثانية (يعني بعد 13.6 ثانية بالظبط)
                     alertTimeout = setTimeout(() => {
                         let beepCount = 0;
-                        
+
                         // تشغيل أول نبضة صوت
                         alertSound.volume = 0.5; // ممكن تعلي أو توطي الصوت من هنا (0.0 لـ 1.0)
                         alertSound.play().catch(e => console.log("Audio blocked by browser"));
-                        
+
                         // تكرار الصوت مع كل نبضة أحمر (كل 600 ملي ثانية)
                         beepInterval = setInterval(() => {
                             beepCount++;
-                            if (beepCount >= 3) { 
+                            if (beepCount >= 3) {
                                 clearInterval(beepInterval); // يوقف بعد 3 نبضات
                             } else {
                                 alertSound.currentTime = 0;
-                                alertSound.play().catch(e => {});
+                                alertSound.play().catch(e => { });
                             }
-                        }, 600); 
-                        
+                        }, 600);
+
                     }, 14000); // 13600 ملي ثانية = 13.6 ثانية
                 }
 
                 // شغل السيكوانس أول مرة
                 triggerAlertSequence();
-                
+
                 // كرر السيكوانس كل 16 ثانية (نفس وقت الـ CSS Animation بالظبط)
                 simLoopInterval = setInterval(triggerAlertSequence, 16000);
             }
         }
     </script>
 </body>
+
 </html>
