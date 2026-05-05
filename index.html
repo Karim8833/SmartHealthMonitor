@@ -3199,7 +3199,7 @@
                 </div>
 
                 <!-- Section B: Comparison Table -->
-                <div class="overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm">
+                <div class="mt-6 overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm">
                     <div class="overflow-x-auto">
                         <table class="w-full text-left border-collapse min-w-[600px]">
                             <thead>
@@ -3269,6 +3269,102 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                </div>
+
+                <!-- Section: Functional Operational Flow -->
+                <div class="mt-10 pt-8 border-t border-gray-100 dark:border-gray-800">
+                    <h4 class="text-lg font-bold text-indigo-500 font-['Poppins'] mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-microchip"></i> Functional Operational Flow
+                    </h4>
+
+                    <div
+                        class="relative border-l-2 border-indigo-200 dark:border-indigo-800 ml-3 md:ml-4 space-y-8 pb-4">
+
+                        <!-- Stage 1 -->
+                        <div class="relative pl-8">
+                            <div
+                                class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-indigo-500 ring-4 ring-indigo-100 dark:ring-indigo-900/30">
+                            </div>
+                            <h5 class="text-base font-bold text-gray-800 dark:text-gray-200 mb-2">1. System Boot &amp;
+                                Initialization</h5>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                Upon power-up, the ESP32 performs a "Hardware Handshake". It initializes the <strong
+                                    class="text-indigo-600 dark:text-indigo-400">I2C Bus</strong> to detect all medical
+                                sensors and establishes a secure <strong
+                                    class="text-indigo-600 dark:text-indigo-400">WiFi connection</strong> to the local
+                                network for cloud access.
+                            </p>
+                        </div>
+
+                        <!-- Stage 2 -->
+                        <div class="relative pl-8">
+                            <div
+                                class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-blue-500 ring-4 ring-blue-100 dark:ring-blue-900/30">
+                            </div>
+                            <h5 class="text-base font-bold text-gray-800 dark:text-gray-200 mb-2">2. Multimodal Data
+                                Polling</h5>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-2">
+                                The ESP32 acts as the central coordinator, simultaneously requesting raw data from:
+                            </p>
+                            <ul class="list-disc pl-5 text-sm text-gray-600 dark:text-gray-400 space-y-1">
+                                <li><strong class="text-gray-700 dark:text-gray-300">MLX90614:</strong> IR Thermal
+                                    intensity.</li>
+                                <li><strong class="text-gray-700 dark:text-gray-300">MPU6050:</strong> 3-Axis
+                                    acceleration.</li>
+                                <li><strong class="text-gray-700 dark:text-gray-300">MAX30105/AD8232:</strong> Pulse and
+                                    cardiac electrical signals.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Stage 3 -->
+                        <div class="relative pl-8">
+                            <div
+                                class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-orange-500 ring-4 ring-orange-100 dark:ring-orange-900/30">
+                            </div>
+                            <h5 class="text-base font-bold text-gray-800 dark:text-gray-200 mb-2">3. Edge Computing
+                                &amp; Math Processing</h5>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-3">
+                                Instead of sending raw noise, the ESP32 runs local processing:
+                            </p>
+                            <ul class="space-y-4">
+                                <li>
+                                    <strong class="text-gray-700 dark:text-gray-300 text-sm block mb-1">Fall
+                                        Detection:</strong>
+                                    <span class="text-sm text-gray-500 dark:text-gray-400">Computes the resultant
+                                        acceleration vector:</span>
+                                    <div
+                                        class="bg-[#1e1e1e] p-3 rounded-lg border border-gray-700 mt-2 text-center overflow-x-auto shadow-inner">
+                                        <code
+                                            class="text-[#c586c0] font-mono text-sm tracking-wide">NetAcc = &radic;(a.x&sup2; + a.y&sup2; + a.z&sup2;)</code>
+                                    </div>
+                                </li>
+                                <li>
+                                    <strong class="text-gray-700 dark:text-gray-300 text-sm block">Vitals
+                                        Filtering:</strong>
+                                    <span class="text-sm text-gray-500 dark:text-gray-400">Applies digital filters to
+                                        stabilize heart rate and SpO2 readings before transmission.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Stage 4 -->
+                        <div class="relative pl-8">
+                            <div
+                                class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-green-500 ring-4 ring-green-100 dark:ring-green-900/30">
+                            </div>
+                            <h5 class="text-base font-bold text-gray-800 dark:text-gray-200 mb-2">4. JSON Packaging
+                                &amp; Cloud Sync</h5>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                The ESP32 packages the processed values into a lightweight <strong
+                                    class="text-green-600 dark:text-green-400">JSON payload</strong>. Every 2 seconds
+                                (or via WebSockets), it performs an <strong
+                                    class="text-green-600 dark:text-green-400">HTTP POST</strong> to the <strong
+                                    class="text-green-600 dark:text-green-400">n8n Webhook</strong>, bridging the
+                                physical hardware with our AI-powered Cloud Dashboard.
+                            </p>
+                        </div>
+
                     </div>
                 </div>
             </div>
