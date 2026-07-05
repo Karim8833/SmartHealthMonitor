@@ -2299,6 +2299,14 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="mt-8">
+                            <button onclick="openMobileModal()"
+                                class="group relative flex items-center justify-center gap-2 px-6 py-3 text-sm font-bold text-white bg-blue-600 rounded-full hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300">
+                                <i class="fa-brands fa-flutter group-hover:scale-110 transition-transform"></i>
+                                <span class="tracking-wide">App Architecture & Details</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -3025,6 +3033,40 @@
 
             setTimeout(() => {
                 const modal = document.getElementById('standardsModal');
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        function openMobileModal() {
+            const modal = document.getElementById('mobileModal');
+            const bg = document.getElementById('mobileModalBg');
+            const content = document.getElementById('mobileModalContent');
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+
+            setTimeout(() => {
+                bg.classList.remove('opacity-0');
+                bg.classList.add('opacity-100');
+                content.classList.remove('opacity-0', 'scale-95');
+                content.classList.add('opacity-100', 'scale-100');
+            }, 10);
+        }
+
+        function closeMobileModal() {
+            const bg = document.getElementById('mobileModalBg');
+            const content = document.getElementById('mobileModalContent');
+
+            bg.classList.remove('opacity-100');
+            bg.classList.add('opacity-0');
+            content.classList.remove('opacity-100', 'scale-100');
+            content.classList.add('opacity-0', 'scale-95');
+
+            setTimeout(() => {
+                const modal = document.getElementById('mobileModal');
                 modal.classList.add('hidden');
                 modal.classList.remove('flex');
                 document.body.style.overflow = '';
@@ -4229,6 +4271,95 @@ mpu.getEvent(&amp;a, &amp;g, &amp;t);</code></pre>
                                 class="w-full h-48 object-contain bg-white dark:bg-gray-900 rounded-lg mb-3 shadow-sm border border-gray-200 dark:border-gray-700 p-1 cursor-zoom-in">
                         </div>
 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile App Details Modal -->
+    <div id="mobileModal" class="fixed inset-0 z-50 hidden items-center justify-center">
+        <div class="absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity opacity-0" id="mobileModalBg"
+            onclick="closeMobileModal()"></div>
+        <div class="relative bg-white dark:bg-gray-900 w-full max-w-5xl max-h-[90vh] rounded-3xl shadow-2xl overflow-hidden flex flex-col scale-95 opacity-0 transition-all duration-300 m-4 border border-gray-100 dark:border-gray-800"
+            id="mobileModalContent">
+            <div
+                class="px-6 py-4 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center bg-gray-50 dark:bg-gray-800/50">
+                <h3 class="text-xl font-bold text-gray-800 dark:text-white font-['Poppins']"><i
+                        class="fa-brands fa-flutter text-blue-500 mr-2"></i> Flutter Mobile Architecture</h3>
+                <button onclick="closeMobileModal()" class="text-gray-400 hover:text-red-500 transition-colors"><i
+                        class="fa-solid fa-xmark text-xl"></i></button>
+            </div>
+            <div class="p-6 overflow-y-auto custom-scrollbar">
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <div>
+                        <h4
+                            class="text-lg font-bold text-gray-800 dark:text-blue-400 mb-3 border-b dark:border-gray-700 pb-2">
+                            1. Local Polling & State Management</h4>
+                        <p class="mb-4">The ESP32 acts as a local Web Server. The app uses the <strong>http
+                                package</strong> and <strong>dart:async Timer</strong> to poll data via JSON every 2
+                            seconds. We utilize <strong>Provider</strong> for state management to seamlessly update the
+                            UI without performance bottlenecks.</p>
+
+                        <h4
+                            class="text-lg font-bold text-gray-800 dark:text-blue-400 mb-3 border-b dark:border-gray-700 pb-2">
+                            2. Emergency AI Integration</h4>
+                        <p>Upon detecting critical events (e.g., SpO2 &lt; 90% or a fall), data flows to
+                            <strong>n8n</strong>, is analyzed contextually by <strong>Gemini AI</strong>, and an
+                            actionable alert is pushed to the caregiver via <strong>Telegram</strong>.
+                        </p>
+                    </div>
+                    <div>
+                        <h4
+                            class="text-lg font-bold text-gray-800 dark:text-blue-400 mb-3 border-b dark:border-gray-700 pb-2">
+                            3. Why Flutter?</h4>
+                        <ul class="space-y-3 mt-4 text-[13px] lg:text-sm">
+                            <li><i class="fa-solid fa-check text-green-500 mr-2 mt-1 float-left"></i><span
+                                    class="block ml-6"><strong>Cross-Platform:</strong> One codebase for Android and
+                                    iOS, saving massive development time.</span></li>
+
+                            <li><i class="fa-solid fa-check text-green-500 mr-2 mt-1 float-left"></i><span
+                                    class="block ml-6"><strong>Native Performance:</strong> Compiles to native ARM code
+                                    delivering a true <strong>60fps</strong> smooth experience.</span></li>
+
+                            <li><i class="fa-solid fa-check text-green-500 mr-2 mt-1 float-left"></i><span
+                                    class="block ml-6"><strong>Dart Null Safety:</strong> Ensures the app handles
+                                    missing sensor data or network drops elegantly <strong>without
+                                        crashing</strong>.</span></li>
+
+                            <li><i class="fa-solid fa-check text-green-500 mr-2 mt-1 float-left"></i><span
+                                    class="block ml-6"><strong>Hot Reload:</strong> Allowed for instant UI updates
+                                    during development, drastically reducing prototyping time.</span></li>
+
+                            <li><i class="fa-solid fa-check text-green-500 mr-2 mt-1 float-left"></i><span
+                                    class="block ml-6"><strong>Rich Ecosystem:</strong> Seamless integration with HTTP,
+                                    WebSockets, and dynamic charts for real-time medical telemetry.</span></li>
+
+                            <li><i class="fa-solid fa-check text-green-500 mr-2 mt-1 float-left"></i><span
+                                    class="block ml-6"><strong>Async Processing:</strong> Efficient background polling
+                                    via Futures and Streams without freezing the main UI thread.</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h4 class="text-lg font-bold text-gray-800 dark:text-white mb-4 text-center font-['Poppins']">Core
+                    Application Screens</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <img src="images/mobile1.jpeg" alt="Dashboard Screen" onclick="openImageZoom(this.src)"
+                            class="w-full rounded-2xl shadow-md border border-gray-200 dark:border-gray-700 mb-3 hover:scale-105 transition-transform object-cover cursor-zoom-in">
+                        <span class="font-bold text-gray-800 dark:text-gray-200">1. Live Dashboard</span>
+                    </div>
+                    <div class="text-center">
+                        <img src="images/mobile2.jpeg" alt="History Charts" onclick="openImageZoom(this.src)"
+                            class="w-full rounded-2xl shadow-md border border-gray-200 dark:border-gray-700 mb-3 hover:scale-105 transition-transform object-cover cursor-zoom-in">
+                        <span class="font-bold text-gray-800 dark:text-gray-200">2. Waveforms</span>
+                    </div>
+                    <div class="text-center">
+                        <img src="images/mobile3.jpeg" alt="Alerts Log" onclick="openImageZoom(this.src)"
+                            class="w-full rounded-2xl shadow-md border border-gray-200 dark:border-gray-700 mb-3 hover:scale-105 transition-transform object-cover cursor-zoom-in">
+                        <span class="font-bold text-gray-800 dark:text-gray-200">3. Configurations</span>
                     </div>
                 </div>
             </div>
