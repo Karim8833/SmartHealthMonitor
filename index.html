@@ -991,80 +991,22 @@
                 </div>
             </div>
 
-            <h2
-                class="text-4xl lg:text-5xl font-bold mb-8 lg:mb-16 text-[#707070] dark:text-gray-200 font-['Poppins'] transition-colors">
-                Technical Breakdown</h2>
-
-            <div class="grid lg:grid-cols-3 gap-8 lg:gap-12 text-left max-w-6xl mx-auto mb-8">
-                <div
-                    class="bg-white dark:bg-gray-800 p-6 lg:p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-2 transition-all duration-300">
-                    <div
-                        class="bg-indigo-50 dark:bg-indigo-900/30 w-14 h-14 lg:w-16 lg:h-16 rounded-2xl flex items-center justify-center mb-6 border border-indigo-100 dark:border-indigo-800/50">
-                        <i class="fa-solid fa-microchip text-indigo-500 text-xl lg:text-2xl"></i>
-                    </div>
-                    <h3 class="text-lg font-bold mb-3 font-['Poppins'] text-gray-800 dark:text-gray-100">A. Core Logic &
-                        Connectivity</h3>
-                    <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                        The system is built on the ESP32 microcontroller, utilizing its dual-core capabilities to handle
-                        sensor data processing while simultaneously hosting a Web Server.
+            <div class="flex items-center justify-center min-h-[100vh] px-6 text-center">
+                <div class="max-w-6xl mx-auto border-t border-gray-100 dark:border-gray-800 pt-16 transition-colors">
+                    <h2
+                        class="text-3xl lg:text-5xl font-bold mb-6 text-[#707070] dark:text-gray-200 font-['Poppins'] tracking-tight transition-colors">
+                        Why This Product Matters
+                    </h2>
+                    <p
+                        class="text-lg lg:text-2xl leading-relaxed text-gray-600 dark:text-gray-400 mb-0 transition-colors max-w-4xl mx-auto">
+                        This product acts as a "voice" for those who cannot express their physical distress. By
+                        automating
+                        the monitoring process, we reduce the risk of human error and ensure that help is dispatched the
+                        moment a medical anomaly or a fall occurs.
                     </p>
                 </div>
-
-                <div
-                    class="bg-white dark:bg-gray-800 p-6 lg:p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-2 transition-all duration-300">
-                    <div
-                        class="bg-rose-50 dark:bg-rose-900/30 w-14 h-14 lg:w-16 lg:h-16 rounded-2xl flex items-center justify-center mb-6 border border-rose-100 dark:border-rose-800/50">
-                        <i class="fa-solid fa-wave-square text-rose-500 text-xl lg:text-2xl"></i>
-                    </div>
-                    <h3 class="text-lg font-bold mb-3 font-['Poppins'] text-gray-800 dark:text-gray-100">B. Advanced
-                        Sensor Integration</h3>
-                    <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-3">
-                        <strong class="text-gray-700 dark:text-gray-300">Heart Rate & SpO2:</strong> Processes IR and
-                        Red light absorption to calculate heartbeats and oxygen levels reliably.
-                    </p>
-                    <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                        <strong class="text-gray-700 dark:text-gray-300">Motion & Fall Detection:</strong> Calculates
-                        the Net Acceleration Vector <span
-                            class="font-mono bg-gray-50 dark:bg-gray-900 px-1 rounded">&radic;(x&sup2;+y&sup2;+z&sup2;)</span>
-                        to distinguish critical events.
-                    </p>
-                </div>
-
-                <div
-                    class="bg-white dark:bg-gray-800 p-6 lg:p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-2 transition-all duration-300">
-                    <div
-                        class="bg-orange-50 dark:bg-orange-900/30 w-14 h-14 lg:w-16 lg:h-16 rounded-2xl flex items-center justify-center mb-6 border border-orange-100 dark:border-orange-800/50">
-                        <i class="fa-solid fa-calculator text-orange-500 text-xl lg:text-2xl"></i>
-                    </div>
-                    <h3 class="text-lg font-bold mb-3 font-['Poppins'] text-gray-800 dark:text-gray-100">C. Thermal
-                        Calculation</h3>
-                    <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-4">
-                        To ensure medical-grade accuracy, the temperature is calculated using the Steinhart-Hart
-                        Equation:
-                    </p>
-                    <div
-                        class="bg-gray-50 dark:bg-gray-900 p-3 lg:p-4 rounded-xl text-center font-mono text-sm text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700 mb-4 overflow-x-auto shadow-inner">
-                        1/T = 1/T<sub>0</sub> + (1/B) ln(R/R<sub>0</sub>)
-                    </div>
-                </div>
-            </div>
-
-
-            <div
-                class="mt-16 lg:mt-24 max-w-6xl mx-auto border-t border-gray-100 dark:border-gray-800 pt-16 transition-colors text-center">
-                <h2
-                    class="text-3xl lg:text-5xl font-bold mb-6 text-[#707070] dark:text-gray-200 font-['Poppins'] tracking-tight transition-colors">
-                    Why This Product Matters</h2>
-                <p
-                    class="text-lg lg:text-2xl leading-relaxed text-gray-600 dark:text-gray-400 mb-0 transition-colors max-w-4xl mx-auto">
-                    This product acts as a "voice" for those who cannot express their physical distress. By automating
-                    the monitoring process, we reduce the risk of human error and ensure that help is dispatched the
-                    moment a medical anomaly or a fall occurs.
-                </p>
             </div>
         </div>
-    </section>
-    <section class="py-20 lg:py-32 px-6 bg-white dark:bg-gray-900 transition-colors duration-300">
         <div class="max-w-7xl mx-auto">
             <div id="live-monitoring-section"
                 class="mt-20 lg:mt-28 border-t border-gray-200 dark:border-gray-700 pt-16 lg:pt-20 text-center pb-20">
@@ -1098,6 +1040,7 @@
             </div>
 
         </div>
+
     </section>
     <!-- Network and System Architecture Section -->
     <section class="py-20 lg:py-32 px-6 bg-white dark:bg-gray-900 transition-colors duration-300">
@@ -1155,7 +1098,7 @@
                                 class="text-xl font-bold mb-2 font-['Poppins'] text-gray-800 dark:text-gray-100 transition-colors">
                                 Data Acquisition</h3>
                             <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed transition-colors">
-                                Sensors (MAX30105, MPU6050, MLX90614) continuously read vital signs and detect
+                                Sensors (MAX30105, MPU6050, MLX90614, AD8232) continuously read vital signs and detect
                                 motion patterns directly from the patient.</p>
                         </div>
                     </div>
@@ -1209,6 +1152,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
         <!-- End Workflow Section -->
     </section>
@@ -1576,6 +1520,28 @@
 
         </div>
 
+        <div
+            class="max-w-7xl mx-auto bg-blue-50 dark:bg-gray-800/60 rounded-3xl p-8 mt-20 lg:mt-32 border border-blue-100 dark:border-gray-700 shadow-sm flex flex-col md:flex-row items-center justify-between gap-8 transition-colors">
+            <div class="text-left flex-1">
+                <span
+                    class="text-blue-500 font-bold tracking-widest uppercase text-xs lg:text-sm mb-2 block font-['Poppins']"><i
+                        class="fa-solid fa-book-medical mr-2"></i>Clinical Baseline</span>
+                <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 dark:text-gray-100 font-['Poppins'] mb-4">
+                    Medical Standards & Waveform References</h3>
+                <p class="text-gray-600 dark:text-gray-400 text-sm lg:text-base leading-relaxed">
+                    it is crucial to understand the clinical thresholds and
+                    signal waveforms (ECG/PPG) that our algorithms use to determine a patient's health status.
+                </p>
+            </div>
+            <div class="shrink-0">
+                <button onclick="openStandardsModal()"
+                    class="group relative flex items-center justify-center gap-2 px-6 py-3 text-sm font-bold text-white bg-blue-600 rounded-full hover:bg-blue-700 hover:shadow-lg transition-all duration-300">
+                    <i class="fa-solid fa-microscope group-hover:scale-110 transition-transform"></i>
+                    <span class="tracking-wide">View Clinical Standards</span>
+                </button>
+            </div>
+        </div>
+
         <div id="esp32"
             class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mt-20 lg:mt-32 border-t border-gray-100 dark:border-gray-800 pt-20 lg:pt-32 transition-colors">
             <div class="order-2 lg:order-1 text-center lg:text-left">
@@ -1733,6 +1699,7 @@
 <span class="text-[#569cd6]">#include</span> &lt;<span class="text-[#ce9178]">Adafruit_Sensor.h</span>&gt;
 <span class="text-[#569cd6]">#include</span> <span class="text-[#ce9178]">"MAX30105.h"</span>
 <span class="text-[#569cd6]">#include</span> <span class="text-[#ce9178]">"heartRate.h"</span>
+<span class="text-[#569cd6]">#include</span> <span class="text-[#ce9178]">"Adafruit_MLX90614.h"</span>
 
 <span class="text-[#6a9955]">// --- Configuration ---</span>
 <span class="text-[#569cd6]">const char*</span> ssid       = <span class="text-[#ce9178]">"Mohamed Adel"</span>;
@@ -1794,16 +1761,7 @@
 <span class="text-[#569cd6]">void</span> <span class="text-[#dcdcaa]">loop</span>() {
   server.handleClient();
 
-  <span class="text-[#6a9955]">// 1. TEMPERATURE</span>
-  <span class="text-[#569cd6]">int</span> analogValue = analogRead(THERMISTOR_PIN);
-  <span class="text-[#c586c0]">if</span> (analogValue > <span class="text-[#b5cea8]">0</span>) {
-    <span class="text-[#569cd6]">float</span> resistance = SERIES_RESISTOR / ((ADC_MAX / (<span class="text-[#569cd6]">float</span>)analogValue) - <span class="text-[#b5cea8]">1</span>);
-    <span class="text-[#569cd6]">float</span> steinhart  = log(resistance / NOMINAL_RESISTANCE) / B_COEFFICIENT;
-    steinhart += <span class="text-[#b5cea8]">1.0</span> / (<span class="text-[#b5cea8]">25</span> + <span class="text-[#b5cea8]">273.15</span>);
-    bodyTemp = (<span class="text-[#b5cea8]">1.0</span> / steinhart) - <span class="text-[#b5cea8]">273.15</span>;
-  }
-
-  <span class="text-[#6a9955]">// 2. MOVEMENT</span>
+  <span class="text-[#6a9955]">// 1. MOVEMENT</span>
   <span class="text-[#4ec9b0]">sensors_event_t</span> a, g, t;
   mpu.getEvent(&amp;a, &amp;g, &amp;t);
   <span class="text-[#569cd6]">float</span> netAcc = sqrt(sq(a.acceleration.x) + sq(a.acceleration.y) + sq(a.acceleration.z));
@@ -1812,7 +1770,7 @@
   <span class="text-[#c586c0]">else if</span> (netAcc > <span class="text-[#b5cea8]">12.5</span> || netAcc < <span class="text-[#b5cea8]">7.5</span>) motion = <span class="text-[#ce9178]">"Moving"</span>;
   <span class="text-[#c586c0]">else</span>                                     motion = <span class="text-[#ce9178]">"Stable"</span>;
 
-  <span class="text-[#6a9955]">// 3. VITALS</span>
+  <span class="text-[#6a9955]">// 2. VITALS</span>
   <span class="text-[#569cd6]">long</span> irValue = particleSensor.getIR();
   <span class="text-[#c586c0]">if</span> (irValue > <span class="text-[#b5cea8]">50000</span>) {
     <span class="text-[#c586c0]">if</span> (checkForBeat(irValue)) {
@@ -1833,7 +1791,7 @@
     beatAvg = <span class="text-[#b5cea8]">0</span>; approxSpO2 = <span class="text-[#b5cea8]">0</span>;
   }
 
-  <span class="text-[#6a9955]">// 4. Transmit Data to n8n</span>
+  <span class="text-[#6a9955]">// 3. Transmit Data to n8n</span>
   <span class="text-[#c586c0]">if</span> (millis() - lastPostTime > postInterval) {
     <span class="text-[#c586c0]">if</span> (WiFi.status() == WL_CONNECTED) {
       <span class="text-[#4ec9b0]">HTTPClient</span> http;
@@ -3037,6 +2995,41 @@
                 document.body.style.overflow = '';
             }, 300);
         }
+
+        // Medical Standards Modal Logic
+        function openStandardsModal() {
+            const modal = document.getElementById('standardsModal');
+            const bg = document.getElementById('standardsModalBg');
+            const content = document.getElementById('standardsModalContent');
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+
+            setTimeout(() => {
+                bg.classList.remove('opacity-0');
+                bg.classList.add('opacity-100');
+                content.classList.remove('opacity-0', 'scale-95');
+                content.classList.add('opacity-100', 'scale-100');
+            }, 10);
+        }
+
+        function closeStandardsModal() {
+            const bg = document.getElementById('standardsModalBg');
+            const content = document.getElementById('standardsModalContent');
+
+            bg.classList.remove('opacity-100');
+            bg.classList.add('opacity-0');
+            content.classList.remove('opacity-100', 'scale-100');
+            content.classList.add('opacity-0', 'scale-95');
+
+            setTimeout(() => {
+                const modal = document.getElementById('standardsModal');
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = '';
+            }, 300);
+        }
     </script>
 
     <!-- ESP32 More Details Modal -->
@@ -3346,60 +3339,25 @@
                     </ul>
                 </div>
 
-                <!-- B. The Sensor Logic -->
+                <!-- B. Temperature Sensing Logic -->
                 <div
                     class="bg-[#2d2d2d] p-5 rounded-2xl border border-gray-800 hover:border-gray-600 transition-colors">
                     <h4 class="text-lg font-bold text-[#00e676] font-['Poppins'] mb-4 flex items-center gap-2">
-                        <i class="fa-solid fa-microchip"></i> B. The Sensor Logic
+                        <i class="fa-solid fa-temperature-half"></i> B. Temperature Sensing Logic
                     </h4>
-
-                    <div class="space-y-6">
-                        <!-- Temperature -->
-                        <div>
-                            <pre
-                                class="bg-[#1a1a1a] border border-gray-700/50 p-3 rounded-xl mb-3 text-xs sm:text-sm font-mono overflow-x-auto text-[#d4d4d4]"><code><span class="text-[#569cd6]">float</span> steinhart = log(resistance / NOMINAL_RESISTANCE) / B_COEFFICIENT;
-steinhart += <span class="text-[#b5cea8]">1.0</span> / (<span class="text-[#b5cea8]">25</span> + <span class="text-[#b5cea8]">273.15</span>);
-bodyTemp = (<span class="text-[#b5cea8]">1.0</span> / steinhart) - <span class="text-[#b5cea8]">273.15</span>;</code></pre>
-                            <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
-                                <strong class="text-gray-200"><i
-                                        class="fa-solid fa-temperature-three-quarters text-orange-400 mr-1.5"></i>
-                                    Temperature:</strong>
-                                We use the <strong class="text-gray-200">Steinhart-Hart equation</strong> to
-                                convert raw
-                                analog resistance readings from the thermistor into precise Celsius values.
-                            </p>
-                        </div>
-
-                        <!-- Fall Detection -->
-                        <div>
-                            <pre
-                                class="bg-[#1a1a1a] border border-gray-700/50 p-3 rounded-xl mb-3 text-xs sm:text-sm font-mono overflow-x-auto text-[#d4d4d4]"><code><span class="text-[#569cd6]">float</span> netAcc = sqrt(sq(a.acceleration.x) + sq(a.acceleration.y) + sq(a.acceleration.z));
-<span class="text-[#c586c0]">if</span> (netAcc > <span class="text-[#b5cea8]">25.0</span>) motion = <span class="text-[#ce9178]">"FALL DETECTED!"</span>;</code></pre>
-                            <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
-                                <strong class="text-gray-200"><i
-                                        class="fa-solid fa-person-falling text-blue-400 mr-1.5"></i> Fall
-                                    Detection:</strong>
-                                The MPU6050 accelerometer calculates a net acceleration vector. If this value
-                                exceeds
-                                25.0, the system triggers a critical fall detection alert.
-                            </p>
-                        </div>
-
-                        <!-- Vitals -->
-                        <div>
-                            <pre
-                                class="bg-[#1a1a1a] border border-gray-700/50 p-3 rounded-xl mb-3 text-xs sm:text-sm font-mono overflow-x-auto text-[#d4d4d4]"><code><span class="text-[#569cd6]">long</span> irValue = particleSensor.getIR();
-approxSpO2 = <span class="text-[#b5cea8]">104</span> - (<span class="text-[#b5cea8]">17</span> * ((<span class="text-[#569cd6]">float</span>)particleSensor.getRed() / irValue));</code></pre>
-                            <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
-                                <strong class="text-gray-200"><i
-                                        class="fa-solid fa-heart-pulse text-[#E22C2C] mr-1.5"></i> Vitals (BPM /
-                                    SpO2):</strong>
-                                The MAX30105 sensor tracks blood flow by analyzing the absorption ratios of
-                                <strong class="text-[#E22C2C]">Red</strong> and <strong class="text-gray-500">IR
-                                    (Infrared)</strong> light reflected by the blood vessels.
-                            </p>
-                        </div>
+                    <div class="bg-black p-4 rounded-xl overflow-x-auto border border-gray-700">
+                        <code class="text-sm text-green-400 font-mono">
+                            // Initialize sensor<br>
+                            Adafruit_MLX90614 mlx = Adafruit_MLX90614();<br><br>
+                            // Read object temperature in Celsius<br>
+                            float temp = mlx.readObjectTempC();
+                        </code>
                     </div>
+                    <p class="text-gray-400 text-sm mt-4 leading-relaxed">
+                        We utilize the <strong>MLX90614 IR sensor</strong> to capture non-contact thermal biometrics.
+                        The <code>readObjectTempC()</code> function returns the precise object temperature,
+                        which is then processed to detect fever thresholds (>38.0°C) with high sensitivity.
+                    </p>
                 </div>
 
                 <!-- C. Cloud Integration -->
@@ -3424,41 +3382,18 @@ http.end();</code></pre>
                         pushing this data to an n8n webhook URL. This webhook triggers the external automation
                         workflows, such as updating Google Sheets and sending Telegram emergency alerts.
                     </p>
+
+                    <!-- Footer -->
+                    <div
+                        class="shrink-0 px-6 py-4 border-t border-gray-800 bg-[#2d2d2d] rounded-b-3xl flex justify-end">
+                        <button onclick="closeCodeModal()"
+                            class="px-6 py-2.5 bg-gray-700 text-white hover:bg-gray-600 rounded-full font-semibold shadow-md transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500">
+                            Close
+                        </button>
+                    </div>
                 </div>
-
-                <!-- D. Local Web Server -->
-                <div
-                    class="bg-[#2d2d2d] p-5 rounded-2xl border border-gray-800 hover:border-gray-600 transition-colors">
-                    <h4 class="text-lg font-bold text-purple-400 font-['Poppins'] mb-4 flex items-center gap-2">
-                        <i class="fa-solid fa-server"></i> D. Local Web Server
-                    </h4>
-                    <pre
-                        class="bg-[#1a1a1a] border border-gray-700/50 p-3 rounded-xl mb-4 text-xs sm:text-sm font-mono overflow-x-auto text-[#d4d4d4]"><code><span class="text-[#4ec9b0]">WebServer</span> server(<span class="text-[#b5cea8]">80</span>);
-server.on(<span class="text-[#ce9178]">"/data"</span>, handleData);
-server.begin();
-<span class="text-[#6a9955]">// inside loop()</span>
-server.handleClient();</code></pre>
-                    <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
-                        Beyond sending data to the cloud, the ESP32 acts as an independent <strong
-                            class="text-gray-200">local web server</strong>. This allows caregivers on the same
-                        network
-                        to access the health dashboard directly via the ESP32's IP address, ensuring continuous
-                        monitoring even if the internet connection is lost.
-                    </p>
-                </div>
-
-            </div>
-
-            <!-- Footer -->
-            <div class="shrink-0 px-6 py-4 border-t border-gray-800 bg-[#2d2d2d] rounded-b-3xl flex justify-end">
-                <button onclick="closeCodeModal()"
-                    class="px-6 py-2.5 bg-gray-700 text-white hover:bg-gray-600 rounded-full font-semibold shadow-md transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500">
-                    Close
-                </button>
             </div>
         </div>
-    </div>
-    </div>
     </div>
 
     <!-- MAX30105 Theory of Operation Modal -->
@@ -4179,6 +4114,123 @@ mpu.getEvent(&amp;a, &amp;g, &amp;t);</code></pre>
                     class="px-6 py-2.5 bg-gray-900 text-white hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600 rounded-full font-semibold shadow-md transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400">
                     Close
                 </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Medical Standards Modal -->
+    <div id="standardsModal" class="fixed inset-0 z-50 hidden items-center justify-center">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity opacity-0" id="standardsModalBg"
+            onclick="closeStandardsModal()"></div>
+        <div class="relative bg-white dark:bg-gray-900 w-full max-w-4xl max-h-[90vh] rounded-3xl shadow-2xl overflow-hidden flex flex-col scale-95 opacity-0 transition-all duration-300 m-4 border border-gray-100 dark:border-gray-800"
+            id="standardsModalContent">
+            <!-- Header -->
+            <div
+                class="px-6 py-4 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center bg-gray-50 dark:bg-gray-800/50">
+                <h3 class="text-xl font-bold text-gray-800 dark:text-white font-['Poppins']"><i
+                        class="fa-solid fa-file-medical text-blue-500 mr-2"></i> Clinical Standards & Waveforms</h3>
+                <button onclick="closeStandardsModal()" class="text-gray-400 hover:text-red-500 transition-colors"><i
+                        class="fa-solid fa-xmark text-xl"></i></button>
+            </div>
+            <!-- Body -->
+            <div class="p-6 overflow-y-auto custom-scrollbar">
+                <div class="flex flex-col gap-8">
+                    <!-- Thresholds -->
+                    <div class="bg-gray-50 dark:bg-gray-800 p-5 rounded-2xl">
+                        <h4 class="font-bold text-gray-800 dark:text-blue-400 mb-4 border-b pb-2 dark:border-gray-700">
+                            Vital Signs Thresholds</h4>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-xs lg:text-sm text-gray-600 dark:text-gray-300">
+                                <thead>
+                                    <tr class="border-b dark:border-gray-700 text-gray-800 dark:text-gray-100">
+                                        <th class="pb-3 font-semibold">Vital Sign</th>
+                                        <th class="pb-3 font-semibold">Normal Range</th>
+                                        <th class="pb-3 font-semibold">Alert Threshold</th>
+                                        <th class="pb-3 font-semibold">Critical Threshold</th>
+                                        <th class="pb-3 font-semibold">n8n Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                                    <tr>
+                                        <td class="py-3 font-medium">Body Temp</td>
+                                        <td class="py-3">36.5-37.5 °C</td>
+                                        <td class="py-3 text-orange-500 font-bold">&gt; 38.0 °C</td>
+                                        <td class="py-3 text-red-600 font-bold">&gt; 39.5 °C</td>
+                                        <td class="py-3 text-blue-500 italic">Send Change in Temperature</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 font-medium">SpO2</td>
+                                        <td class="py-3">95-100 %</td>
+                                        <td class="py-3 text-orange-500 font-bold">&lt; 90 %</td>
+                                        <td class="py-3 text-red-600 font-bold">&lt; 80 %</td>
+                                        <td class="py-3 text-blue-500 italic">Send Oxygen Percentage</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 font-medium">Heart Rate</td>
+                                        <td class="py-3">60-100 BPM</td>
+                                        <td class="py-3 text-orange-500 font-bold">&ne; 60-100</td>
+                                        <td class="py-3 text-red-600 font-bold">&gt; 140 / &lt; 40</td>
+                                        <td class="py-3 text-blue-500 italic">Save ECG Data</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 font-medium">Motion</td>
+                                        <td class="py-3">~ 1G</td>
+                                        <td class="py-3 text-orange-500 font-bold">&gt; 25 m/s&sup2;</td>
+                                        <td class="py-3 text-red-600 font-bold">&gt; 40 m/s&sup2;</td>
+                                        <td class="py-3 text-blue-500 italic">Detect Fall on Telegram</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+                    <!-- Waveforms -->
+                    <div class="bg-gray-50 dark:bg-gray-800 p-5 rounded-2xl flex flex-col gap-5">
+                        <h4 class="font-bold text-gray-800 dark:text-blue-400 border-b pb-2 dark:border-gray-700">I/O
+                            Waveform Analysis</h4>
+
+                        <div>
+                            <h5 class="text-sm font-bold text-[#E22C2C] mb-2 flex items-center gap-2"><i
+                                    class="fa-solid fa-wave-square"></i> ECG (AD8232)</h5>
+                            <img src="images/ecg.png" alt="ECG PQRST Waveform" onclick="openImageZoom(this.src)"
+                                class="w-full h-48 object-contain bg-white dark:bg-gray-900 rounded-lg mb-3 shadow-sm border border-gray-200 dark:border-gray-700 p-1 cursor-zoom-in">
+                            <p class="text-[13px] text-gray-600 dark:text-gray-300 leading-relaxed">
+                                <strong class="text-gray-800 dark:text-gray-100">Input:</strong> µV biopotentials.
+                                <strong class="text-gray-800 dark:text-gray-100">Output:</strong> 0-3.3V Analog.<br>
+                                <span class="block mt-1">
+                                    • <strong>P-Wave:</strong> Atrial depolarization.<br>
+                                    • <strong>QRS Complex:</strong> Ventricular depolarization (Main heartbeat).<br>
+                                    • <strong>T-Wave:</strong> Ventricular repolarization.
+                                </span>
+                            </p>
+                        </div>
+
+                        <div>
+                            <h5 class="text-sm font-bold text-red-500 mb-2 flex items-center gap-2"><i
+                                    class="fa-solid fa-heart-pulse"></i> PPG (MAX30105)</h5>
+                            <img src="images/ppg.png" alt="PPG Waveform" onclick="openImageZoom(this.src)"
+                                class="w-full h-48 object-contain bg-white dark:bg-gray-900 rounded-lg mb-3 shadow-sm border border-gray-200 dark:border-gray-700 p-1 cursor-zoom-in">
+                            <p class="text-[13px] text-gray-600 dark:text-gray-300 leading-relaxed">
+                                <strong class="text-gray-800 dark:text-gray-100">Input:</strong> Photodiode IR/Red
+                                current. <strong class="text-gray-800 dark:text-gray-100">Output:</strong> Digital
+                                pulsatile wave.<br>
+                                <span class="block mt-1">
+                                    • <strong>Systolic Peak:</strong> Maximum blood volume during contraction.<br>
+                                    • <strong>Dicrotic Notch:</strong> Aortic valve closure.<br>
+                                    • <strong>Diastolic Peak:</strong> Relaxation phase.
+                                </span>
+                            </p>
+                        </div>
+                        <div>
+                            <h5 class="text-sm font-bold text-red-500 mb-2 flex items-center gap-2"><i
+                                    class="fa-solid fa-heart-pulse"></i> Motion (mpu6050)</h5>
+                            <img src="images/mpu11.jpeg" alt="PPG Waveform" onclick="openImageZoom(this.src)"
+                                class="w-full h-48 object-contain bg-white dark:bg-gray-900 rounded-lg mb-3 shadow-sm border border-gray-200 dark:border-gray-700 p-1 cursor-zoom-in">
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
