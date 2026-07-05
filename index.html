@@ -1045,6 +1045,12 @@
     <!-- Network and System Architecture Section -->
     <section class="py-20 lg:py-32 px-6 bg-white dark:bg-gray-900 transition-colors duration-300">
         <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <span
+                    class="text-red-500 font-bold tracking-widest uppercase text-xs lg:text-sm mb-2 block font-['Poppins']">
+                    <i class="fa-solid fa-network-wired mr-2"></i>Network Connectivity
+                </span>
+            </div>
             <h2
                 class="text-3xl lg:text-5xl font-bold text-gray-800 dark:text-gray-200 font-['Poppins'] text-center mb-10">
                 Network and System Architecture
@@ -1057,6 +1063,73 @@
                 is modular, comprising three primary functional layers: the Edge Sensing Layer, the Connectivity &
                 Orchestration Layer, and the Application Layer.
             </p>
+        </div>
+    </section>
+
+    <!-- Architecture Challenges -->
+    <section id="architecture-challenges"
+        class="max-w-6xl mx-auto px-6 mt-16 lg:mt-24 mb-16 lg:mb-24 border-t border-gray-100 dark:border-gray-800 pt-16 pb-8 transition-colors">
+        <div class="text-center mb-12">
+            <span
+                class="text-blue-500 font-bold tracking-widest uppercase text-xs lg:text-sm mb-2 block font-['Poppins']">
+                <i class="fa-solid fa-triangle-exclamation mr-2"></i>Engineering Hurdles
+            </span>
+            <h2 class="text-3xl lg:text-5xl font-bold text-gray-800 dark:text-gray-100 font-['Poppins'] tracking-tight">
+                Challenges for System Architecture
+            </h2>
+            <p class="text-gray-600 dark:text-gray-400 text-sm lg:text-base mt-3 max-w-2xl mx-auto">
+                Transitioning from a basic prototype to a reliable medical ecosystem required overcoming critical
+                networking and routing constraints.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div
+                class="bg-gray-50 dark:bg-[#2d2d2d] p-6 lg:p-8 rounded-3xl border border-gray-200 dark:border-gray-800 hover:border-blue-500/30 transition-colors flex flex-col gap-4">
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-500">
+                        <i class="fa-solid fa-network-wired text-lg"></i>
+                    </div>
+                    <h3 class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-100 font-['Poppins']">
+                        1. Volatile IP Addressing & DHCP Constraints
+                    </h3>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed flex-1">
+                    <strong>The Hurdle:</strong> Initially, the router allocated a different IP address to the ESP32
+                    on every boot via <strong>Dynamic DHCP Allocation</strong>. Forcing a non-technical caregiver to
+                    manually inspect network logs and input volatile IP addresses into the mobile app severely
+                    degraded the <strong>Caregiver UX</strong> and product reliability.<br><br>
+                    <strong>The Architectural Solution:</strong> We implemented local name resolution using the
+                    <strong>mDNS (Multicast DNS)</strong> protocol. By broadcasting a static local hostname (e.g.,
+                    <code>lifeguard.local</code>), the mobile app dynamically discovers the device without relying
+                    on unstable IP addresses.
+                </p>
+            </div>
+
+            <div
+                class="bg-gray-50 dark:bg-[#2d2d2d] p-6 lg:p-8 rounded-3xl border border-gray-200 dark:border-gray-800 hover:border-blue-500/30 transition-colors flex flex-col gap-4">
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-red-100 dark:bg-red-900/30 flex items-center justify-center text-red-500">
+                        <i class="fa-solid fa-cloud-sun text-lg"></i>
+                    </div>
+                    <h3 class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-100 font-['Poppins']">
+                        2. LAN Restrictions vs. WAN Remote Monitoring
+                    </h3>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed flex-1">
+                    <strong>The Hurdle:</strong> Direct point-to-point routing between the ESP32 and the mobile
+                    application confined the entire system to the <strong>Local Area Network (LAN)</strong>. This
+                    layout defeated the core purpose of a remote healthcare monitor, preventing a caregiver at work
+                    from tracking a patient resting at home.<br><br>
+                    <strong>The Architectural Solution:</strong> We restructured the ecosystem into a
+                    <strong>Cloud-Centric Architecture</strong>. Instead of direct local coupling, the cloud engine
+                    (n8n) acts as the central <strong>Maestro/Orchestrator</strong>. It handles global WAN Webhooks
+                    asynchronously, receiving data from the ESP32 and safely proxying it to the mobile interface
+                    globally.
+                </p>
+            </div>
         </div>
     </section>
 
